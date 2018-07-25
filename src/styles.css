@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* IBM Plex Mono: Medium (500) + Semibold (600) | Montserrat: Light (300) */
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,600|Montserrat:300');
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 16px;
+}
