@@ -20,6 +20,7 @@ export class OverviewComponent implements OnInit {
 
   getOverview(): void {
     this.exampleService.getOverview().subscribe(o => this.overview = o);
+    this.exampleService.getOverview().toPromise().then(o => console.log(o));
   }
 
 }

@@ -9,12 +9,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule }    from '@angular/common/http';
 
+import { SampleComponent } from './expl/sample/sample.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     OverviewComponent,
     DetailComponent,
+    SampleComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,6 +25,7 @@ import { HttpClientModule }    from '@angular/common/http';
     HttpModule,
     HttpClientModule
   ],
+  entryComponents: [SampleComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

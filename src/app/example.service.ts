@@ -16,27 +16,24 @@ export class ExampleService {
  
   private overviewURL = './assets/overview.json';
 
-  public overviewCache : {topics: Topic[]};
   public overview : Observable<{topics: Topic[]}>;
  
   constructor(
-    private http: HttpClient) { }
+    private http: HttpClient) {
+      this.getOverview();
+    }
  
   /** GET heroes from the server */
   getOverview (): Observable<{topics: Topic[]}> {
-    if (this.overviewCache == undefined) {
+    if (this.overview == undefined) {
       this.overview = this.http.get<{topics: Topic[]}>(this.overviewURL);
-      this.overview.subscribe(o => this.overviewCache = o);
     }
     return this.overview;
   }
 
+  // todo: fix type -> is not string but object containing string
   getExplaination(topic: number, example: number): Observable<string> {
     // todo: actual implementation
     return this.http.get<string>('./assets/xor/example.json');
-  }
-
-  getBrief(topic: number, example:number) : BriefExample {
-    return this.overviewCache.topics[topic].examples[example];
   }
 }

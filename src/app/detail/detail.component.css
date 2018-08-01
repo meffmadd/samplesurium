@@ -1,0 +1,47 @@
+main {
+    margin-left: 135px;
+    padding-left: 5px;
+}
+
+h2 {
+    font-size: 18px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+main span {
+    cursor: pointer;
+
+    padding-right: 30px;
+    margin-bottom: 20px;
+
+    font-size: 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+}
+
+canvas {
+    padding-top: 20px;
+}
+
+.selected {
+    color: #F95602;
+}
+
+.container {
+    /* flexbox stuff */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container div {
+    /* flexbox stuff */
+    flex: 0 1 auto;
+}
+
+.viewContainer {
+    margin-right: 50px;
+}

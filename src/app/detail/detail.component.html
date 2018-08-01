@@ -1,3 +1,18 @@
-<p>
-  detail works!
-</p>
+<main>
+  <h2>{{title}}</h2>
+  <div class="container">
+    <div class="viewContainer">
+      <span [class.selected]="showVis" (click)="toggleView()">Visualisation</span>
+      <span [class.selected]="!showVis" (click)="toggleView()">Code</span>
+      <div id="vis" *ngIf="showVis">
+      </div>
+      <div id="code" *ngIf="!showVis">
+        Code
+      </div>
+    </div>
+    <div class="expl">
+      <span>Explaination</span>
+      <div #target></div>
+    </div>
+  </div>
+</main>
