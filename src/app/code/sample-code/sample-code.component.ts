@@ -1,3 +1,22 @@
+import {Component, ViewChild} from '@angular/core';
+import { AceEditorComponent } from '../../../../node_modules/ng2-ace-editor';
+import { Editor } from '../../../../node_modules/brace';
+import "brace/theme/eclipse"
+
+//to use theme eclipse
+//with angular-cli add "../node_modules/ace-builds/src-min/ace.js" 
+//and "../node_modules/ace-builds/src-min/theme-eclipse.js" to "scripts" var into the file angular-cli.json
+
+@Component({
+    template: `
+  <ace-editor
+       [(text)]="text"
+        #editor style="height:500px; width:500px; margin-top:14px;"></ace-editor>
+  `
+})
+export class SampleCodeComponent {
+    @ViewChild('editor') editor: AceEditorComponent;
+    text: string = `
 import * as tf from '@tensorflow/tfjs';
 
 export const XOR = (p) => {
@@ -69,4 +88,17 @@ export const XOR = (p) => {
           rects[i] = 0;
         }
       }
+}
+    `;
+
+    ngAfterViewInit() {
+      this.editor.setTheme("eclipse");
+
+      this.editor.setReadOnly(true);
+      this.editor.setMode("javascript");
+      //this.editor.getEditor().getOptions
+
+      let ed: Editor = this.editor.getEditor();
+      console.log(this.editor.getEditor());
+    }
 }

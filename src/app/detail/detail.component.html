@@ -2,12 +2,14 @@
   <h2>{{title}}</h2>
   <div class="container">
     <div class="viewContainer">
-      <span [class.selected]="showVis" (click)="toggleView()">Visualisation</span>
-      <span [class.selected]="!showVis" (click)="toggleView()">Code</span>
-      <div id="vis" *ngIf="showVis">
+      <span [class.selected]="vis" (click)="showVis()">Visualisation</span>
+      <span [class.selected]="code" (click)="showCode()">Code</span>
+      <div id="vis" [hidden]="!vis">
+        <div id="sketch">
+        </div>
       </div>
-      <div id="code" *ngIf="!showVis">
-        Code
+      <div id="code" [hidden]="!code">
+        <div #codeTarget></div>
       </div>
     </div>
     <div class="expl">

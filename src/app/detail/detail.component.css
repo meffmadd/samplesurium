@@ -1,10 +1,11 @@
 main {
     margin-left: 135px;
+    margin-top: 5px;
     padding-left: 5px;
 }
 
 h2 {
-    font-size: 18px;
+    font-size: 20px;
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 600;
 
@@ -29,6 +30,7 @@ canvas {
 
 .selected {
     color: #F95602;
+    text-decoration: underline;
 }
 
 .container {
@@ -44,4 +46,39 @@ canvas {
 
 .viewContainer {
     margin-right: 50px;
+}
+
+#vis {
+    max-width: 40%;
+    margin-top: 1em;
+}
+
+#code {
+    max-width: 40%;
+}
+
+.expl {
+    text-align: justify;
+
+    max-width: 50%;
+    min-width: 30%;
+}
+
+p {
+    margin-top: 0px;    
+}
+
+canvas {
+    padding-top: 14px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 1100px) {
+    .expl {
+        max-width: 80%;
+        width: 80%;
+    }
 }

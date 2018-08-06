@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
 import { ComponentStore } from './explanation.store';
+import { CodeStore } from './code.store';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ExplanationService {
+export class ComponentService {
 
-  private components: any = {}
+  private components: any = {};
+  private code: any = {};
 
   constructor() {
     ComponentStore.forEach(c => {
       this.components[c.name] = c.cmp;
+    });
+
+    CodeStore.forEach(c => {
+      this.code[c.name] = c.cmp;
     });
   }
 
@@ -18,4 +24,7 @@ export class ExplanationService {
     return this.components[name];
   }
 
+  getCode(name: string) {
+    return this.code[name];
+  }
 }

@@ -8,8 +8,10 @@ import { DetailComponent } from './detail/detail.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule }    from '@angular/common/http';
+import { AceEditorModule} from 'ng2-ace-editor';
 
 import { SampleComponent } from './expl/sample/sample.component';
+import { SampleCodeComponent } from './code/sample-code/sample-code.component';
 
 @NgModule({
   declarations: [
@@ -18,14 +20,16 @@ import { SampleComponent } from './expl/sample/sample.component';
     OverviewComponent,
     DetailComponent,
     SampleComponent,
+    SampleCodeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    AceEditorModule
   ],
-  entryComponents: [SampleComponent],
+  entryComponents: [SampleComponent, SampleCodeComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

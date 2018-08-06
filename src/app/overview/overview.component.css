@@ -44,7 +44,9 @@ li {
     padding-right: 50px;
     padding-top: 20px;
 
-    width: 270px;
+    text-align: justify;
+
+    width: 260px;
 
     cursor: pointer;
 
@@ -54,6 +56,7 @@ li {
 
 .example:hover .exampleTitle{
     color: #F95602;
+    text-decoration: underline;
 }
 
 .exampleTitle {
@@ -65,4 +68,10 @@ li {
 
 p {
     margin-top: 5px;
+}
+
+@media (max-width: 800px) {
+    .example {
+        width: 80%;
+    }
 }

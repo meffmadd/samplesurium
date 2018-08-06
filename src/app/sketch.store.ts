@@ -7,4 +7,6 @@ interface Sketch {
 export const SketchStore: Sketch[] = [
     {name: 'sample', src: XOR},
     {name: 'Project 1', src: XOR},
+    {name: 'Project 2', src: XOR},
+    {name: 'Project 3', src: XOR},
 ];

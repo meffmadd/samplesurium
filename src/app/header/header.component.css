@@ -30,3 +30,9 @@ li a {
 #header-title a {
     font-weight: 600;
 }
+
+@media (max-width: 750px) {
+    #header-desc {
+        visibility: hidden;
+    }
+}

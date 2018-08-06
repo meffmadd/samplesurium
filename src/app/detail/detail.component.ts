@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, ViewContainerRef, ComponentFactoryResolver, ComponentRef } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, ViewContainerRef, ComponentFactoryResolver, ComponentRef, ViewChildren, QueryList } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -9,9 +9,8 @@ import * as tf from '@tensorflow/tfjs';
 import 'p5/lib/addons/p5.sound';
 import { ExampleService } from '../example.service';
 import { SketchService } from '../sketch.service';
-import { generate } from '../../../node_modules/rxjs';
-import { ExplanationService } from '../explanation.service';
-import { ComponentStore } from '../explanation.store';
+import { generate } from 'rxjs';
+import { ComponentService } from '../component.service';
 
 @Component({
   selector: 'app-detail',
@@ -20,31 +19,27 @@ import { ComponentStore } from '../explanation.store';
 })
 export class DetailComponent implements OnInit {
 
+  @ViewChild('codeTarget', {read: ViewContainerRef}) viewCode: ViewContainerRef;
   @ViewChild('target', { read: ViewContainerRef }) viewChild: ViewContainerRef;
 
   private p5: any;
 
-  public showVis: boolean = true;
+  public vis: boolean = true;
+  public code: boolean = false;
 
   private id;
   private tid;
   public title;
 
-  private components: any = {};
 
   constructor(
     private elementRef: ElementRef,
     private route: ActivatedRoute,
     private exampleService: ExampleService,
     private sketchService: SketchService,
-    private explanationService: ExplanationService,
+    private componentService: ComponentService,
     private compiler: ComponentFactoryResolver,
-  ) {
-    ComponentStore.forEach(c => {
-      this.components[c.name] = c.cmp;
-      console.log('name: '+c.name + 'comp:' + c.cmp);
-    });
-   };
+  ) { };
 
   ngOnInit() {
     this.id = +this.route.snapshot.paramMap.get('id');
@@ -52,16 +47,13 @@ export class DetailComponent implements OnInit {
     this.loadSketch();
 
     // and you can actually make some custom dynamic component...
-    //let childCmp = this.components['sample'];
-    let childCmp = this.explanationService.get('sample');
-    console.log(childCmp);    
+    let childCmp = this.componentService.get('sample');
 
     // compile then insert in your location, defined by viewChild
     let compFactory = this.compiler.resolveComponentFactory(childCmp);
-    console.log(compFactory);
-    console.log(this.viewChild);
     this.viewChild.createComponent(compFactory);
 
+    this.loadCode();
   }
 
   loadSketch() {
@@ -73,8 +65,23 @@ export class DetailComponent implements OnInit {
     });
   }
 
-  toggleView() {
-    this.showVis = !this.showVis;
-    if (this.showVis) this.loadSketch();
+  loadCode() {
+    let codeCmp = this.componentService.getCode('sample');
+
+    let compFactory = this.compiler.resolveComponentFactory(codeCmp);
+    this.viewCode.createComponent(compFactory);
+  }
+
+  showVis() {
+    if (this.vis) return;
+    this.vis = !this.vis;
+    this.code = false;
+    //this.loadSketch();
+  }
+
+  showCode() {
+    if (this.code) return;
+    this.code = !this.code;
+    this.vis = false;
   }
 }
