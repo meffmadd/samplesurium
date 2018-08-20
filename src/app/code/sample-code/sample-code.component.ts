@@ -1,6 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
-import { AceEditorComponent } from '../../../../node_modules/ng2-ace-editor';
-import { Editor } from '../../../../node_modules/brace';
+import { AceEditorComponent } from 'ng2-ace-editor';
+import { Editor } from 'brace';
 import "brace/theme/eclipse"
 
 //to use theme eclipse
@@ -16,7 +16,7 @@ import "brace/theme/eclipse"
 })
 export class SampleCodeComponent {
     @ViewChild('editor') editor: AceEditorComponent;
-    text: string = `
+    public text: string = `
 import * as tf from '@tensorflow/tfjs';
 
 export const XOR = (p) => {

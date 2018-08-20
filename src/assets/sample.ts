@@ -1,6 +1,8 @@
 import * as tf from '@tensorflow/tfjs';
+import * as p5 from 'p5';
+import 'p5/lib/addons/p5.dom';
 
-export const XOR = (p) => {
+export const Sample = (p: p5) => {
 
     let canvas;
     let model;
@@ -13,14 +15,15 @@ export const XOR = (p) => {
 
     p.setup = () => {
         canvas = p.createCanvas(500, 500);
-        document.getElementById("sketch").appendChild(canvas.canvas);
-
+        let doc = document.getElementById("sketch");
+        doc.appendChild(canvas.canvas);
         p.background(100);
         p.noStroke();
         p.fill(255, 255, 255);
         for (let index = 0; index < 40; index++) {
             rects[index] = 0;
         }
+        let button = p.createButton('test');
 
         // Define a model for linear regression.
         model = tf.sequential();

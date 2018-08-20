@@ -61,7 +61,7 @@ canvas {
     text-align: justify;
 
     max-width: 50%;
-    min-width: 30%;
+    min-width: 500px;
 }
 
 p {
@@ -76,9 +76,13 @@ canvas {
     display: none;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1000px) {
+    main {
+        margin-left: 10px;
+    }
+
     .expl {
-        max-width: 80%;
-        width: 80%;
+        max-width: 90%;
+        width: 85%;
     }
 }

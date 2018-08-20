@@ -3,10 +3,9 @@ import { Component, OnInit, ElementRef, ViewChild, ViewContainerRef, ComponentFa
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import * as p5 from 'p5';
-import * as tf from '@tensorflow/tfjs';
+import 'p5/lib/addons/p5.dom';
+import * as p5 from 'p5'
 
-import 'p5/lib/addons/p5.sound';
 import { ExampleService } from '../example.service';
 import { SketchService } from '../sketch.service';
 import { generate } from 'rxjs';
@@ -22,7 +21,6 @@ export class DetailComponent implements OnInit {
   @ViewChild('codeTarget', {read: ViewContainerRef}) viewCode: ViewContainerRef;
   @ViewChild('target', { read: ViewContainerRef }) viewChild: ViewContainerRef;
 
-  private p5: any;
 
   public vis: boolean = true;
   public code: boolean = false;
@@ -44,32 +42,37 @@ export class DetailComponent implements OnInit {
   ngOnInit() {
     this.id = +this.route.snapshot.paramMap.get('id');
     this.tid = +this.route.snapshot.paramMap.get('tid');
-    this.loadSketch();
+    this.exampleService.getOverview().subscribe(overview => {
+      this.title = overview.topics[this.tid].examples[this.id].title;
 
-    // and you can actually make some custom dynamic component...
-    let childCmp = this.componentService.get('sample');
+      this.loadSketch();
 
-    // compile then insert in your location, defined by viewChild
-    let compFactory = this.compiler.resolveComponentFactory(childCmp);
-    this.viewChild.createComponent(compFactory);
+      // and you can actually make some custom dynamic component...
+      let childCmp = this.componentService.get(this.title); // initalized in loadSketch
+      // compile then insert in your location, defined by viewChild
+      let compFactory = this.compiler.resolveComponentFactory(childCmp);
+      this.viewChild.createComponent(compFactory);
 
-    this.loadCode();
+      this.loadCode();
+    });
+    
+    
   }
 
   loadSketch() {
-    this.exampleService.getOverview().subscribe(overview => {
-      //(o => o.topics[topic].examples[example]);
-      this.title = overview.topics[this.tid].examples[this.id].title;
-      const s = this.sketchService.get(this.title);
-      let sketch = new p5(s);
-    });
+    let s = this.sketchService.get(this.title);
+
+    console.log(s);
+    
+    const myp5 = new p5(s);
   }
 
-  loadCode() {
-    let codeCmp = this.componentService.getCode('sample');
+  async loadCode() {
+    let codeCmp = this.componentService.getCode(this.title); // initalized in loadSketch
 
     let compFactory = this.compiler.resolveComponentFactory(codeCmp);
     this.viewCode.createComponent(compFactory);
+  
   }
 
   showVis() {

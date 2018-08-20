@@ -1,12 +1,15 @@
-import { XOR } from '../assets/xor/sketch';
+import { Sample } from '../assets/sample';
+import { Tensors } from '../assets/tensors';
+
+import * as p5 from 'p5';
+import 'p5/lib/addons/p5.dom';
 
 interface Sketch {
     name: string;
-    src: (p: any) => void;
+    src: (p: p5) => void;
 }  
 export const SketchStore: Sketch[] = [
-    {name: 'sample', src: XOR},
-    {name: 'Project 1', src: XOR},
-    {name: 'Project 2', src: XOR},
-    {name: 'Project 3', src: XOR},
+    {name: 'Project 1', src: Sample},
+    {name: 'Tensors', src: Tensors},
+   
 ];

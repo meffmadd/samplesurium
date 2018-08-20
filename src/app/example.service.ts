@@ -30,10 +30,4 @@ export class ExampleService {
     }
     return this.overview;
   }
-
-  // todo: fix type -> is not string but object containing string
-  getExplaination(topic: number, example: number): Observable<string> {
-    // todo: actual implementation
-    return this.http.get<string>('./assets/xor/example.json');
-  }
 }

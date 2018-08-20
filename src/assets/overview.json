@@ -5,19 +5,18 @@
             "title": "Introduction",
             "examples": [
                 {
-                    "id" : 0,
+                    "id": 0,
                     "title": "Project 1",
                     "file": "./some",
                     "text": "Decide where your cloud lives. Maybe he lives right in here. Those great big fluffy clouds. You've got to learn to fight the temptation to resist these things. Just let them happen. We'll throw some old gray clouds in here just sneaking around and having fun. Everyone is going to see things differently - and that's the way it should be. We don't want to set these clouds on fire."
                 },
                 {
-                    "id" : 1,
-                    "title": "Project 2",
-                    "file": "./some",
-                    "text": "Decide where your cloud lives. Maybe he lives right in here. Those great big fluffy clouds. You've got to learn to fight the temptation to resist these things. Just let them happen. We'll throw some old gray clouds in here just sneaking around and having fun. Everyone is going to see things differently - and that's the way it should be. We don't want to set these clouds on fire."
+                    "id": 1,
+                    "title": "Tensors",
+                    "text":"Decide where your cloud lives. Maybe he lives right in here. Those great big fluffy clouds. You've got to learn to fight the temptation to resist these things. Just let them happen. We'll throw some old gray clouds in here just sneaking around and having fun. Everyone is going to see things differently - and that's the way it should be. We don't want to set these clouds on fire."
                 },
                 {
-                    "id" : 2,
+                    "id": 2,
                     "title": "Project 3",
                     "file": "./some",
                     "text": "Decide where your cloud lives. Maybe he lives right in here. Those great big fluffy clouds. You've got to learn to fight the temptation to resist these things. Just let them happen. We'll throw some old gray clouds in here just sneaking around and having fun. Everyone is going to see things differently - and that's the way it should be. We don't want to set these clouds on fire."
@@ -29,13 +28,13 @@
             "title": "Topic 1",
             "examples": [
                 {
-                    "id" : 0,
+                    "id": 0,
                     "title": "Project 1",
                     "file": "./some",
                     "text": "Decide where your cloud lives. Maybe he lives right in here. Those great big fluffy clouds. You've got to learn to fight the temptation to resist these things. Just let them happen. We'll throw some old gray clouds in here just sneaking around and having fun. Everyone is going to see things differently - and that's the way it should be. We don't want to set these clouds on fire."
                 },
                 {
-                    "id" : 1,
+                    "id": 1,
                     "title": "Project 2",
                     "file": "./some",
                     "text": "Decide where your cloud lives. Maybe he lives right in here. Those great big fluffy clouds. You've got to learn to fight the temptation to resist these things. Just let them happen. We'll throw some old gray clouds in here just sneaking around and having fun. Everyone is going to see things differently - and that's the way it should be. We don't want to set these clouds on fire."
@@ -47,19 +46,19 @@
             "title": "Topic 2",
             "examples": [
                 {
-                    "id" : 0,
+                    "id": 0,
                     "title": "Project 1",
                     "file": "./some",
                     "text": "Decide where your cloud lives. Maybe he lives right in here. Those great big fluffy clouds. You've got to learn to fight the temptation to resist these things. Just let them happen. We'll throw some old gray clouds in here just sneaking around and having fun. Everyone is going to see things differently - and that's the way it should be. We don't want to set these clouds on fire."
                 },
                 {
-                    "id" : 1,
+                    "id": 1,
                     "title": "Project 2",
                     "file": "./some",
                     "text": "Decide where your cloud lives. Maybe he lives right in here. Those great big fluffy clouds. You've got to learn to fight the temptation to resist these things. Just let them happen. We'll throw some old gray clouds in here just sneaking around and having fun. Everyone is going to see things differently - and that's the way it should be. We don't want to set these clouds on fire."
                 },
                 {
-                    "id" : 2,
+                    "id": 2,
                     "title": "Project 3",
                     "file": "./some",
                     "text": "Decide where your cloud lives. Maybe he lives right in here. Those great big fluffy clouds. You've got to learn to fight the temptation to resist these things. Just let them happen. We'll throw some old gray clouds in here just sneaking around and having fun. Everyone is going to see things differently - and that's the way it should be. We don't want to set these clouds on fire."

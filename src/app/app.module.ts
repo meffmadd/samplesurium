@@ -12,25 +12,22 @@ import { AceEditorModule} from 'ng2-ace-editor';
 
 import { SampleComponent } from './expl/sample/sample.component';
 import { SampleCodeComponent } from './code/sample-code/sample-code.component';
+import { DetailModule } from './detail/detail.module';
+import { TensorsCodeComponent } from './code/tensors-code/tensors-code.component';
+import { TensorsComponent } from './expl/tensors/tensors.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     OverviewComponent,
-    DetailComponent,
-    SampleComponent,
-    SampleCodeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
     HttpClientModule,
-    AceEditorModule
   ],
-  entryComponents: [SampleComponent, SampleCodeComponent],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

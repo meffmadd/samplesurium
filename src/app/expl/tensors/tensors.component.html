@@ -1,0 +1,26 @@
+<p>
+For the sake of completeness, I want to introduce Tensors, but I suggest you read the official documentation.
+</p>
+<p>
+As mentioned earlier, Tensors can be understood as n-dimensional vectors. It's dimensions are defined by it's shape. So for instance a 2-dimensional Tensor (we also say a Tensor of rank 2) might look like this:
+[Code]
+</p>
+<p>
+The Tensor is created as a list of numbers that is then shaped the way we specified. However this shape can also be infered automatically like this:
+[Code]
+</p>
+<p>
+For better code readability there are special methods for creating Tensors with low rank:
+[Code] (does wrong Dimension give error?)
+
+We can now perform operations on these Tensors. Most of the operations are pretty straight Forward. There is Addition, multiplication and trigonometric functions among many others [link = https://js.tensorflow.org/api/0.12.0/#Operations ]. One Thing to note is that the shape of the Tensors may have to be equal or match other criteria. Take additon for example. It makes no sense to add two Tensors with different shapes or even dimensions.
+
+One Thing thats not possible with Tensors is changing individual values of the Tensor (not like Arrays). In order to assign new values to an existing Tensor we first Need to create it as variable. After that we can re-assign it like so:
+[Code]
+
+Due to low-level nature of the core-api we need to handle Memory Management ourselves. After a Tensor is created, it is loaded into the Memory of the gpu and resides there until we dispose of it.
+[Code]
+
+In order to make Memory Management a little easier, Tensorflow.js provides a function called tf.tidy(). It takes a function as an argument and every Tensor created inside this function - except the return value - is automatically purged from Memory.
+[Code]
+</p>
