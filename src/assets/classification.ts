@@ -32,6 +32,7 @@ export const Classification = (p: p5) => {
         getLabels(labels, nPos + nNeg, nPos);
         getPredictors(xPred);
         positive.push(...negative);
+        p.hide();
 
         xs = tf.tensor2d(positive);
         ys = tf.tensor1d(labels);
@@ -220,10 +221,10 @@ export const Classification = (p: p5) => {
             : p.lerpColor(midColor, positiveCol, f * 2 - 1);
     let normalizeTo = (c, a, b) => p.map(c, 0, canvasSize, a, b);
     let normalizeFrom = (c, a, b) => p.map(c, a, b, 0, canvasSize);
-    // p.hide = () => {
-    //     canvas.style('display', 'none');
-    // }
-    // p.show = () => canvas.style('display', 'block');
+    p.hide = () => {
+        canvas.style('display', 'none');
+    }
+    p.show = () => canvas.style('display', 'block');
     p.append = () => {
         container = document.getElementById("sketch");
         container.appendChild(canvas.canvas);

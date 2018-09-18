@@ -36,6 +36,7 @@ export const Tensors = (p: p5) => {
             p.loop(); 
         });
         addClasses();
+        p.hide();
     }
     
     function resetWorld() {
@@ -141,20 +142,20 @@ export const Tensors = (p: p5) => {
         speed.class('p5-slider');
     }
 
-    // p.hide = () => {
-    //     canvas.style('display', 'none');
-    //     speed.style('display', 'none');
-    //     rst.style('display', 'none');
-    //     stop.style('display', 'none');
-    //     run.style('display', 'none');
-    // }
-    // p.show = () => {
-    //     canvas.style('display', 'block');
-    //     speed.style('display', 'block');
-    //     rst.style('display', 'block');
-    //     stop.style('display', 'block');
-    //     run.style('display', 'block');
-    // }
+    p.hide = () => {
+        canvas.style('display', 'none');
+        speed.style('display', 'none');
+        rst.style('display', 'none');
+        stop.style('display', 'none');
+        run.style('display', 'none');
+    }
+    p.show = () => {
+        canvas.style('display', 'block');
+        speed.style('display', 'block');
+        rst.style('display', 'block');
+        stop.style('display', 'block');
+        run.style('display', 'block');
+    }
     p.append = () => {
         container = document.getElementById("sketch");
         container.appendChild(canvas.canvas);

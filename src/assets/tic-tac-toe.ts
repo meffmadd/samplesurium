@@ -53,6 +53,7 @@ export const TicTacToe = (p: p5) => {
             }
         });
         pauseBtn.class('p5-button');
+        p.hide();
 
         getMoves(1200);
         xs = tf.variable(tf.zeros([1200, 9]).cast('int32'));
@@ -409,14 +410,14 @@ export const TicTacToe = (p: p5) => {
     const inc = (n) => ++n;
     const id = (n) => n;
     let clearBoard = () => currentBoardState.fill(0);
-    // p.hide = () => {
-    //     canvas.style('display', 'none');
-    //     pauseBtn.style('display', 'none');
-    // }
-    // p.show = () => {
-    //     canvas.style('display', 'block');
-    //     pauseBtn.style('display', 'block');
-    // }
+    p.hide = () => {
+        canvas.style('display', 'none');
+        pauseBtn.style('display', 'none');
+    }
+    p.show = () => {
+        canvas.style('display', 'block');
+        pauseBtn.style('display', 'block');
+    }
     p.append = () => {
         container = document.getElementById("sketch");
         container.appendChild(canvas.canvas);

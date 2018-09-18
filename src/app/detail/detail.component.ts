@@ -63,6 +63,7 @@ export class DetailComponent implements OnInit {
   ngOnDestroy() {
     console.log(this.myP5);
     this.myP5.noLoop();
+    this.myP5.hide();
     console.log(this.myP5);
     //this.myP5.remove();
     //this.myP5.exit();
@@ -70,11 +71,11 @@ export class DetailComponent implements OnInit {
   }
 
   loadSketch() {
-    let s = this.sketchService.get(this.title);
 
-    console.log(s);
-    this.myP5 = new p5(s);
+    this.myP5 = this.sketchService.getInstance(this.title);
+    this.myP5.loop();
     this.myP5.append();
+    this.myP5.show();
 
   }
 
