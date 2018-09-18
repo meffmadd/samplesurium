@@ -1,0 +1,40 @@
+<p>
+  A very primitive use of a neural network is <a href="https://en.wikipedia.org/wiki/Regression_analysis">regression</a> of a dataset. 
+  We have some data (here it’s 2D points) and we want to find a curve that fits our dataset as closely as possible.
+</p>
+
+<p>
+  The visualisation comes from the amazing Daniel Shiffman. He is part of the reason I'm doing this and you'll probably see more of his stuff on here!
+</p>
+
+<p>
+  A popular example for the use of regression (and which you will encounter in almost any intro stats course) is determining whether there is a correlation of height and weight in humans. We might try to fit a straight line to the data, which tells us how much the weight increases if a person is taller.
+</p>
+<p>
+  Now one thing to note is that there might be no correlation between the attributes that are analysed. In that case, the analysis will be meaningless for anything practical. In order to avoid that, we can use the <a href="https://en.wikipedia.org/wiki/Correlation_coefficient">correlation coefficient</a>, which gives a measure of how much correlation exists between two variables.
+</p>
+<p>
+  In this example uses polynomial regression, so we are not limited to a line but a polynomial (here degree 4). The neural network tries to find the coefficients <em>a, b, c and d</em> of the function <ng-katex [equation]="polynomial"></ng-katex> which fit the points best.
+</p>
+
+<p>
+  This is exactly what the predict function does. 
+  It takes an input vector <ng-katex [equation]="xVector"></ng-katex> and calculates <ng-katex [equation]="fVector"></ng-katex>.
+</p>
+<div ace-editor [(text)]="predict" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" style="height:130px; width:auto;"></div>
+
+<p>
+  The coefficients are initialised as variables:
+</p>
+<div ace-editor [(text)]="initVariables" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" style="height:70px; width:auto;"></div>
+
+<p>
+  Each frame we try to minimize the loss:
+</p>
+<div ace-editor [(text)]="minimize" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" [options]="options" style="height:115px; width:auto;"></div>
+<p>
+  The loss function is just a mean squared error: <ng-katex [equation]="mse"></ng-katex>.
+  Using Tensorflow.js it looks like this:
+</p>
+<div ace-editor [(text)]="mseCode" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" [options]="options" style="height:115px; width:auto;"></div>
+

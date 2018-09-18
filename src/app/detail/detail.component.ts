@@ -18,7 +18,7 @@ import { ComponentService } from '../component.service';
 })
 export class DetailComponent implements OnInit {
 
-  @ViewChild('codeTarget', {read: ViewContainerRef}) viewCode: ViewContainerRef;
+  @ViewChild('codeTarget', { read: ViewContainerRef }) viewCode: ViewContainerRef;
   @ViewChild('target', { read: ViewContainerRef }) viewChild: ViewContainerRef;
 
 
@@ -28,6 +28,7 @@ export class DetailComponent implements OnInit {
   private id;
   private tid;
   public title;
+  private myP5: p5;
 
 
   constructor(
@@ -55,16 +56,26 @@ export class DetailComponent implements OnInit {
 
       this.loadCode();
     });
-    
-    
+
+
+  }
+
+  ngOnDestroy() {
+    console.log(this.myP5);
+    this.myP5.noLoop();
+    console.log(this.myP5);
+    //this.myP5.remove();
+    //this.myP5.exit();
+    this.myP5 = null;
   }
 
   loadSketch() {
     let s = this.sketchService.get(this.title);
 
     console.log(s);
-    
-    const myp5 = new p5(s);
+    this.myP5 = new p5(s);
+    this.myP5.append();
+
   }
 
   async loadCode() {
@@ -72,7 +83,7 @@ export class DetailComponent implements OnInit {
 
     let compFactory = this.compiler.resolveComponentFactory(codeCmp);
     this.viewCode.createComponent(compFactory);
-  
+
   }
 
   showVis() {

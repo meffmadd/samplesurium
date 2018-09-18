@@ -9,12 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule }    from '@angular/common/http';
 import { AceEditorModule} from 'ng2-ace-editor';
+import { KatexModule } from 'ng-katex';
 
-import { SampleComponent } from './expl/sample/sample.component';
-import { SampleCodeComponent } from './code/sample-code/sample-code.component';
-import { DetailModule } from './detail/detail.module';
-import { TensorsCodeComponent } from './code/tensors-code/tensors-code.component';
-import { TensorsComponent } from './expl/tensors/tensors.component';
 
 @NgModule({
   declarations: [

@@ -2,8 +2,17 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "firefox",
+            "request": "launch",
+            "reAttach": true,
+            "name": "Launch Firefox against localhost",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
             "type": "chrome",
             "request": "launch",
+            "reAttach": true,
             "name": "Launch Chrome against localhost",
             "url": "http://localhost:4200",
             "webRoot": "${workspaceFolder}"
@@ -15,14 +24,6 @@
             "port": 9222,
             "webRoot": "${workspaceFolder}"
         },
-        {
-            "name": "Launch Firefox against localhost",
-            "type": "firefox",
-            "request": "launch",
-            "firefoxExecutable": "/Applications/Firefox Developer Edition.app",
-            "reAttach": true,
-            "url": "http://localhost:4200",
-            "webRoot": "${workspaceFolder}"
-        }
+        
     ]
 }

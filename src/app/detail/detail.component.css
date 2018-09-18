@@ -44,6 +44,10 @@ canvas {
     flex: 0 1 auto;
 }
 
+#sketch {
+    width: 500px;
+}
+
 .viewContainer {
     margin-right: 50px;
 }
@@ -59,9 +63,12 @@ canvas {
 
 .expl {
     text-align: justify;
+    margin-right: 5px;
 
-    max-width: 50%;
-    min-width: 500px;
+    min-width: 20%;
+    max-width: 45%;
+    /*max-width: 50%;
+    /*min-width: 450px;*/
 }
 
 p {
@@ -76,9 +83,13 @@ canvas {
     display: none;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1250px) {
     main {
         margin-left: 10px;
+    }
+
+    .viewContainer {
+        margin-bottom: 30px;
     }
 
     .expl {

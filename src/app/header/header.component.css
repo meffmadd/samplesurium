@@ -18,6 +18,11 @@ li a {
     text-decoration: none;
 }
 
+.header-ref {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 16px;
+}
+
 #header-desc, #header-title {
     float: left;
 }

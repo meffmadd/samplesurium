@@ -85,7 +85,7 @@
               "./node_modules/p5/lib/addons/p5.sound.js",   
               "./node_modules/p5/lib/addons/p5.dom.js",
               "./node_modules/ace-builds/src-min/ace.js",
-              "./node_modules/ace-builds/src-min/theme-eclipse.js"
+              "./node_modules/ace-builds/src-min/theme-solarized_light.js"
             ],
             "assets": [
               "src/favicon.ico",

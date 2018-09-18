@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AceEditorComponent } from '../../../../node_modules/ng2-ace-editor';
+import { AceEditorComponent } from 'ng2-ace-editor';
 
 @Component({
   selector: 'app-tensors-code',
@@ -155,4 +155,11 @@ function addClasses() {
   `;
 
   ngOnInit() {}
+
+  ngAfterViewInit() {
+    this.editor.setTheme("eclipse");
+
+    this.editor.setReadOnly(true);
+    this.editor.setMode("javascript");
+  }
 }

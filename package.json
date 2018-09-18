@@ -20,9 +20,10 @@
     "@angular/platform-browser": "^6.0.0",
     "@angular/platform-browser-dynamic": "^6.0.0",
     "@angular/router": "^6.0.0",
-    "@tensorflow/tfjs": "^0.12.3",
+    "@tensorflow/tfjs": "^0.12.7",
     "core-js": "^2.5.4",
     "grunt": "^1.0.3",
+    "ng-katex": "^1.0.3",
     "ng2-ace-editor": "^0.3.8",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"

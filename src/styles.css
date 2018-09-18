@@ -2,16 +2,13 @@
 
 /* IBM Plex Mono: Medium (500) + Semibold (600) | Montserrat: Light (300) */
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,600|Montserrat:300');
+@import '~katex/dist/katex.css';
 
 p {
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
 }
 
-a {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 16px;
-}
 
 .p5-button {
     display: inline;

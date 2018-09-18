@@ -1,0 +1,49 @@
+<p>
+Some time ago, I stumbled upon Tensorflow Playground [link]. Back then, I hadn’t started my bachelor in computer science and didn’t know what to make of it or even understand what I was seeing. Now that I do understand whats happening (kind of) I decided to recreate it, albeit in a simpler form.
+
+</p>
+<p>
+So what are you seeing? Well, you can see a neural network learn to classify some points. There are [color1] and [color2] points which are in a certain region. The network tries to identify these regions. The current guess of the network is visualized as the contour. After some time you will see a [color1] circle in the middle, with the rest being [color2] (white means undecided).
+
+</p>
+
+<p>
+You probably noticed right away that the [color1] points are in the middle and the [color2] points surrounding them. A neural network has no idea about that. At first it is completely clueless and its outputs are random (since its not trained yet). In order to train it, we feed it data and compare what it spits out to the desired value (which is the Color of the Points in our case). This is whats called supervised learning. It's going to compare the guess to the examples and calculate the loss. Now, loss is the notion of how wrong the output was and based on that the optimizer tells it how to change the weights and biases internally.
+
+</p>
+
+<p>
+This example uses mean squared error as the loss function, just as the regression example. As for the optimizer, I chose the Adam [link] optimizer for no other reason than trial and error. But you can read the arxiv paper I linked! Maybe you get it...
+
+</p>
+
+<p>
+For this example we we construct the neural network using the Layers API. 
+When we think of a neural network, we think of a graph with some inputs, an arbitrary number of hidden layers which gives some outputs. What the Layers API allows us to do is to construct a such a network by adding layers to a model.
+</p>
+
+<p>
+To start of, we initialize the model using tf.sequential. For more Information see the Reference [link].
+</p>
+<div ace-editor [(text)]="sequential" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" style="height:16px; width:auto;"></div>
+
+<p>
+Now that we have a model, we can add actually add layers to it. Probably the most important type of layer for building models is the dense layer. This layer connects each input with all of its nodes. So for example for a dense layer with 5 Inputs and 7 internal nodes, there are 35 connections.
+</p>
+[Image]
+
+<p>
+This layer also applies an activation function to its outputs. A node takes all the outputs of the previous layer, adds them up including a bias and calculates the output by applying the activation function to this sum. [Latex]
+</p>
+<div ace-editor [(text)]="layers" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" style="height:336px; width:auto;"></div>
+
+<p>
+As the visualisation runs, it continuously fits the model to the data using tf.fit.
+
+</p>
+<div ace-editor [(text)]="fit" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" style="height:208px; width:auto;"></div>
+
+<p>
+Every Frame the model predicts the output values for a grid. So for example the model predicts the Output for the coordinates (0,0), (20, 0) and so on. This produces the contour you see.
+</p>
+<div ace-editor [(text)]="contour" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" style="height:308px; width:auto;"></div>
