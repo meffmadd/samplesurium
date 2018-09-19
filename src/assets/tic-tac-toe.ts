@@ -10,6 +10,8 @@ export const TicTacToe = (p: p5) => {
     let crossesCol, knottsCol, previewCol;
     let pauseBtn;
     let paused = false;
+    //tf.setBackend('cpu');
+    //tf.setBackend('webgl');
 
     let currentBoardState = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     let turn = -1; // crosses begins
@@ -114,7 +116,7 @@ export const TicTacToe = (p: p5) => {
             totalExamples += 1200;
             console.log("The model trained on " + totalExamples + " examples");
             initalizeTrainingTensors();
-            if(!p._loop) tf.disposeVariables();
+            //if(!p._loop) tf.disposeVariables();
             if (!paused && p._loop) trainModel();
         });
     }
@@ -135,6 +137,7 @@ export const TicTacToe = (p: p5) => {
     }
 
     p.draw = () => {
+        console.log(tf.memory().numBytes);
         console.log(tf.memory().numBytesInGPU);
         drawBoard(currentBoardState);
         p.strokeWeight(2 * lineW);
