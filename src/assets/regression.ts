@@ -19,8 +19,9 @@ export const Regression = (p: p5) => {
         colPt = p.color(50, 50, 50);
         colLine = p.color(249, 86, 2, 255);
         btnReset = p.createButton('Reset');
-        btnReset.class('p5-button');
+        btnReset.class('p5-button-transparent');
         btnReset.mousePressed(reset);
+        btnReset.position(20, canvasSize - 30);
         p.background(colBkg);
         p.noFill();
         p.hide();

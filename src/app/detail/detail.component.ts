@@ -73,8 +73,9 @@ export class DetailComponent implements OnInit {
   loadSketch() {
 
     this.myP5 = this.sketchService.getInstance(this.title);
-    this.myP5.loop();
+    if (this.myP5.resumeTraining) this.myP5.resumeTraining();
     this.myP5.append();
+    this.myP5.loop();
     this.myP5.show();
 
   }

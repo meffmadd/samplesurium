@@ -13,6 +13,7 @@ export const Classification = (p: p5) => {
 
     let updated = true;
     let running = true;
+    let trainIteration = 0;
 
     let model, optimizer;
     let xs, ys, xInputs;
@@ -77,12 +78,12 @@ export const Classification = (p: p5) => {
 
     // fixes memory leak
     async function trainModel() {
-        for (let i = 0; i < 15; i++) {
+        for (; trainIteration < 15; trainIteration++) {
             //sleep(10);
             console.log("Before training: " + tf.memory().numTensors);
-            if (p._loop) await train();
-            else {
-                tf.disposeVariables();
+            if (p._loop) {
+                await train();
+            } else {
                 break;
             }
             console.log("After training: " + tf.memory().numTensors);
@@ -228,8 +229,12 @@ export const Classification = (p: p5) => {
     p.append = () => {
         container = document.getElementById("sketch");
         container.appendChild(canvas.canvas);
-    }  
-    p.restart = () => {
-
+    }
+    p.resumeTraining = () => {
+        try {
+            trainModel();
+        } catch(error) {
+            console.log("Model already training");
+        }
     }
 }
