@@ -22,6 +22,7 @@ export const Sample = (p: p5) => {
     for (let index = 0; index < 40; index++) {
       rects[index] = 0;
     }
+    p.hide();
   
 
     // Define a model for linear regression.
@@ -72,8 +73,8 @@ export const Sample = (p: p5) => {
     }
   }
 
-  // p.hide = () => canvas.style('display', 'none');
-  // p.show = () => canvas.style('display', 'block');
+  p.hide = () => canvas.style('display', 'none');
+  p.show = () => canvas.style('display', 'block');
   p.append = () => {
     container = document.getElementById("sketch");
     container.appendChild(canvas.canvas);

@@ -19,10 +19,12 @@ export const Regression = (p: p5) => {
         colPt = p.color(50, 50, 50);
         colLine = p.color(249, 86, 2, 255);
         btnReset = p.createButton('Reset');
-        btnReset.class('p5-button');
+        btnReset.class('p5-button-transparent');
         btnReset.mousePressed(reset);
+        btnReset.position(20, canvasSize - 30);
         p.background(colBkg);
         p.noFill();
+        p.hide();
 
         a = tf.variable(tf.scalar(Math.random()));
         b = tf.variable(tf.scalar(Math.random()));
@@ -107,14 +109,14 @@ export const Regression = (p: p5) => {
 
     let normalizeTo = (c, a, b) => p.map(c, 0, canvasSize, a, b);
     let normalizeFrom = (c, a, b) => p.map(c, a, b, 0, canvasSize);
-    // p.hide = () => {
-    //     canvas.style('display', 'none');
-    //     btnReset.style('display', 'none');
-    // }
-    // p.show = () => {
-    //     canvas.style('display', 'block');
-    //     btnReset.style('display', 'block');
-    // }
+    p.hide = () => {
+        canvas.style('display', 'none');
+        btnReset.style('display', 'none');
+    }
+    p.show = () => {
+        canvas.style('display', 'block');
+        btnReset.style('display', 'block');
+    }
     p.append = () => {
         container = document.getElementById("sketch");
         container.appendChild(canvas.canvas);

@@ -46,6 +46,7 @@ canvas {
 
 #sketch {
     width: 500px;
+    position: relative;
 }
 
 .viewContainer {

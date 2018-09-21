@@ -45,7 +45,7 @@ export const TicTacToe = (p: p5) => {
         previewCol = p.color(255, 191, 158);
         knottsCol = p.color(30, 38, 70);
         pauseBtn = p.createButton('Pause Training');
-        pauseBtn.position(boardSize + 40, canvasSize - 30);
+        pauseBtn.position(boardSize - 20, canvasSize - 140);
         pauseBtn.mousePressed(() => {
             paused = !paused;
             if (paused) {
@@ -55,6 +55,7 @@ export const TicTacToe = (p: p5) => {
             }
         });
         pauseBtn.class('p5-button');
+        p.hide();
 
         getMoves(1200);
         xs = tf.variable(tf.zeros([1200, 9]).cast('int32'));
@@ -116,7 +117,7 @@ export const TicTacToe = (p: p5) => {
             totalExamples += 1200;
             console.log("The model trained on " + totalExamples + " examples");
             initalizeTrainingTensors();
-            //if(!p._loop) tf.disposeVariables();
+            //if (!p._loop) tf.disposeVariables();
             if (!paused && p._loop) trainModel();
         });
     }
@@ -138,7 +139,6 @@ export const TicTacToe = (p: p5) => {
 
     p.draw = () => {
         console.log(tf.memory().numBytes);
-        console.log(tf.memory().numBytesInGPU);
         drawBoard(currentBoardState);
         p.strokeWeight(2 * lineW);
         let i = Math.floor(p.mouseX / tileSize);
@@ -412,20 +412,22 @@ export const TicTacToe = (p: p5) => {
     const inc = (n) => ++n;
     const id = (n) => n;
     let clearBoard = () => currentBoardState.fill(0);
-    // p.hide = () => {
-    //     canvas.style('display', 'none');
-    //     pauseBtn.style('display', 'none');
-    // }
-    // p.show = () => {
-    //     canvas.style('display', 'block');
-    //     pauseBtn.style('display', 'block');
-    // }
+    p.hide = () => {
+        canvas.style('display', 'none');
+        pauseBtn.style('display', 'none');
+    }
+    p.show = () => {
+        canvas.style('display', 'block');
+        pauseBtn.style('display', 'inline');
+    }
     p.append = () => {
         container = document.getElementById("sketch");
         container.appendChild(canvas.canvas);
         container.appendChild(pauseBtn.elt);
-      }
-    
+    }
+    p.resumeTraining = () => {
+        if (!model.isTraining) trainModel();
+    }
 
 
     const boards = [

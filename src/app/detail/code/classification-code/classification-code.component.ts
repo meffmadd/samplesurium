@@ -11,8 +11,8 @@ export class ClassificationCodeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
   }
+
 
   ngAfterViewInit() {
     this.editor.setTheme("eclipse");

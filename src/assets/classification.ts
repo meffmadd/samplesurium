@@ -13,6 +13,7 @@ export const Classification = (p: p5) => {
 
     let updated = true;
     let running = true;
+    let trainIteration = 0;
 
     let model, optimizer;
     let xs, ys, xInputs;
@@ -32,6 +33,7 @@ export const Classification = (p: p5) => {
         getLabels(labels, nPos + nNeg, nPos);
         getPredictors(xPred);
         positive.push(...negative);
+        p.hide();
 
         xs = tf.tensor2d(positive);
         ys = tf.tensor1d(labels);
@@ -76,12 +78,12 @@ export const Classification = (p: p5) => {
 
     // fixes memory leak
     async function trainModel() {
-        for (let i = 0; i < 15; i++) {
+        for (; trainIteration < 15; trainIteration++) {
             //sleep(10);
             console.log("Before training: " + tf.memory().numTensors);
-            if (p._loop) await train();
-            else {
-                tf.disposeVariables();
+            if (p._loop) {
+                await train();
+            } else {
                 break;
             }
             console.log("After training: " + tf.memory().numTensors);
@@ -220,15 +222,19 @@ export const Classification = (p: p5) => {
             : p.lerpColor(midColor, positiveCol, f * 2 - 1);
     let normalizeTo = (c, a, b) => p.map(c, 0, canvasSize, a, b);
     let normalizeFrom = (c, a, b) => p.map(c, a, b, 0, canvasSize);
-    // p.hide = () => {
-    //     canvas.style('display', 'none');
-    // }
-    // p.show = () => canvas.style('display', 'block');
+    p.hide = () => {
+        canvas.style('display', 'none');
+    }
+    p.show = () => canvas.style('display', 'block');
     p.append = () => {
         container = document.getElementById("sketch");
         container.appendChild(canvas.canvas);
-    }  
-    p.restart = () => {
-
+    }
+    p.resumeTraining = () => {
+        try {
+            trainModel();
+        } catch(error) {
+            console.log("Model already training");
+        }
     }
 }

@@ -35,6 +35,11 @@
                     "id": 0,
                     "title": "Tic-Tac-Toe",
                     "text":"Decide where your cloud lives. Maybe he lives right in here. Those great big fluffy clouds. You've got to learn to fight the temptation to resist these things. Just let them happen. We'll throw some old gray clouds in here just sneaking around and having fun. Everyone is going to see things differently - and that's the way it should be. We don't want to set these clouds on fire."
+                },
+                {
+                    "id": 1,
+                    "title": "Project 1",
+                    "text":"Decide where your cloud lives. Maybe he lives right in here. Those great big fluffy clouds. You've got to learn to fight the temptation to resist these things. Just let them happen. We'll throw some old gray clouds in here just sneaking around and having fun. Everyone is going to see things differently - and that's the way it should be. We don't want to set these clouds on fire."
                 }
             ]
         }
