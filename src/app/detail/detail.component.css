@@ -50,16 +50,29 @@ canvas {
 }
 
 .viewContainer {
+    position: relative;
     margin-right: 50px;
+    height: 530px;
+    width: 520px;
 }
 
 #vis {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
     max-width: 40%;
-    margin-top: 1em;
+    height: 500px;
+    opacity: 0;
 }
 
 #code {
+    position: absolute;
+    left: 0px;
+    bottom: 15px;
     max-width: 40%;
+    height: 500px;
+    opacity: 0;
+    display: none;
 }
 
 .expl {

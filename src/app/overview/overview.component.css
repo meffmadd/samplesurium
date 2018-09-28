@@ -1,5 +1,6 @@
 main {
     margin-top: 30px;
+    position: relative;
 }
 
 ul {
@@ -11,6 +12,7 @@ ul {
 
 li {
     list-style-type: none;
+    position: relative;
     margin-top: 10px;
     margin-bottom: 50px;
 }

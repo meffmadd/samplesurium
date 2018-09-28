@@ -15,8 +15,6 @@ export class SketchService {
   constructor() {
     SketchStore.forEach((sketch) => {
       this.sketches[sketch.name] = sketch.src;
-      this.instances[sketch.name] = new p5(sketch.src);
-      this.instances[sketch.name].noLoop();
     });
   }
 
@@ -25,6 +23,11 @@ export class SketchService {
   }
 
   getInstance(name: string): p5 {
+    if (this.instances[name] === undefined && this.get(name) !== undefined) {
+      let sketch = this.get(name);
+      this.instances[name] = new p5(sketch);
+      this.instances[name].noLoop();
+    }
     return this.instances[name];
   }
 }

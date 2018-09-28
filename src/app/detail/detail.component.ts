@@ -1,5 +1,11 @@
-import { Component, OnInit, ElementRef, ViewChild, ViewContainerRef, ComponentFactoryResolver, ComponentRef, ViewChildren, QueryList } from '@angular/core';
-
+import { Component, OnInit, ElementRef, ViewChild, ViewContainerRef, ComponentFactoryResolver, } from '@angular/core';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+} from '@angular/animations';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -14,7 +20,30 @@ import { ComponentService } from '../component.service';
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.css']
+  styleUrls: ['./detail.component.css'],
+  animations: [
+    trigger('showHide', [
+      state('shown', style({
+        display: 'block',
+        opacity: 1,
+      })),
+      state('hidden', style({
+        display: 'none',
+        opacity: 0.0,
+      })),
+      transition('shown => hidden', [
+        animate('250ms ease-out')
+      ]),
+      transition('hidden => shown', [
+        animate('150ms ease-in')
+      ]),
+      transition('void => *', [
+        animate('800ms', style({
+          opacity: 1
+        }))
+      ]),
+    ]),
+  ]
 })
 export class DetailComponent implements OnInit {
 
@@ -92,7 +121,6 @@ export class DetailComponent implements OnInit {
     if (this.vis) return;
     this.vis = !this.vis;
     this.code = false;
-    //this.loadSketch();
   }
 
   showCode() {

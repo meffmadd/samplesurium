@@ -7,8 +7,6 @@ import { DetailComponent } from './detail.component';
 import { SampleComponent } from './expl/sample/sample.component';
 import { SampleCodeComponent } from './code/sample-code/sample-code.component';
 import { AppRoutingModule } from '../app-routing.module';
-import { OverviewComponent } from '../overview/overview.component';
-import { AppModule } from '../app.module';
 import { AceEditorModule } from 'ng2-ace-editor';
 import { TensorsCodeComponent } from './code/tensors-code/tensors-code.component';
 import { TensorsComponent } from './expl/tensors/tensors.component';
@@ -24,7 +22,7 @@ import { TicTacToeCodeComponent } from './code/tic-tac-toe-code/tic-tac-toe-code
     CommonModule,
     DetailRoutingModule,
     AceEditorModule,
-    KatexModule
+    KatexModule,
   ],
   declarations: [
     DetailComponent,

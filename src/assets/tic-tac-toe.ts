@@ -52,6 +52,7 @@ export const TicTacToe = (p: p5) => {
                 pauseBtn.html("Resume Training");
             } else {
                 pauseBtn.html("Pause Training");
+                trainModel();
             }
         });
         pauseBtn.class('p5-button');
@@ -138,7 +139,7 @@ export const TicTacToe = (p: p5) => {
     }
 
     p.draw = () => {
-        console.log(tf.memory().numBytes);
+        console.log(tf.memory().numTensors);
         drawBoard(currentBoardState);
         p.strokeWeight(2 * lineW);
         let i = Math.floor(p.mouseX / tileSize);
@@ -426,7 +427,11 @@ export const TicTacToe = (p: p5) => {
         container.appendChild(pauseBtn.elt);
     }
     p.resumeTraining = () => {
-        if (!model.isTraining) trainModel();
+        try {
+            trainModel();
+        } catch (error) {
+            console.log("Model already training");
+        }
     }
 
 

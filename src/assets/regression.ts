@@ -15,13 +15,13 @@ export const Regression = (p: p5) => {
 
     p.setup = () => {
         canvas = p.createCanvas(canvasSize, canvasSize);
-        colBkg = p.color(80, 80, 80);
-        colPt = p.color(50, 50, 50);
+        colBkg = p.color(30, 38, 70);
+        colPt = p.color(0, 0, 0);
         colLine = p.color(249, 86, 2, 255);
         btnReset = p.createButton('Reset');
         btnReset.class('p5-button-transparent');
         btnReset.mousePressed(reset);
-        btnReset.position(20, canvasSize - 30);
+        btnReset.position(canvasSize - 90, canvasSize - 35);
         p.background(colBkg);
         p.noFill();
         p.hide();
@@ -121,5 +121,5 @@ export const Regression = (p: p5) => {
         container = document.getElementById("sketch");
         container.appendChild(canvas.canvas);
         container.appendChild(btnReset.elt);
-      }    
+    }
 }
