@@ -68,14 +68,14 @@ export const TicTacToe = (p: p5) => {
             tf.layers.dense({
                 units: 100,
                 inputShape: [9],
-                activation: 'relu6'
+                activation: 'relu'
             })
         );
 
         model.add(
             tf.layers.dense({
                 units: 100,
-                activation: 'relu6'
+                activation: 'relu'
             })
         );
 
@@ -139,7 +139,6 @@ export const TicTacToe = (p: p5) => {
     }
 
     p.draw = () => {
-        console.log(tf.memory().numTensors);
         drawBoard(currentBoardState);
         p.strokeWeight(2 * lineW);
         let i = Math.floor(p.mouseX / tileSize);
@@ -346,7 +345,6 @@ export const TicTacToe = (p: p5) => {
             tf.dispose(oneHot);
         });
     }
-
 
     function getMoves(n) {
         trainingBoards = [];

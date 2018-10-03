@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicTacToeComponent implements OnInit {
 
-  constructor() { }
+  boardInices: string;
+
+  relu: string = "{f(x)=x^{+}=\max(0,x)}"
+
+  constructor() { 
+    this.boardInices = 'assets/images/boardIndices.jpg';
+  }
 
   ngOnInit() {
   }

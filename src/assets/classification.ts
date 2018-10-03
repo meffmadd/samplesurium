@@ -61,9 +61,9 @@ export const Classification = (p: p5) => {
             loss: tf.losses.meanSquaredError
         });
 
-        tf.tidy(() => {
-            trainModel();
-        });
+
+        trainModel();
+
 
         setTimeout(evaluateFramerate, 3000);
         setTimeout(adjustFrameRate, 4000);
@@ -143,6 +143,7 @@ export const Classification = (p: p5) => {
     }
 
     async function adjustFrameRate() {
+        if (!p._loop) return;
         if (upscaleRes < 30) return;
         let fps = Math.floor(p.frameRate());
         if (fps >= 15) {
@@ -233,7 +234,8 @@ export const Classification = (p: p5) => {
     p.resumeTraining = () => {
         try {
             trainModel();
-        } catch(error) {
+            setTimeout(adjustFrameRate, 500);
+        } catch (error) {
             console.log("Model already training");
         }
     }
