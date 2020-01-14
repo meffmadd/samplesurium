@@ -5,7 +5,19 @@ import { AceEditorComponent } from 'ng2-ace-editor';
 @Component({
   selector: 'app-regression',
   templateUrl: './regression.component.html',
-  styles: ['p {margin-bottom: 5px; }']
+  styles: [`
+    p {margin-bottom: 5px; } 
+    a,
+    a:link,
+    a:visited {
+      color: #f95602;
+    }
+
+    a:hover {
+      color: #f95602;
+        text-decoration: underline;
+    }
+  `]
 })
 export class RegressionComponent implements OnInit {
 

@@ -3,7 +3,18 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-tic-tac-toe',
   templateUrl: './tic-tac-toe.component.html',
-  styles: []
+  styles: [`
+    a,
+    a:link,
+    a:visited {
+      color: #f95602;
+    }
+
+    a:hover {
+      color: #f95602;
+        text-decoration: underline;
+    }
+  `]
 })
 export class TicTacToeComponent implements OnInit {
 

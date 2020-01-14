@@ -4,7 +4,7 @@
       <span class="topic">{{topic.title}}</span>
       <div id="exampleContainer">
         <div @flyInOut *ngFor="let example of topic.examples" class="example" routerLink="/example/{{topic.id}}/{{example.id}}" routerLinkActive="active">
-          <span class="exampleTitle">{{example.title}}</span>
+          <div class="titleDiv"><span class="exampleTitle">{{example.title}}</span></div>
           <p>
             {{example.text}}
           </p>

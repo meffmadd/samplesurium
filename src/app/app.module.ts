@@ -11,6 +11,7 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule }    from '@angular/common/http';
 import { AceEditorModule} from 'ng2-ace-editor';
 import { KatexModule } from 'ng-katex';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { KatexModule } from 'ng-katex';
     AppComponent,
     HeaderComponent,
     OverviewComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

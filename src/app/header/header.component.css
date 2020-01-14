@@ -9,6 +9,17 @@ li {
     float: right;
 }
 
+a,
+a:link,
+a:visited {
+    color: #f95602;
+}
+
+a:hover {
+    color: #f95602;
+    text-decoration: underline;
+}
+
 li a {
     font-size: 13px;
     font-weight: 400;
