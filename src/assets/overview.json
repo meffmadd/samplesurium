@@ -7,7 +7,7 @@
                 {
                     "id": 0,
                     "title": "Tensors",
-                    "text":"Decide where your cloud lives. Maybe he lives right in here. Those great big fluffy clouds. You've got to learn to fight the temptation to resist these things. Just let them happen. We'll throw some old gray clouds in here just sneaking around and having fun. Everyone is going to see things differently - and that's the way it should be. We don't want to set these clouds on fire."
+                    "text":"An implementation of the \"Game of life\" using tensorflow.js. You can stop it, make it go faster or slower and even interact with it!"
                 }
             ]
         },
@@ -18,12 +18,12 @@
                 {
                     "id": 0,
                     "title": "Polynomial Regression",
-                    "text": "Decide where your cloud lives. Maybe he lives right in here. Those great big fluffy clouds. You've got to learn to fight the temptation to resist these things. Just let them happen. We'll throw some old gray clouds in here just sneaking around and having fun. Everyone is going to see things differently - and that's the way it should be. We don't want to set these clouds on fire."
+                    "text": "Polynomial regression with BOUNCY lines! Draw points in space and let the curve do the rest..."
                 },
                 {
                     "id": 1,
                     "title": "Classification",
-                    "text": "Decide where your cloud lives. Maybe he lives right in here. Those great big fluffy clouds. You've got to learn to fight the temptation to resist these things. Just let them happen. We'll throw some old gray clouds in here just sneaking around and having fun. Everyone is going to see things differently - and that's the way it should be. We don't want to set these clouds on fire."
+                    "text": "Sometimes things are black and white. Or in this case orange and blue. Let a neural network show you!"
                 }
             ]
         },
@@ -34,7 +34,7 @@
                 {
                     "id": 0,
                     "title": "Tic-Tac-Toe",
-                    "text":"Decide where your cloud lives. Maybe he lives right in here. Those great big fluffy clouds. You've got to learn to fight the temptation to resist these things. Just let them happen. We'll throw some old gray clouds in here just sneaking around and having fun. Everyone is going to see things differently - and that's the way it should be. We don't want to set these clouds on fire."
+                    "text":"Can you beat an algorithm in the notoriously complex game of Tic-Tac-Toe? Well, I hope you can but spoiler alert: It will probably end in a draw."
                 },
                 {
                     "id": 1,
