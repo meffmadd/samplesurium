@@ -7,7 +7,6 @@ import { HeaderComponent } from './header/header.component';
 import { OverviewComponent } from './overview/overview.component';
 import { DetailComponent } from './detail/detail.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpModule } from '@angular/http';
 import { HttpClientModule }    from '@angular/common/http';
 import { AceEditorModule} from 'ng2-ace-editor';
 import { KatexModule } from 'ng-katex';
@@ -25,7 +24,6 @@ import { AboutComponent } from './about/about.component';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    HttpModule,
     HttpClientModule,
   ],
   bootstrap: [AppComponent]
