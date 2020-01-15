@@ -15,7 +15,7 @@ export class RegressionCodeComponent implements OnInit {
   ngOnInit() {
   }
 
-  @ViewChild('editor') editor: AceEditorComponent;
+  @ViewChild('editor', {static: false}) editor: AceEditorComponent;
   public text: string = `let colBkg, colPt, colLine;
 const canvasSize = 500;
 let btnReset;

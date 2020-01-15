@@ -478,6 +478,6 @@ export class TicTacToeCodeComponent implements OnInit {
     this.editor.setMode("javascript");
   }
 
-  @ViewChild('editor') editor: AceEditorComponent;
+  @ViewChild('editor', {static: false}) editor: AceEditorComponent;
 
 }

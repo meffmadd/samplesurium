@@ -15,7 +15,7 @@ import "brace/theme/eclipse"
   `
 })
 export class SampleCodeComponent {
-    @ViewChild('editor') editor: AceEditorComponent;
+    @ViewChild('editor', {static: false}) editor: AceEditorComponent;
     public text: string = `
 import * as tf from '@tensorflow/tfjs';
 

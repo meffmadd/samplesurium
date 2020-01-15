@@ -14,7 +14,7 @@ export class TensorsCodeComponent implements OnInit {
 
   constructor() { }
 
-  @ViewChild('editor') editor: AceEditorComponent;
+  @ViewChild('editor', {static: false}) editor: AceEditorComponent;
   public text: string = `
 const size = 100;
 const canvasSize = 500;

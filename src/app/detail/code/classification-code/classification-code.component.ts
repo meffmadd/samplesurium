@@ -21,7 +21,7 @@ export class ClassificationCodeComponent implements OnInit {
     this.editor.setMode("javascript");
   }
 
-  @ViewChild('editor') editor: AceEditorComponent;
+  @ViewChild('editor', {static: false}) editor: AceEditorComponent;
   public text: string = `const canvasSize = 500;
 const resolution = 20;
 const size = canvasSize / resolution;

@@ -24,11 +24,9 @@ import { ComponentService } from '../component.service';
   animations: [
     trigger('showHide', [
       state('shown', style({
-        display: 'block',
         opacity: 1,
       })),
       state('hidden', style({
-        display: 'none',
         opacity: 0.0,
       })),
       transition('shown => hidden', [
@@ -47,8 +45,8 @@ import { ComponentService } from '../component.service';
 })
 export class DetailComponent implements OnInit {
 
-  @ViewChild('codeTarget', { read: ViewContainerRef }) viewCode: ViewContainerRef;
-  @ViewChild('target', { read: ViewContainerRef }) viewChild: ViewContainerRef;
+  @ViewChild('codeTarget', { read: ViewContainerRef, static: false}) viewCode: ViewContainerRef;
+  @ViewChild('target', { read: ViewContainerRef, static: false}) viewChild: ViewContainerRef;
 
 
   public vis: boolean = true;
@@ -58,6 +56,10 @@ export class DetailComponent implements OnInit {
   private tid;
   public title;
   private myP5: p5;
+
+  public isAnimationOptionsStateOpen = false;
+  public visDisplay: 'block'|'none' = 'block';
+  public codeDisplay: 'block'|'none' = 'none';
 
 
   constructor(
@@ -94,8 +96,8 @@ export class DetailComponent implements OnInit {
     this.myP5.noLoop();
     this.myP5.hide();
     console.log(this.myP5);
-    //this.myP5.remove();
-    //this.myP5.exit();
+    if (this.myP5.remove) this.myP5.remove();
+    if (this.myP5.exit) this.myP5.exit();
     this.myP5 = null;
   }
 
@@ -114,6 +116,14 @@ export class DetailComponent implements OnInit {
     let compFactory = this.compiler.resolveComponentFactory(codeCmp);
     this.viewCode.createComponent(compFactory);
 
+  }
+
+  public evaluateVisDisplay() {
+    this.visDisplay = (this.vis) ? 'block': 'none'
+  }
+
+  public evaluateCodeDisplay() {
+    this.codeDisplay = (this.code) ? 'block': 'none'
   }
 
   showVis() {
