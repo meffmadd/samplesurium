@@ -29,3 +29,22 @@ p {
 .p5-button-transparent {
     background-color: transparent;
 }
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    visibility: hidden;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    /* -webkit-border-radius: 5px; */
+    /* border-radius: 5px; */
+    background: #f76922;
+  }
+  ::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(128,128,128,0.4); 
+  }

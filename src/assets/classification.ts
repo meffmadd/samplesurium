@@ -6,11 +6,11 @@ import { async } from '@angular/core/testing';
 export const Classification = (p: p5) => {
     let canvas, container;
     const canvasSize = 500;
-    const resolution = 20;
+    let resolution = 15;
     const size = canvasSize / resolution;
     let positive = [], negative = [], labels = [], xPred = [];
     let positiveCol, negativeCol, midColor;
-    let upscaleRes = 80;
+    let upscaleRes = 50;
 
     let updated = true;
     let running = true;
@@ -29,8 +29,8 @@ export const Classification = (p: p5) => {
         negativeCol = p.color(30, 38, 70);
         midColor = p.color('white');
         p.strokeWeight(8);
-        let nPos = 170;
-        let nNeg = 250;
+        let nPos = 50;
+        let nNeg = 100;
         getPositive(positive, nPos);
         getNegative(negative, nNeg);
         getLabels(labels, nPos + nNeg, nPos);
@@ -40,6 +40,8 @@ export const Classification = (p: p5) => {
         drawPoints()
         console.log("draw points maybe?")
         tf.setBackend('webgl');
+
+        p.frameRate(5);
 
         console.log("preparing model")
         prepareModel()
@@ -96,6 +98,7 @@ export const Classification = (p: p5) => {
             //sleep(10);
             console.log("Before training: " + tf.memory().numTensors);
             if (p._loop) {
+                await tf.nextFrame();
                 await train();
             } else {
                 break;
@@ -106,23 +109,17 @@ export const Classification = (p: p5) => {
 
 
     p.draw = () => {
-        console.time("draw loop")
-        drawPoints()
-        console.time("drawCountour")
         if (!updated) return;
         updated = false;
-        if (modelIsReady) {
-            drawCountour().then(async () => {
-                
-                await drawPoints()
-                updated = true;
-            });
-        }
-        console.timeEnd("drawCountour")
-        
-        
-
-        console.timeEnd("draw loop")
+        setTimeout(() => {
+            if (modelIsReady && !updated) {
+                drawCountour().then(async () => {
+                    
+                    await drawPoints()
+                    updated = true;
+                });
+            }
+        }, 50)
     }
 
     function drawPoints() {
@@ -141,11 +138,21 @@ export const Classification = (p: p5) => {
     }
 
     async function drawCountour() { // TODO: this function takes ages at first run (like 2500+ ms) FIX!!!
+        console.log("After training: " + tf.memory().numTensors); 
+        console.time("tidy")
+        await tf.nextFrame();
         tf.tidy(() => {
+            console.time("predict")
             let yOutputs = model.predict(xInputs);
+            console.timeEnd("predict")
+            console.time("reshape")
             const reshaped = yOutputs.reshape([Math.floor(size) + 1, Math.floor(size) + 1, 1]);
-            const resized = tf.image.resizeBilinear(reshaped, [upscaleRes, upscaleRes]);
+            console.timeEnd("reshape")
+            console.time("load data")
+            const resized = reshaped //tf.image.resizeBilinear(reshaped, [upscaleRes, upscaleRes]);
             let yPreds = resized.dataSync();
+            console.timeEnd("load data")
+            console.time("draw tiles")
             let index = 0;
             const predSize = Math.sqrt(yPreds.length);
             const tileSize = canvasSize / predSize;
@@ -156,6 +163,8 @@ export const Classification = (p: p5) => {
                     p.rect(i * tileSize, j * tileSize, tileSize, tileSize);
                 }
             }
+            console.timeEnd("tidy")
+            console.timeEnd("draw tiles")
         });
         updated = true;
     }
@@ -174,10 +183,12 @@ export const Classification = (p: p5) => {
         if (!p._loop) return;
         if (upscaleRes < 20) return;
         let fps = Math.floor(p.frameRate());
-        if (fps >= 15) {
+        if (fps >= 10) {
+            resolution -= 5
             upscaleRes = Math.floor(upscaleRes * 1.1);
             p.frameRate(fps * 0.8);
-        } else if (fps < 10) {
+        } else if (fps < 2) {
+            resolution += 5;
             upscaleRes = Math.floor(upscaleRes * 0.6);
         } else {
             setTimeout(adjustFrameRate, 1500);
@@ -200,7 +211,7 @@ export const Classification = (p: p5) => {
     function getPositive(array, n) {
         let r, theta;
         for (; array.length < n;) {
-            r = 0.2 * Math.sqrt(Math.random());
+            r = 0.15 * Math.sqrt(Math.random());
             theta = Math.random() * 2 * Math.PI;
             let x = r * Math.cos(theta) + 0.5;
             let y = r * Math.sin(theta) + 0.5;
@@ -211,11 +222,11 @@ export const Classification = (p: p5) => {
     function getNegative(array, n) {
         let r, theta;
         for (; array.length < n;) {
-            r = 0.45 * Math.sqrt(Math.random());
+            r = 0.35 * Math.sqrt(Math.random());
             theta = Math.random() * 2 * Math.PI;
             let x = r * Math.cos(theta);
             let y = r * Math.sin(theta);
-            if (x ** 2 + y ** 2 <= 0.3 ** 2) continue;
+            if (x ** 2 + y ** 2 <= 0.2 ** 2) continue;
             x += 0.5;
             y += 0.5;
             array.push([x, y]);

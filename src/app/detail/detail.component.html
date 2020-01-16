@@ -1,4 +1,7 @@
-<main>
+<main *ngIf=loading>
+  <img class="loading-img" src="../../assets/images/logo.png" alt="Loading...">
+</main>
+<main [hidden]=loading>
   <h2>{{title}}</h2>
   <div class="container">
     <div class="viewContainer">

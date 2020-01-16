@@ -46,8 +46,9 @@ import { ComponentService } from '../component.service';
 export class DetailComponent implements OnInit {
 
   @ViewChild('codeTarget', { read: ViewContainerRef, static: false}) viewCode: ViewContainerRef;
-  @ViewChild('target', { read: ViewContainerRef, static: false}) viewChild: ViewContainerRef;
+  @ViewChild('target', { read: ViewContainerRef, static: true}) viewChild: ViewContainerRef;
 
+  private loading = false;
 
   public vis: boolean = true;
   public code: boolean = false;
@@ -72,6 +73,8 @@ export class DetailComponent implements OnInit {
   ) { };
 
   ngOnInit() {
+    this.loading = true;
+    console.log("init")
     this.id = +this.route.snapshot.paramMap.get('id');
     this.tid = +this.route.snapshot.paramMap.get('tid');
 
@@ -101,7 +104,18 @@ export class DetailComponent implements OnInit {
       console.time("loadCode")
       this.loadCode();
       console.timeEnd("loadSketch")
+
+      //this.loading = false;
+      this.myP5.append();
     });
+  }
+
+  ngAfterViewChecked() {
+    
+
+    setTimeout(() => {
+      this.loading = false;
+  });
   }
 
   ngOnDestroy() {
@@ -125,7 +139,6 @@ export class DetailComponent implements OnInit {
     console.timeEnd("get sketch instance")
     if (this.myP5.resumeTraining) this.myP5.resumeTraining();
 
-    this.myP5.append();
     this.myP5.loop();
     this.myP5.show();
   }

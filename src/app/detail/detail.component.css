@@ -112,3 +112,7 @@ canvas {
         width: 85%;
     }
 }
+
+.loading-img {
+    margin: 0, auto;
+}
