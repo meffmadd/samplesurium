@@ -74,37 +74,57 @@ export class DetailComponent implements OnInit {
   ngOnInit() {
     this.id = +this.route.snapshot.paramMap.get('id');
     this.tid = +this.route.snapshot.paramMap.get('tid');
+
     this.exampleService.getOverview().subscribe(overview => {
-      this.title = overview.topics[this.tid].examples[this.id].title;
+      let title = overview.topics[this.tid].examples[this.id].title;
 
-      this.loadSketch();
-
+      console.time("createComponent")
       // and you can actually make some custom dynamic component...
-      let childCmp = this.componentService.get(this.title); // initalized in loadSketch
+      let childCmp = this.componentService.get(title); // initalized in loadSketch
       // compile then insert in your location, defined by viewChild
       let compFactory = this.compiler.resolveComponentFactory(childCmp);
       this.viewChild.createComponent(compFactory);
-
-      this.loadCode();
+      console.timeEnd("createComponent")
     });
+  }
 
+  ngAfterViewInit() {
+    this.exampleService.getOverview().subscribe(overview => {
+      this.title = overview.topics[this.tid].examples[this.id].title;
 
+      console.time("loadSketch")
+      this.loadSketch();
+      console.timeEnd("loadSketch")
+
+      
+
+      console.time("loadCode")
+      this.loadCode();
+      console.timeEnd("loadSketch")
+    });
   }
 
   ngOnDestroy() {
     console.log(this.myP5);
-    this.myP5.noLoop();
+    if (this.myP5.noLoop) this.myP5.noLoop();
     this.myP5.hide();
     console.log(this.myP5);
-    if (this.myP5.remove) this.myP5.remove();
+    if (this.myP5.remove) {
+      this.myP5.remove();
+      console.log("removing sketch")
+    }
     if (this.myP5.exit) this.myP5.exit();
     this.myP5 = null;
   }
 
   async loadSketch() {
 
+    console.log("loading sketch")
+    console.time("get sketch instance")
     this.myP5 = this.sketchService.getInstance(this.title);
+    console.timeEnd("get sketch instance")
     if (this.myP5.resumeTraining) this.myP5.resumeTraining();
+
     this.myP5.append();
     this.myP5.loop();
     this.myP5.show();

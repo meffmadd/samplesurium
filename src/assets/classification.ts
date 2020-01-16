@@ -1,6 +1,7 @@
 import * as p5 from 'p5';
 import 'p5/lib/addons/p5.dom';
 import * as tf from '@tensorflow/tfjs';
+import { async } from '@angular/core/testing';
 
 export const Classification = (p: p5) => {
     let canvas, container;
@@ -14,11 +15,13 @@ export const Classification = (p: p5) => {
     let updated = true;
     let running = true;
     let trainIteration = 0;
+    let modelIsReady = false;
 
     let model, optimizer;
     let xs, ys, xInputs;
 
     p.setup = () => {
+        console.log("starting setup")
         canvas = p.createCanvas(canvasSize, canvasSize);
         p.frameRate(15);
         positiveCol = p.color('#f95602');
@@ -33,8 +36,28 @@ export const Classification = (p: p5) => {
         getLabels(labels, nPos + nNeg, nPos);
         getPredictors(xPred);
         positive.push(...negative);
-        p.hide();
+        // p.hide();
+        drawPoints()
+        console.log("draw points maybe?")
+        tf.setBackend('webgl');
 
+        console.log("preparing model")
+        prepareModel()
+
+        console.log("evaluating framerates")
+        setTimeout(evaluateFramerate, 3000);
+        setTimeout(adjustFrameRate, 4000);
+    }
+
+    function train() {
+        return model.fit(xs, ys, {
+            batchSize: 50,
+            epochs: 15
+        });
+    }
+
+    async function prepareModel() {
+        console.time("preparing model");
         xs = tf.tensor2d(positive);
         ys = tf.tensor1d(labels);
         xInputs = tf.tensor2d(xPred);
@@ -61,19 +84,10 @@ export const Classification = (p: p5) => {
             loss: tf.losses.meanSquaredError
         });
 
-
-        trainModel();
-
-
-        setTimeout(evaluateFramerate, 3000);
-        setTimeout(adjustFrameRate, 4000);
-    }
-
-    function train() {
-        return model.fit(xs, ys, {
-            batchSize: 50,
-            epochs: 15
-        });
+        console.log("model is ready")
+        modelIsReady = true;
+        // trainModel();
+        console.timeEnd("preparing model");
     }
 
     // fixes memory leak
@@ -92,12 +106,26 @@ export const Classification = (p: p5) => {
 
 
     p.draw = () => {
+        console.time("draw loop")
+        drawPoints()
+        console.time("drawCountour")
         if (!updated) return;
         updated = false;
-        drawCountour().then(() => {
-            updated = true;
-        });
+        if (modelIsReady) {
+            drawCountour().then(async () => {
+                
+                await drawPoints()
+                updated = true;
+            });
+        }
+        console.timeEnd("drawCountour")
+        
+        
 
+        console.timeEnd("draw loop")
+    }
+
+    function drawPoints() {
         positive.forEach(element => {
             let x = normalizeFrom(element[0], 0, 1);
             let y = normalizeFrom(element[1], 0, 1);
@@ -110,10 +138,9 @@ export const Classification = (p: p5) => {
             let y = normalizeFrom(element[1], 0, 1);
             drawPoint(x, y, negativeCol);
         });
-
     }
 
-    async function drawCountour() {
+    async function drawCountour() { // TODO: this function takes ages at first run (like 2500+ ms) FIX!!!
         tf.tidy(() => {
             let yOutputs = model.predict(xInputs);
             const reshaped = yOutputs.reshape([Math.floor(size) + 1, Math.floor(size) + 1, 1]);
@@ -130,12 +157,13 @@ export const Classification = (p: p5) => {
                 }
             }
         });
+        updated = true;
     }
 
     // if framerate is reduced, the model trains faster
-    function evaluateFramerate() {
+    async function evaluateFramerate() {
         let fps = p.frameRate();
-        fps = Math.floor(fps * 0.8);
+        fps = Math.floor(fps * 0.6);
         if (fps > 10) {
             p.frameRate(fps);
             console.log("Framerate changed to: " + fps);
@@ -144,13 +172,13 @@ export const Classification = (p: p5) => {
 
     async function adjustFrameRate() {
         if (!p._loop) return;
-        if (upscaleRes < 30) return;
+        if (upscaleRes < 20) return;
         let fps = Math.floor(p.frameRate());
         if (fps >= 15) {
-            upscaleRes = Math.floor(upscaleRes * 1.3);
+            upscaleRes = Math.floor(upscaleRes * 1.1);
             p.frameRate(fps * 0.8);
         } else if (fps < 10) {
-            upscaleRes = Math.floor(upscaleRes * 0.8);
+            upscaleRes = Math.floor(upscaleRes * 0.6);
         } else {
             setTimeout(adjustFrameRate, 1500);
             return;
@@ -226,12 +254,14 @@ export const Classification = (p: p5) => {
     p.hide = () => {
         canvas.style('display', 'none');
     }
-    p.show = () => canvas.style('display', 'block');
+    p.show = () => {
+        canvas.style('display', 'block');
+    }
     p.append = () => {
         container = document.getElementById("sketch");
         container.appendChild(canvas.canvas);
     }
-    p.resumeTraining = () => {
+    p.resumeTraining = async () => {
         try {
             trainModel();
             setTimeout(adjustFrameRate, 500);
