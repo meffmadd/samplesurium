@@ -6,6 +6,7 @@ import { Tensors } from '../assets/tensors';
 import { Regression } from '../assets/regression';
 import { Classification } from '../assets/classification';
 import { TicTacToe } from '../assets/tic-tac-toe';
+import { Breathe } from 'src/assets/art/breathe';
 
 interface Sketch {
     name: string;
@@ -16,5 +17,6 @@ export const SketchStore: Sketch[] = [
     { name: 'Tensors', src: Tensors },
     { name: 'Polynomial Regression', src: Regression},
     { name: 'Classification', src: Classification },
-    { name: 'Tic-Tac-Toe', src: TicTacToe }
+    { name: 'Tic-Tac-Toe', src: TicTacToe },
+    { name: 'Breathe', src: Breathe}
 ];

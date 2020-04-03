@@ -16,17 +16,16 @@ export class ExampleService {
  
   private overviewURL = './assets/overview.json';
 
-  public overview : Observable<{topics: Topic[]}>;
+  public overview : Observable<{topics: Topic[], art: BriefExample[]}>;
  
   constructor(
     private http: HttpClient) {
       this.getOverview();
     }
  
-  /** GET heroes from the server */
-  getOverview (): Observable<{topics: Topic[]}> {
+  getOverview (): Observable<{topics: Topic[], art: BriefExample[]}> {
     if (this.overview == undefined) {
-      this.overview = this.http.get<{topics: Topic[]}>(this.overviewURL);
+      this.overview = this.http.get<{topics: Topic[], art: BriefExample[]}>(this.overviewURL);
     }
     return this.overview;
   }

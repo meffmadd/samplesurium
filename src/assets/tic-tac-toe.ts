@@ -11,7 +11,7 @@ export const TicTacToe = (p: p5) => {
     let pauseBtn;
     let paused = false;
     //tf.setBackend('cpu');
-    //tf.setBackend('webgl');
+    tf.setBackend('webgl');
 
     let currentBoardState = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     let turn = -1; // crosses begins
@@ -34,7 +34,7 @@ export const TicTacToe = (p: p5) => {
     let trainingLoss = [], maxLoss = 0, lossesLength = 150;
     let totalExamples = 0;
 
-    p.setup = () => {
+    p.setup = async () => {
         canvas = p.createCanvas(canvasSize, canvasSize);
         p.strokeCap(p.SQUARE);
         p.frameRate(30);
@@ -92,6 +92,8 @@ export const TicTacToe = (p: p5) => {
             loss: 'categoricalCrossentropy'
         });
 
+        // run model first to generate intermal representation
+        await model.predict(tf.tensor2d([currentBoardState]));
         trainModel();
     }
 
@@ -103,24 +105,23 @@ export const TicTacToe = (p: p5) => {
     }
 
     async function trainModel() {
-        train().then(result => {
-            result.history.loss.forEach((e) => {
-                trainingLoss.push(e);
-                if (trainingLoss.length >= lossesLength) {
-                    trainingLoss = trainingLoss.slice(
-                        trainingLoss.length - lossesLength, trainingLoss.length
-                    );
-                }
-                if (e > maxLoss) maxLoss = e;
-            });
-            drawLoss();
-            getMoves(1200);
-            totalExamples += 1200;
-            console.log("The model trained on " + totalExamples + " examples");
-            initalizeTrainingTensors();
-            //if (!p._loop) tf.disposeVariables();
-            if (!paused && p._loop) trainModel();
+        let result = await train()        
+        result.history.loss.forEach((e) => {
+            trainingLoss.push(e);
+            if (trainingLoss.length >= lossesLength) {
+                trainingLoss = trainingLoss.slice(
+                    trainingLoss.length - lossesLength, trainingLoss.length
+                );
+            }
+            if (e > maxLoss) maxLoss = e;
         });
+        drawLoss();
+        getMoves(1200);
+        totalExamples += 1200;
+        console.log("The model trained on " + totalExamples + " examples");
+        initalizeTrainingTensors();
+        //if (!p._loop) tf.disposeVariables();
+        if (!paused && p._loop) trainModel();
     }
 
     function getNextMove(board) {

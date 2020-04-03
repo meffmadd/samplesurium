@@ -48,3 +48,14 @@ p {
   ::-webkit-scrollbar-thumb:window-inactive {
   background: rgba(128,128,128,0.4); 
   }
+
+  a,
+  a:link,
+  a:visited {
+    color: #f95602;
+  }
+
+  a:hover {
+    color: #f95602;
+      text-decoration: underline;
+  }

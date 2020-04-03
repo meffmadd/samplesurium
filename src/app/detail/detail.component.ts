@@ -11,7 +11,7 @@ import { Location } from '@angular/common';
 
 import 'p5/lib/addons/p5.dom';
 import * as p5 from 'p5'
-
+import { IsLoadingService } from '@service-work/is-loading'
 import { ExampleService } from '../example.service';
 import { SketchService } from '../sketch.service';
 import { generate } from 'rxjs';
@@ -48,7 +48,6 @@ export class DetailComponent implements OnInit {
   @ViewChild('codeTarget', { read: ViewContainerRef, static: false}) viewCode: ViewContainerRef;
   @ViewChild('target', { read: ViewContainerRef, static: true}) viewChild: ViewContainerRef;
 
-  private loading = false;
 
   public vis: boolean = true;
   public code: boolean = false;
@@ -70,11 +69,13 @@ export class DetailComponent implements OnInit {
     private sketchService: SketchService,
     private componentService: ComponentService,
     private compiler: ComponentFactoryResolver,
+    private isLoadingService: IsLoadingService,
   ) { };
 
   ngOnInit() {
-    this.loading = true;
     console.log("init")
+    // this.isLoadingService.add()
+
     this.id = +this.route.snapshot.paramMap.get('id');
     this.tid = +this.route.snapshot.paramMap.get('tid');
 
@@ -96,7 +97,10 @@ export class DetailComponent implements OnInit {
       this.title = overview.topics[this.tid].examples[this.id].title;
 
       console.time("loadSketch")
-      this.loadSketch();
+      this.loadSketch().then(() => {
+        //this.loading = false;
+        this.myP5.append();
+      });
       console.timeEnd("loadSketch")
 
       
@@ -105,17 +109,9 @@ export class DetailComponent implements OnInit {
       this.loadCode();
       console.timeEnd("loadSketch")
 
-      //this.loading = false;
-      this.myP5.append();
+      this.isLoadingService.remove();
+      console.log("view init done")
     });
-  }
-
-  ngAfterViewChecked() {
-    
-
-    setTimeout(() => {
-      this.loading = false;
-  });
   }
 
   ngOnDestroy() {
@@ -133,12 +129,10 @@ export class DetailComponent implements OnInit {
 
   async loadSketch() {
 
-    console.log("loading sketch")
     console.time("get sketch instance")
-    this.myP5 = this.sketchService.getInstance(this.title);
+    this.myP5 = await this.sketchService.getInstance(this.title);
     console.timeEnd("get sketch instance")
     if (this.myP5.resumeTraining) this.myP5.resumeTraining();
-
     this.myP5.loop();
     this.myP5.show();
   }
@@ -148,7 +142,6 @@ export class DetailComponent implements OnInit {
 
     let compFactory = this.compiler.resolveComponentFactory(codeCmp);
     this.viewCode.createComponent(compFactory);
-
   }
 
   public evaluateVisDisplay() {

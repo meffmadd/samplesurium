@@ -2,6 +2,7 @@ import * as p5 from 'p5';
 import 'p5/lib/addons/p5.dom';
 import * as tf from '@tensorflow/tfjs';
 import { async } from '@angular/core/testing';
+import { Thread } from '../app/thread.js'
 
 export const Classification = (p: p5) => {
     let canvas, container;
@@ -20,7 +21,7 @@ export const Classification = (p: p5) => {
     let model, optimizer;
     let xs, ys, xInputs;
 
-    p.setup = () => {
+    p.setup = async () => {
         console.log("starting setup")
         canvas = p.createCanvas(canvasSize, canvasSize);
         p.frameRate(15);
@@ -38,13 +39,12 @@ export const Classification = (p: p5) => {
         positive.push(...negative);
         // p.hide();
         drawPoints()
-        console.log("draw points maybe?")
         tf.setBackend('webgl');
 
         p.frameRate(5);
 
         console.log("preparing model")
-        prepareModel()
+        await prepareModel()
 
         console.log("evaluating framerates")
         setTimeout(evaluateFramerate, 3000);
@@ -80,7 +80,7 @@ export const Classification = (p: p5) => {
             })
         );
 
-        optimizer = tf.train.adam(0.23);
+        optimizer = tf.train.adam(0.05);
         model.compile({
             optimizer: optimizer,
             loss: tf.losses.meanSquaredError
@@ -96,14 +96,12 @@ export const Classification = (p: p5) => {
     async function trainModel() {
         for (; trainIteration < 15; trainIteration++) {
             //sleep(10);
-            console.log("Before training: " + tf.memory().numTensors);
             if (p._loop) {
                 await tf.nextFrame();
                 await train();
             } else {
                 break;
             }
-            console.log("After training: " + tf.memory().numTensors);
         }
     }
 
@@ -114,8 +112,6 @@ export const Classification = (p: p5) => {
         setTimeout(() => {
             if (modelIsReady && !updated) {
                 drawCountour().then(async () => {
-                    
-                    await drawPoints()
                     updated = true;
                 });
             }
@@ -138,21 +134,16 @@ export const Classification = (p: p5) => {
     }
 
     async function drawCountour() { // TODO: this function takes ages at first run (like 2500+ ms) FIX!!!
-        console.log("After training: " + tf.memory().numTensors); 
-        console.time("tidy")
         await tf.nextFrame();
-        tf.tidy(() => {
-            console.time("predict")
-            let yOutputs = model.predict(xInputs);
-            console.timeEnd("predict")
-            console.time("reshape")
-            const reshaped = yOutputs.reshape([Math.floor(size) + 1, Math.floor(size) + 1, 1]);
-            console.timeEnd("reshape")
-            console.time("load data")
-            const resized = reshaped //tf.image.resizeBilinear(reshaped, [upscaleRes, upscaleRes]);
-            let yPreds = resized.dataSync();
-            console.timeEnd("load data")
-            console.time("draw tiles")
+        tf.engine().startScope()
+        console.time("predict")
+        let yOutputs = model.predict(xInputs);
+        console.timeEnd("predict")
+        // await tf.nextFrame();
+        const reshaped = yOutputs.reshape([Math.floor(size) + 1, Math.floor(size) + 1, 1]);
+        const resized = reshaped //tf.image.resizeBilinear(reshaped, [upscaleRes, upscaleRes]);
+        // await tf.nextFrame();
+        resized.data().then((yPreds) => {
             let index = 0;
             const predSize = Math.sqrt(yPreds.length);
             const tileSize = canvasSize / predSize;
@@ -163,9 +154,9 @@ export const Classification = (p: p5) => {
                     p.rect(i * tileSize, j * tileSize, tileSize, tileSize);
                 }
             }
-            console.timeEnd("tidy")
-            console.timeEnd("draw tiles")
+            drawPoints()
         });
+        tf.engine().endScope()
         updated = true;
     }
 

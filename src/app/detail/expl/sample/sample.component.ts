@@ -4,20 +4,11 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-sample',
   template: `
     <p>
-    Use absolutely no pressure. Just like an angel's wing. Isn't that fantastic? They say everything looks better with odd numbers of things. But sometimes I put even numbers—just to upset the critics. We don't have to be committed. We are just playing here.
+    All of the visualisations I did here are made in <a href="https://p5js.org">p5js</a>. It is a very simple tool for beginners and can be used in arbitrary projects like here (although with much more painfully).
+    </p>
 
-    It's a good way of getting rid of all your anxieties and hostilities. We can fix anything. That's a son of a gun of a cloud. That's the way I look when I get home late; black and blue.
-    
-    Paint anything you want on the canvas. Create your own world. Let that brush dance around there and play. See there how easy that is. Each highlight must have it's own private shadow.
-    
-    Just take out whatever you don't want. It'll change your entire perspective. Just a happy little shadow that lives in there. God gave you this gift of imagination. Use it.
-    
-    Now it's beginning to make a little sense. Everything's not great in life, but we can still find beauty in it. Let's go up in here, and start having some fun Go out on a limb - that's where the fruit is.
-    
-    In your imagination you can go anywhere you want. The light is your friend. Preserve it. We don't have anything but happy trees here. I really believe that if you practice enough you could paint the 'Mona Lisa' with a two-inch brush. We'll put some happy little leaves here and there. There is immense joy in just watching - watching all the little creatures in nature.
-    
-    From all of us here, I want to wish you happy painting and God bless, my friends. You have to allow the paint to break to make it beautiful. Trees grow in all kinds of ways. They're not all perfectly straight. Not every limb is perfect. And that's when it becomes fun - you don't have to spend your time thinking about what's happening - you just let it happen. A happy cloud.
-    
+    <p>
+    The basic principle is that you have a setup function to create the necessary data structures and such, before the call function is executed several times per second to create the images. Besides these it also provides numerous helper functions which can be found in the <a href="https://p5js.org/reference/">reference</a>
     </p>
   `,
   styles: ['p {margin-top: 1em;}']

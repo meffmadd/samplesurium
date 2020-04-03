@@ -1,4 +1,7 @@
 <app-header></app-header>
+<div *ngIf="isLoading | async" class="progress">
+  <div class="indeterminate"></div>
+</div>
 <div [@routeAnimations]="getRouterOutletState(outlet)" >
-    <router-outlet #outlet="outlet"></router-outlet>
-  </div>
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>

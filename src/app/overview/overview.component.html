@@ -11,5 +11,16 @@
         </div>
       </div>
     </li>
+    <li>
+      <span class="topic">Art</span>
+      <div id="exampleContainer">
+        <div @flyInOut *ngFor="let example of overview.art" class="example" routerLink="/art/{{example.id}}" routerLinkActive="active">
+          <div class="titleDiv"><span class="exampleTitle">{{example.title}}</span></div>
+          <p>
+            {{example.text}}
+          </p>
+        </div>
+      </div>
+    </li>
   </ul>
 </main>
