@@ -27,11 +27,12 @@ export class ArtComponent implements OnInit {
 
     this.exampleService.getOverview().subscribe(overview => {
       this.title = overview.art[this.id].title;
+
       this.myP5 = this.sketchService.getInstance(this.title);
-      this.myP5.append();
+      this.isLoadingService.remove();
+      // this.myP5.append();
     });
 
-    this.isLoadingService.remove();
   }
 
   ngOnDestroy() {

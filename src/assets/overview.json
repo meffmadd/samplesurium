@@ -50,6 +50,11 @@
             "id": 0,
             "title": "Breathe",
             "text":"A soothing animation using Bezier curves."
+        },
+        {
+            "id": 1,
+            "title": "Comets",
+            "text":"An accidental glitch produced this eerie yet interesting piece."
         }
     ]
 }

@@ -19,7 +19,7 @@ export const Breathe = (p: p5) => {
     let container = document.getElementById("sketch");
 
     // height = container.clientHeight
-    height = p.windowHeight - 80
+    height = p.windowHeight - 70
     width = p.windowWidth - 40
     console.log("windowHeight: " + height + " windowWidth: " + width)
     canvas = p.createCanvas(width, height);
@@ -32,6 +32,8 @@ export const Breathe = (p: p5) => {
       layers[i] = new BezierLine(0);
       layers[i+1] = new BezierLine(0);
     }
+
+    p.append()
   }
 
   p.draw = () => {
@@ -120,7 +122,7 @@ export const Breathe = (p: p5) => {
     let h10 = f(h/10), h6 = f(h/6);
     this.b1 = new BezierCurve(s, 0, s, h10, s, h10, s+x1, h6);
   
-    let point = extrapolate(new Point(s, h10),new Point( s+x1, h6),3);
+    let point = extrapolate(new Point(s, h10),new Point( s+x1, h6), 2);
     this.b2 = new BezierCurve(s+x1, h6, point.x, point.y, point.x, h-point.y, s+x1, h-h6);
     
     this.b3 = new BezierCurve(s, h-h6, s, h-h10, s, h-h10, s+x1, h);
@@ -136,7 +138,7 @@ export const Breathe = (p: p5) => {
       let h = height, w = width, s = half;
       let h10 = f(h/10), h6 = f(h/6);
       let points = this.b1.getPoints();
-      let point = extrapolate(new Point(s, h10),new Point( s+x, h6),3);
+      let point = extrapolate(new Point(s, h10),new Point( s+x, h6), 2);
       points[3].x = s+x;
       points = this.b2.getPoints();
       points[0].x = s+x;
@@ -173,6 +175,6 @@ export const Breathe = (p: p5) => {
   }
   p.show = () => {
       canvas.style('display', 'block');
-}
+  }
 
 }
