@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/86e830c4-39a7-4879-849c-5d6c441d3201/deploy-status)](https://app.netlify.com/sites/samplesurium/deploys)
+
 # Samplesurium
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
