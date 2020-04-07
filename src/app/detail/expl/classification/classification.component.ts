@@ -12,42 +12,41 @@ export class ClassificationComponent implements OnInit {
   ngOnInit() {
   }
 
-  sequential: string = "	model = tf.sequential();";
-  layers: string = `  model.add(
-		tf.layers.dense({
-			units: 10,
-			inputShape: [2],
-			activation: 'sigmoid'
-		})
-	);
+  sequential: string = "model = tf.sequential();";
+  layers: string = `model.add(
+	tf.layers.dense({
+		units: 10,
+		inputShape: [2],
+		activation: 'sigmoid'
+	})
+);
 
-	model.add(
-		tf.layers.dense({
-			units: 1,
-			activation: 'sigmoid'
-		})
-	);
+model.add(
+	tf.layers.dense({
+		units: 1,
+		activation: 'sigmoid'
+	})
+);
 
-	optimizer = tf.train.adam(0.23);
-	model.compile({
-		optimizer: optimizer,
-		loss: tf.losses.meanSquaredError
-	});
-  `;
+optimizer = tf.train.adam(0.23);
+model.compile({
+	optimizer: optimizer,
+	loss: tf.losses.meanSquaredError
+});`;
 
   fit: string = `function train() {
-    return model.fit(xs, ys, {
-      shuffle: true,
-      epochs: 2
-    });
-  }
+return model.fit(xs, ys, {
+    shuffle: true,
+    epochs: 2
+  });
+}
   
-  function trainModel() {
-    train().then(result => {
-      result.history.loss.forEach(element => console.log(element));
-      trainModel();
-    });
-  }`;
+function trainModel() {
+  train().then(result => {
+    result.history.loss.forEach(element => console.log(element));
+    trainModel();
+  });
+}`;
 
   contour: string = `  async function drawCountour() {
     tf.tidy(() => {

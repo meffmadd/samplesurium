@@ -48,11 +48,26 @@
     "art": [
         {
             "id": 0,
+            "title": "Space",
+            "text":"An accurate representation of space time."
+        },
+        {
+            "id": 1,
+            "title": "Eclipse",
+            "text":"The project started off with 'eclipse' in my mind. But it's probably like a swarm? Click on the canvas to invert colors!"
+        },
+        {
+            "id": 2,
             "title": "Breathe",
             "text":"A soothing animation using Bezier curves."
         },
         {
-            "id": 1,
+            "id": 3,
+            "title": "Strings",
+            "text":"Oscilating strings that change amplitude as you hover over them."
+        },
+        {
+            "id": 4,
             "title": "Comets",
             "text":"An accidental glitch produced this eerie yet interesting piece."
         }

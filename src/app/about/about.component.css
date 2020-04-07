@@ -1,0 +1,17 @@
+h1 {
+  font-size: 20pt;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
+  color: #F95602;
+
+  padding-left: 140px;
+}
+
+p {
+  padding-left: 140px;
+  padding-right: 15%;
+}
+
+.bold {
+  font-weight: 600;
+}
