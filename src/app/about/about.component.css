@@ -15,3 +15,14 @@ p {
 .bold {
   font-weight: 600;
 }
+
+@media (max-width: 620px) {
+  p {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  h1 {
+    padding-left: 14px;
+  }
+}

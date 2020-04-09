@@ -21,7 +21,8 @@ export const Regression = (p: p5) => {
         btnReset = p.createButton('Reset');
         btnReset.class('p5-button-transparent');
         btnReset.mousePressed(reset);
-        btnReset.position(canvasSize - 90, canvasSize - 35);
+        btnReset.elt.style.position = "absolute"
+        btnReset.elt.style.marginTop = "-40px"
         p.background(colBkg);
         p.noFill();
         p.hide();

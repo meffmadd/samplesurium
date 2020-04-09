@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ComponentStore } from './explanation.store';
-import { CodeStore } from './code.store';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +12,6 @@ export class ComponentService {
   constructor() {
     ComponentStore.forEach(c => {
       this.components[c.name] = c.cmp;
-    });
-
-    CodeStore.forEach(c => {
-      this.code[c.name] = c.cmp;
     });
   }
 

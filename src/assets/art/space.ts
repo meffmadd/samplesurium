@@ -27,6 +27,12 @@ export const Space = (p: p5) => {
     y = p.color(255, 255, 0);
     canvas.canvas.style.cursor = "none";
 
+    let strokeW = 30;
+    if (Math.min(height, width) < 600) {
+      numPoints = 10;
+      strokeW = 15;
+    }
+
     quadtree = new QuadTree(new Box(0, 0, width, height));
     let pointDistance = Math.floor(Math.min(height, width) / numPoints);
     queryRadius = 3 * pointDistance; // n points in each direction
@@ -43,7 +49,7 @@ export const Space = (p: p5) => {
 
     p.background(255)
     p.stroke(0)
-    p.strokeWeight(30)
+    p.strokeWeight(strokeW)
 
     p.append()
   }

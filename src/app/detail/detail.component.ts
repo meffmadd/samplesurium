@@ -45,7 +45,6 @@ import { ComponentService } from '../component.service';
 })
 export class DetailComponent implements OnInit {
 
-  @ViewChild('codeTarget', { read: ViewContainerRef, static: false}) viewCode: ViewContainerRef;
   @ViewChild('target', { read: ViewContainerRef, static: true}) viewChild: ViewContainerRef;
 
 
@@ -103,12 +102,6 @@ export class DetailComponent implements OnInit {
       });
       console.timeEnd("loadSketch")
 
-      
-
-      console.time("loadCode")
-      this.loadCode();
-      console.timeEnd("loadSketch")
-
       this.isLoadingService.remove();
       console.log("view init done")
     });
@@ -147,13 +140,6 @@ export class DetailComponent implements OnInit {
     }
     this.myP5.resize();
     // this.myP5.show();
-  }
-
-  async loadCode() {
-    let codeCmp = this.componentService.getCode(this.title); // initalized in loadSketch
-
-    let compFactory = this.compiler.resolveComponentFactory(codeCmp);
-    this.viewCode.createComponent(compFactory);
   }
 
   public evaluateVisDisplay() {

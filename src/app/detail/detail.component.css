@@ -66,16 +66,6 @@ canvas {
     opacity: 0;
 }
 
-#code {
-    position: absolute;
-    left: 0px;
-    bottom: 15px;
-    max-width: 40%;
-    /* height: 500px; */
-    opacity: 0;
-    display: none;
-}
-
 .expl {
     text-align: justify;
     margin-right: 5px;
@@ -127,12 +117,4 @@ canvas {
         width: 90%;
         height: auto;
     }
-
-    #editor {
-        position: absolute; /* Added */
-        top: 10px;
-        right: 0;
-        bottom: 0;
-        left: 0;
-   }
 }

@@ -142,10 +142,21 @@ export const Tensors = (p: p5) => {
     }
 
     function setPositions() {
-        speed.position(20, canvasSize - 30);
-        rst.position(150, canvasSize - 30);
-        stop.position(220, canvasSize - 30);
-        run.position(280, canvasSize - 30);
+        speed.elt.style.position = "absolute"
+        speed.elt.style.marginTop = "-40px"
+        speed.elt.style.left = "20px"
+
+        rst.elt.style.position = "absolute"
+        rst.elt.style.marginTop = "-40px"
+        rst.elt.style.left = "150px"
+
+        stop.elt.style.position = "absolute"
+        stop.elt.style.marginTop = "-40px"
+        stop.elt.style.left = "220px"
+
+        run.elt.style.position = "absolute"
+        run.elt.style.marginTop = "-40px"
+        run.elt.style.left = "280px"
     }
 
     p.hide = () => {

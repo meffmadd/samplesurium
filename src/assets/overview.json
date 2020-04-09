@@ -31,17 +31,6 @@
                     "text": "Sometimes things are black and white. Or in this case orange and blue. Let a neural network show you!"
                 }
             ]
-        },
-        {
-            "id": 2,
-            "title": "Games",
-            "examples": [
-                {
-                    "id": 0,
-                    "title": "Tic-Tac-Toe",
-                    "text":"Can you beat an algorithm in the notoriously complex game of Tic-Tac-Toe? Well, I hope you can but spoiler alert: It will probably end in a draw."
-                }
-            ]
         }
     ],
 
