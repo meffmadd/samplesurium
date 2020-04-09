@@ -37,7 +37,7 @@ export const Tensors = (p: p5) => {
         });
         addClasses();
         setPositions();
-        p.hide();
+        p.show();
     }
 
     function resetWorld() {

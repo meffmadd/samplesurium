@@ -33,6 +33,8 @@ export const Regression = (p: p5) => {
 
         optimizer = tf.train.adam(learningRate);
         //optimizer = tf.train.adagrad(learningRate);
+
+        p.show();
     }
 
     function reset() {

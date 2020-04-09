@@ -62,7 +62,7 @@ canvas {
     left: 0px;
     bottom: 0px;
     max-width: 40%;
-    height: 500px;
+    /* height: 500px; */
     opacity: 0;
 }
 
@@ -71,7 +71,7 @@ canvas {
     left: 0px;
     bottom: 15px;
     max-width: 40%;
-    height: 500px;
+    /* height: 500px; */
     opacity: 0;
     display: none;
 }
@@ -115,4 +115,24 @@ canvas {
 
 .loading-img {
     margin: 0, auto;
+}
+
+@media (max-width: 620px) {
+    .viewContainer {
+        width: 90%;
+        height: 540px;
+    }
+
+    #sketch {
+        width: 90%;
+        height: auto;
+    }
+
+    #editor {
+        position: absolute; /* Added */
+        top: 10px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+   }
 }

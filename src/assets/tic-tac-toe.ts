@@ -34,7 +34,7 @@ export const TicTacToe = (p: p5) => {
     let trainingLoss = [], maxLoss = 0, lossesLength = 150;
     let totalExamples = 0;
 
-    p.setup = async () => {
+    p.setup = () => {
         canvas = p.createCanvas(canvasSize, canvasSize);
         p.strokeCap(p.SQUARE);
         p.frameRate(30);
@@ -93,8 +93,10 @@ export const TicTacToe = (p: p5) => {
         });
 
         // run model first to generate intermal representation
-        await model.predict(tf.tensor2d([currentBoardState]));
+        model.predict(tf.tensor2d([currentBoardState]));
         trainModel();
+
+        p.show();
     }
 
     function train() {

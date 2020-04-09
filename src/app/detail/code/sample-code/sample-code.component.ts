@@ -11,7 +11,7 @@ import "brace/theme/eclipse"
     template: `
   <ace-editor
        [(text)]="text"
-        #editor style="height:500px; width:500px; margin-top:14px;"></ace-editor>
+        #editor style="height:100%; width:100%; margin-top:14px;"></ace-editor>
   `
 })
 export class SampleCodeComponent {
@@ -70,6 +70,14 @@ function reset() {
       //this.editor.getEditor().getOptions
 
       let ed: Editor = this.editor.getEditor();
+      ed.resize()
+      ed.on('resize', (arg: any) => {
+        const aceEditor = ed;
+        const newHeight = aceEditor.getSession().getScreenLength() *
+          (aceEditor.renderer.lineHeight);
+         aceEditor.container.style.height = `${newHeight}px`;
+        aceEditor.resize();
+      });
       console.log(this.editor.getEditor());
     }
 }
