@@ -24,7 +24,7 @@ When we think of a neural network, we think of a graph with some inputs, an arbi
 <p>
 To start of, we initialize the model using tf.sequential. For more Information see the <a href="https://js.tensorflow.org/api/latest/#sequential">Reference</a>.
 </p>
-<div ace-editor [(text)]="sequential" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" style="height:16px; width:auto;"></div>
+<div ace-editor [(text)]="sequential" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" style="height:16px; width:100%;"></div>
 
 <p>
 Now that we have a model, we can add actually add layers to it. Probably the most important type of layer for building models is the dense layer. This layer connects each input with all of its nodes. So for example for a dense layer with 5 Inputs and 7 internal nodes, there are 35 connections.
@@ -33,15 +33,15 @@ Now that we have a model, we can add actually add layers to it. Probably the mos
 <p>
 This layer also applies an activation function to its outputs. A node takes all the outputs of the previous layer, adds them up including a bias and calculates the output by applying the activation function to this sum.
 </p>
-<div ace-editor [(text)]="layers" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" style="height:336px; width:auto;"></div>
+<div ace-editor [(text)]="layers" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" style="height:336px; width:100%;"></div>
 
 <p>
 As the visualisation runs, it continuously fits the model to the data using tf.fit.
 
 </p>
-<div ace-editor [(text)]="fit" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" style="height:218px; width:auto;"></div>
+<div ace-editor [(text)]="fit" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" style="height:218px; width:100%;"></div>
 
 <p>
 Every Frame the model predicts the output values for a grid. So for example the model predicts the Output for the coordinates (0,0), (20, 0) and so on. This produces the contour you see.
 </p>
-<div ace-editor [(text)]="contour" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" style="height:308px; width:auto;"></div>
+<div ace-editor [(text)]="contour" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" style="height:308px; width:100%;"></div>

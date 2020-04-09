@@ -31,17 +31,6 @@
                     "text": "Sometimes things are black and white. Or in this case orange and blue. Let a neural network show you!"
                 }
             ]
-        },
-        {
-            "id": 2,
-            "title": "Games",
-            "examples": [
-                {
-                    "id": 0,
-                    "title": "Tic-Tac-Toe",
-                    "text":"Can you beat an algorithm in the notoriously complex game of Tic-Tac-Toe? Well, I hope you can but spoiler alert: It will probably end in a draw."
-                }
-            ]
         }
     ],
 
@@ -49,7 +38,7 @@
         {
             "id": 0,
             "title": "Space",
-            "text":"An accurate representation of space time."
+            "text":"An accurate representation of space time. Using quadtrees."
         },
         {
             "id": 1,
@@ -63,11 +52,16 @@
         },
         {
             "id": 3,
+            "title": "Barrier",
+            "text":"A barrier of color. Shares some resemblence with the sound barrier."
+        },
+        {
+            "id": 4,
             "title": "Strings",
             "text":"Oscilating strings that change amplitude as you hover over them."
         },
         {
-            "id": 4,
+            "id": 5,
             "title": "Comets",
             "text":"An accidental glitch produced this eerie yet interesting piece."
         }

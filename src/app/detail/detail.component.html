@@ -2,14 +2,9 @@
   <h2>{{title}}</h2>
   <div class="container">
     <div class="viewContainer">
-      <span [class.selected]="vis" (click)="showVis()">Visualisation</span>
-      <span [class.selected]="code" (click)="showCode()">Code</span>
-      <div id="vis" (@showHide.start)="evaluateVisDisplay()" [@showHide]="vis ? 'shown' : 'hidden'" [ngStyle]="{'display': visDisplay}">
+      <div id="vis" [@showHide]="vis ? 'shown' : 'hidden'" [ngStyle]="{'display': visDisplay}">
         <div id="sketch">
         </div>
-      </div>
-      <div id="code" (@showHide.start)="evaluateCodeDisplay()" [@showHide]="code ? 'shown' : 'hidden'" [ngStyle]="{'display': codeDisplay}">
-        <div #codeTarget></div>
       </div>
     </div>
     <div class="expl">

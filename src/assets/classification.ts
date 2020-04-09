@@ -1,7 +1,6 @@
 import * as p5 from 'p5';
 import 'p5/lib/addons/p5.dom';
 import * as tf from '@tensorflow/tfjs';
-import { async } from '@angular/core/testing';
 import { Thread } from '../app/thread.js'
 
 export const Classification = (p: p5) => {
@@ -14,14 +13,13 @@ export const Classification = (p: p5) => {
     let upscaleRes = 50;
 
     let updated = true;
-    let running = true;
     let trainIteration = 0;
     let modelIsReady = false;
 
     let model, optimizer;
     let xs, ys, xInputs;
 
-    p.setup = async () => {
+    p.setup = () => {
         console.log("starting setup")
         canvas = p.createCanvas(canvasSize, canvasSize);
         p.frameRate(15);
@@ -43,10 +41,10 @@ export const Classification = (p: p5) => {
 
         p.frameRate(5);
 
-        console.log("preparing model")
-        await prepareModel()
+        prepareModel()
 
-        console.log("evaluating framerates")
+        p.show();
+
         setTimeout(evaluateFramerate, 3000);
         setTimeout(adjustFrameRate, 4000);
     }
@@ -59,7 +57,6 @@ export const Classification = (p: p5) => {
     }
 
     async function prepareModel() {
-        console.time("preparing model");
         xs = tf.tensor2d(positive);
         ys = tf.tensor1d(labels);
         xInputs = tf.tensor2d(xPred);
@@ -86,10 +83,8 @@ export const Classification = (p: p5) => {
             loss: tf.losses.meanSquaredError
         });
 
-        console.log("model is ready")
         modelIsReady = true;
         // trainModel();
-        console.timeEnd("preparing model");
     }
 
     // fixes memory leak
@@ -136,9 +131,7 @@ export const Classification = (p: p5) => {
     async function drawCountour() { // TODO: this function takes ages at first run (like 2500+ ms) FIX!!!
         await tf.nextFrame();
         tf.engine().startScope()
-        console.time("predict")
         let yOutputs = model.predict(xInputs);
-        console.timeEnd("predict")
         // await tf.nextFrame();
         const reshaped = yOutputs.reshape([Math.floor(size) + 1, Math.floor(size) + 1, 1]);
         const resized = reshaped //tf.image.resizeBilinear(reshaped, [upscaleRes, upscaleRes]);
@@ -268,7 +261,7 @@ export const Classification = (p: p5) => {
             trainModel();
             setTimeout(adjustFrameRate, 500);
         } catch (error) {
-            console.log("Model already training");
+            // console.log("Model already training");
         }
     }
 }

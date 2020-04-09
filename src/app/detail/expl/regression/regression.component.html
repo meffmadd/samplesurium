@@ -21,20 +21,20 @@
   This is exactly what the predict function does. 
   It takes an input vector <ng-katex [equation]="xVector"></ng-katex> and calculates <ng-katex [equation]="fVector"></ng-katex>.
 </p>
-<div ace-editor [(text)]="predict" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" style="height:130px; width:auto;"></div>
+<div ace-editor [(text)]="predict" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" style="height:130px; width:100%;"></div>
 
 <p>
   The coefficients are initialised as variables:
 </p>
-<div ace-editor [(text)]="initVariables" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" style="height:70px; width:auto;"></div>
+<div ace-editor [(text)]="initVariables" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" style="height:70px; width:100%;"></div>
 
 <p>
   Each frame we try to minimize the loss:
 </p>
-<div ace-editor [(text)]="minimize" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" [options]="options" style="height:115px; width:auto;"></div>
+<div ace-editor [(text)]="minimize" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" [options]="options" style="height:115px; width:100%;"></div>
 <p>
   The loss function is just a mean squared error: <ng-katex [equation]="mse"></ng-katex>.
   Using Tensorflow.js it looks like this:
 </p>
-<div ace-editor [(text)]="mseCode" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" [options]="options" style="height:115px; width:auto;"></div>
+<div ace-editor [(text)]="mseCode" [mode]="'javascript'" [theme]="'eclipse'" [readOnly]="true" [options]="options" style="height:115px; width:100%;"></div>
 

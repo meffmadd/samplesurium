@@ -41,6 +41,8 @@ export const Sample = (p: p5) => {
       // Use the model to do inference on a data point the model hasn't seen before:
       model.predict(tf.tensor2d([5], [1, 1])).print();
     });
+
+    p.show();
   }
 
   p.draw = () => {

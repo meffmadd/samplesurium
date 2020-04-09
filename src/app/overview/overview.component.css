@@ -109,3 +109,9 @@ p {
         width: 80%;
     }
 }
+
+@media (max-width: 500px) {
+    ul {
+        left: 0px;
+    }
+}

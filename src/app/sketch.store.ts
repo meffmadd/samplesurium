@@ -11,6 +11,7 @@ import { Comets } from 'src/assets/art/comets';
 import { Strings } from 'src/assets/art/strings';
 import { Eclipse } from 'src/assets/art/eclipse';
 import { Space } from 'src/assets/art/space';
+import { Barrier } from 'src/assets/art/barrier';
 
 interface Sketch {
     name: string;
@@ -26,5 +27,6 @@ export const SketchStore: Sketch[] = [
     { name: 'Comets', src: Comets },
     { name: 'Strings', src: Strings },
     { name: 'Eclipse', src: Eclipse },
-    { name: 'Space', src: Space }
+    { name: 'Space', src: Space },
+    { name: 'Barrier', src: Barrier }
 ];

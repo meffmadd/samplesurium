@@ -45,7 +45,6 @@ import { ComponentService } from '../component.service';
 })
 export class DetailComponent implements OnInit {
 
-  @ViewChild('codeTarget', { read: ViewContainerRef, static: false}) viewCode: ViewContainerRef;
   @ViewChild('target', { read: ViewContainerRef, static: true}) viewChild: ViewContainerRef;
 
 
@@ -103,12 +102,6 @@ export class DetailComponent implements OnInit {
       });
       console.timeEnd("loadSketch")
 
-      
-
-      console.time("loadCode")
-      this.loadCode();
-      console.timeEnd("loadSketch")
-
       this.isLoadingService.remove();
       console.log("view init done")
     });
@@ -134,14 +127,19 @@ export class DetailComponent implements OnInit {
     console.timeEnd("get sketch instance")
     if (this.myP5.resumeTraining) this.myP5.resumeTraining();
     this.myP5.loop();
-    this.myP5.show();
-  }
-
-  async loadCode() {
-    let codeCmp = this.componentService.getCode(this.title); // initalized in loadSketch
-
-    let compFactory = this.compiler.resolveComponentFactory(codeCmp);
-    this.viewCode.createComponent(compFactory);
+    this.myP5.resize = () => {
+      let viewContainer = document.getElementsByClassName("viewContainer")[0] as HTMLElement;
+      let height = Math.min(this.myP5.windowHeight - 40, 500);
+      let width = Math.min(this.myP5.windowWidth - 40, 500);
+      let size = Math.min(height, width)
+      this.myP5.resizeCanvas(size, size);
+      viewContainer.style.height = size + 30 +"px"
+    }
+    this.myP5.windowResized = () => {
+      this.myP5.resize()
+    }
+    this.myP5.resize();
+    // this.myP5.show();
   }
 
   public evaluateVisDisplay() {
