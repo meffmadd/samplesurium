@@ -1,0 +1,37 @@
+color:
+  palette:
+    white: "#FEFAF6"
+    black: "#000C23"
+    cream: "#FAE7D6"
+    blue: "#0B4F6C"
+    cyan: "#01BAEF"
+    teal: "#077187"
+    green: "#297045"
+    yellow: "#FFD700"
+    orange: "#D36135"
+    red: "#9D0907"
+    purple: "#7A306C"
+  foreground: black
+  background: white
+  primary: cream
+  success: green
+  info: cyan
+  warning: yellow
+  danger: orange
+  light: white
+  dark: black
+  
+typography:
+  fonts:
+    - family: "Roboto Serif"
+      source: google
+  base: "Roboto Serif"
+  headings:
+    family: "Roboto Serif"
+    weight: 600
+
+defaults:
+  bootstrap:
+    defaults:
+      navbar-bg: $brand-cream
+      navbar-fg: $brand-black

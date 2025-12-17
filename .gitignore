@@ -37,3 +37,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+/.quarto/
+**/*.quarto_ipynb
+_site
