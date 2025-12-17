@@ -1,11 +1,11 @@
 color:
   palette:
-    white: "#FEFAF6"
-    black: "#000C23"
-    cream: "#FAE7D6"
+    white: "#FFEFDF"
+    black: "#00153D"
+    cream: "#FFE3CB"
     blue: "#0B4F6C"
     cyan: "#01BAEF"
-    teal: "#077187"
+    teal: "#0B7099"
     green: "#297045"
     yellow: "#FFD700"
     orange: "#D36135"
@@ -13,7 +13,7 @@ color:
     purple: "#7A306C"
   foreground: black
   background: white
-  primary: cream
+  primary: teal
   success: green
   info: cyan
   warning: yellow

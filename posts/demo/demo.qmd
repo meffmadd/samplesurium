@@ -1,0 +1,252 @@
+---
+title: "Quarto Feature Showcase"
+author: "Your Name"
+date: "2025-12-17"
+categories: [quarto, demo, documentation]
+tags: [markdown, code, figures, tables]
+---
+
+# Introduction
+
+This post is a **demonstration blog page** built with [Quarto](https://quarto.org). Its purpose is to showcase a wide range of Quarto features commonly used in technical blogs, documentation sites, and data science reports.
+
+You will see examples of:
+
+* Rich Markdown and typography
+* Cross-references and callouts
+* Code execution and syntax highlighting
+* Tables and figures
+* Mathematical notation
+* Citations and footnotes
+* Layouts and panels
+
+---
+
+# Basic Markdown Features
+
+## Text Formatting
+
+You can write text using **bold**, *italic*, ***bold italic***, `inline code`, and ~~strikethrough~~.
+
+> Blockquotes are useful for highlighting important ideas or quoting sources.
+
+Horizontal rules help separate sections.
+
+---
+
+## Lists
+
+### Unordered List
+
+* Item one
+* Item two
+
+  * Nested item
+  * Another nested item
+* Item three
+
+### Ordered List
+
+1. First step
+2. Second step
+3. Third step
+
+---
+
+# Callouts
+
+Quarto provides callout blocks for structured emphasis.
+
+::: callout-note
+
+## Note
+
+This is a note callout. It is useful for additional context or clarifications.
+:::
+
+::: callout-tip
+
+## Tip
+
+Use callouts to improve readability and guide your readers.
+:::
+
+::: callout-warning
+
+## Warning
+
+Be cautious when publishing executable code in public documents.
+:::
+
+::: callout-important
+
+## Important
+
+Callouts support titles, icons, and nested content.
+:::
+
+---
+
+# Code Blocks
+
+## Syntax Highlighting
+
+```python
+import math
+
+def area_of_circle(radius):
+    return math.pi * radius ** 2
+
+area_of_circle(5)
+```
+
+```r
+x <- seq(0, 2 * pi, length.out = 100)
+y <- sin(x)
+plot(x, y, type = "l", main = "Sine Wave")
+```
+
+## Executable Code (Optional)
+
+If this document is rendered with a computational engine, code blocks can be executed and their output embedded directly in the page.
+
+#| echo: true
+#| output: true
+sum(range(1, 11))
+
+---
+
+# Figures
+
+You can include static images with captions and cross-references.
+
+#| label: fig-random
+#| fig-cap: "A simple random scatter plot"
+import matplotlib.pyplot as plt
+import random
+
+x = [random.random() for _ in range(50)]
+y = [random.random() for _ in range(50)]
+
+plt.scatter(x, y)
+plt.show()
+
+See @fig-random for an example figure.
+
+---
+
+# Tables
+
+## Markdown Table
+
+| Feature    | Supported | Notes                     |
+| ---------- | --------- | ------------------------- |
+| Markdown   | Yes       | CommonMark compliant      |
+| Jupyter    | Yes       | Python, R, Julia          |
+| Cross-refs | Yes       | Figures, tables, sections |
+| Publishing | Yes       | HTML, PDF, Word           |
+
+## Computed Table
+
+import pandas as pd
+
+df = pd.DataFrame({
+"Language": ["Python", "R", "Julia"],
+"Use Case": ["General", "Statistics", "Scientific"],
+"Popularity": [1, 2, 3]
+})
+
+df
+
+---
+
+# Mathematics
+
+Quarto supports LaTeX-style mathematics.
+
+Inline math: $E = mc^2$
+
+Displayed equations:
+
+$$
+\int_0^\infty e^{-x^2} , dx = \frac{\sqrt{\pi}}{2}
+$$
+
+---
+
+# Cross-References
+
+You can reference sections, figures, and tables.
+
+* See @sec-layouts for layout examples
+* Refer back to @fig-random for the scatter plot
+
+---
+
+# Layouts and Panels {#sec-layouts}
+
+## Columns
+
+::: columns
+::: column
+
+### Left Column
+
+This content appears in the left column.
+:::
+
+::: column
+
+### Right Column
+
+This content appears in the right column.
+:::
+:::
+
+## Tabsets
+
+::: {.panel-tabset}
+
+## Tab One
+
+Content for the first tab.
+
+## Tab Two
+
+Content for the second tab.
+
+## Tab Three
+
+Content for the third tab.
+
+:::
+
+---
+
+# Citations and Footnotes
+
+Here is a citation to the Quarto documentation [@quarto2024].
+
+Here is a footnote reference.^[This is a footnote explaining something in more detail.]
+
+Add a bibliography file (e.g., `references.bib`) to fully enable citations.
+
+---
+
+# Conclusion
+
+This demo page illustrates how Quarto can be used to create rich, interactive, and reproducible blog posts.
+
+Key takeaways:
+
+* Quarto combines Markdown, code, and publishing workflows
+* It supports reproducible computation and professional layouts
+* It scales from simple blogs to complex technical documentation
+
+---
+
+## References
+
+::: {#refs}
+:::
+
