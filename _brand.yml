@@ -14,6 +14,8 @@ color:
   foreground: black
   background: white
   primary: teal
+  secondary: blue
+  tertiary: cyan
   success: green
   info: cyan
   warning: yellow
@@ -29,6 +31,8 @@ typography:
   headings:
     family: "Roboto Serif"
     weight: 600
+  link:
+    color: teal
 
 defaults:
   bootstrap:
