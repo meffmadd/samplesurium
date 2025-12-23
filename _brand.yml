@@ -1,16 +1,17 @@
 color:
   palette:
-    white: "#FFEFDF"
+    white: "#F7F6F2"
     black: "#00153D"
-    cream: "#FFE3CB"
-    blue: "#0B4F6C"
+    cream: "#E8BD9B"
+    blue: "#054D80"
     cyan: "#01BAEF"
     teal: "#0B7099"
     green: "#297045"
-    yellow: "#FFD700"
+    yellow: "#F9C73E"
     orange: "#D36135"
-    red: "#9D0907"
+    red: "#9C0A07"
     purple: "#7A306C"
+    grey: "#C2C1BC"
   foreground: black
   background: white
   primary: teal
@@ -37,5 +38,5 @@ typography:
 defaults:
   bootstrap:
     defaults:
-      navbar-bg: $brand-cream
+      navbar-bg: $brand-grey
       navbar-fg: $brand-black

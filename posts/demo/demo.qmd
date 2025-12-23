@@ -110,9 +110,11 @@ plot(x, y, type = "l", main = "Sine Wave")
 
 If this document is rendered with a computational engine, code blocks can be executed and their output embedded directly in the page.
 
+```{python}
 #| echo: true
 #| output: true
 sum(range(1, 11))
+```
 
 ---
 
@@ -120,6 +122,7 @@ sum(range(1, 11))
 
 You can include static images with captions and cross-references.
 
+```{python}
 #| label: fig-random
 #| fig-cap: "A simple random scatter plot"
 import matplotlib.pyplot as plt
@@ -130,8 +133,35 @@ y = [random.random() for _ in range(50)]
 
 plt.scatter(x, y)
 plt.show()
+```
 
 See @fig-random for an example figure.
+
+## Observable Plot
+
+Interactive plots can be created using Observable Plot, which provides a powerful grammar of graphics for JavaScript.
+
+```{ojs}
+data = {
+  const co2data = await FileAttachment("data.csv").csv({ typed: true } );
+  return co2data.map(d => { 
+    d["decimal date"] = Number(d["decimal date"]);
+    d.average = Number(d.average); 
+    return d; 
+  });
+}
+console.log(data);
+Plot.plot({
+  marks: [
+    Plot.line(data, 
+      { x: "decimal date", y: "average"}, 
+      { stroke: "black" }
+    )
+  ]
+})
+```
+
+The plot above shows the long-term trend of atmospheric CO₂ concentrations from 1958 to 2025, demonstrating the steady increase over time.
 
 ---
 
@@ -148,6 +178,7 @@ See @fig-random for an example figure.
 
 ## Computed Table
 
+```{python}
 import pandas as pd
 
 df = pd.DataFrame({
@@ -157,6 +188,7 @@ df = pd.DataFrame({
 })
 
 df
+```
 
 ---
 

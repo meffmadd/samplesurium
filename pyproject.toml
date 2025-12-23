@@ -1,0 +1,10 @@
+[project]
+name = "samplesurium"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "jupyter>=1.1.1",
+    "matplotlib>=3.10.8",
+    "pandas>=2.3.3",
+    "pyyaml>=6.0.3",
+]

@@ -3,3 +3,32 @@
 .quarto-title-banner {
   background-color: $brand-white;
 }
+
+$navbar-transparent-width: 50px;
+$navbar-stripe-widths: (50px, 75px, 315px);
+$navbar-stripe-colors: ($brand-red, $brand-blue, $brand-yellow);
+$navbar-stripe-angle: 45deg;
+
+.navbar {
+  $gradient-stops: ();
+  $current-position: 0;
+  $gradient-stops: join($gradient-stops, (transparent 0px, transparent #{$navbar-transparent-width}), comma);
+  $current-position: $navbar-transparent_width;
+  
+  @for $i from 1 through length($navbar-stripe-colors) {
+    $color: nth($navbar-stripe-colors, $i);
+    $width: nth($navbar-stripe-widths, $i);
+
+    $start-position: $current-position;
+    $end-position: $start-position + $width;
+    
+    $gradient-stops: join($gradient-stops, ($color #{$start-position}, $color #{$end-position}), comma);
+    $current-position: $end-position;
+  }
+
+  background-color: $brand-grey;
+  background-image: linear-gradient($navbar-stripe-angle, $gradient-stops);
+  background-position: right;
+  background-size: $current-position 100%;
+  background-repeat: no-repeat;
+}
