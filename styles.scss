@@ -5,14 +5,14 @@
 }
 
 $navbar-transparent-width: 10%;
-$navbar-stripe-widths: (10%, 15%, 65%);
+$navbar-stripe-widths: (10%, 25%, 55%);
 $navbar-stripe-colors: ($brand-red, $brand-blue, $brand-yellow);
 $navbar-stripe-angle: 80deg;
+$navbar-stripe-epsilon: 1px;
 
 @keyframes Animation { 
-    0% { transform: scaleX(1); }
+    0%, 100% { transform: scaleX(1); }
     50% { transform: scaleX(1.05); }
-    100% { transform: scaleX(1); }
 }
 
 .navbar {
@@ -33,7 +33,7 @@ $navbar-stripe-angle: 80deg;
     top: 0;
     right: 0;
     height: 100%;
-    width: 490px;
+    width: 50%;
     transform-origin: right center;
     will-change: transform;
     animation: Animation 15s ease-in-out infinite;
@@ -51,7 +51,7 @@ $navbar-stripe-angle: 80deg;
       $start-position: $current-position;
       $end-position: $start-position + $width;
       
-      $gradient-stops: join($gradient-stops, ($color #{$start-position}, $color #{$end-position}), comma);
+      $gradient-stops: join($gradient-stops, ($color calc(#{$start-position} + #{$navbar-stripe-epsilon}), $color #{$end-position}), comma);
       $current-position: $end-position;
     }
 
