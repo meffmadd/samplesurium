@@ -4,16 +4,22 @@
   background-color: $brand-white;
 }
 
-$navbar-transparent-width: 50px;
-$navbar-stripe-widths: (50px, 75px, 315px);
+$navbar-transparent-width: 10%;
+$navbar-stripe-widths: (10%, 15%, 65%);
 $navbar-stripe-colors: ($brand-red, $brand-blue, $brand-yellow);
 $navbar-stripe-angle: 80deg;
 
+@keyframes Animation { 
+    0% { background-size: 490px 100%; }
+    50% { background-size: 515px 100%; }
+    100% { background-size: 490px 100%; }
+}
+
 .navbar {
   $gradient-stops: ();
-  $current-position: 0;
-  $gradient-stops: join($gradient-stops, (transparent 0px, transparent #{$navbar-transparent-width}), comma);
-  $current-position: $navbar-transparent_width;
+  $current-position: 0%;
+  $gradient-stops: join($gradient-stops, (transparent 0%, transparent #{$navbar-transparent-width}), comma);
+  $current-position: $navbar-transparent-width;
   
   @for $i from 1 through length($navbar-stripe-colors) {
     $color: nth($navbar-stripe-colors, $i);
@@ -28,7 +34,7 @@ $navbar-stripe-angle: 80deg;
 
   background-color: $brand-grey;
   background-image: linear-gradient($navbar-stripe-angle, $gradient-stops);
-  background-position: right;
-  background-size: $current-position 100%;
   background-repeat: no-repeat;
+  background-position: right;
+  animation: Animation 15s ease-in-out infinite;
 }
