@@ -10,31 +10,53 @@ $navbar-stripe-colors: ($brand-red, $brand-blue, $brand-yellow);
 $navbar-stripe-angle: 80deg;
 
 @keyframes Animation { 
-    0% { background-size: 490px 100%; }
-    50% { background-size: 515px 100%; }
-    100% { background-size: 490px 100%; }
+    0% { transform: scaleX(1); }
+    50% { transform: scaleX(1.05); }
+    100% { transform: scaleX(1); }
 }
 
 .navbar {
-  $gradient-stops: ();
-  $current-position: 0%;
-  $gradient-stops: join($gradient-stops, (transparent 0%, transparent #{$navbar-transparent-width}), comma);
-  $current-position: $navbar-transparent-width;
-  
-  @for $i from 1 through length($navbar-stripe-colors) {
-    $color: nth($navbar-stripe-colors, $i);
-    $width: nth($navbar-stripe-widths, $i);
+  position: relative;
+  overflow: hidden;
+  background-color: $brand-grey;
+  z-index: 1;
 
-    $start-position: $current-position;
-    $end-position: $start-position + $width;
-    
-    $gradient-stops: join($gradient-stops, ($color #{$start-position}, $color #{$end-position}), comma);
-    $current-position: $end-position;
+  // Ensure content stays on top
+  > * {
+    position: relative;
+    z-index: 2;
   }
 
-  background-color: $brand-grey;
-  background-image: linear-gradient($navbar-stripe-angle, $gradient-stops);
-  background-repeat: no-repeat;
-  background-position: right;
-  animation: Animation 15s ease-in-out infinite;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 490px;
+    transform-origin: right center;
+    will-change: transform;
+    animation: Animation 15s ease-in-out infinite;
+    z-index: -1;
+
+    $gradient-stops: ();
+    $current-position: 0%;
+    $gradient-stops: join($gradient-stops, (transparent 0%, transparent #{$navbar-transparent-width}), comma);
+    $current-position: $navbar-transparent-width;
+    
+    @for $i from 1 through length($navbar-stripe-colors) {
+      $color: nth($navbar-stripe-colors, $i);
+      $width: nth($navbar-stripe-widths, $i);
+
+      $start-position: $current-position;
+      $end-position: $start-position + $width;
+      
+      $gradient-stops: join($gradient-stops, ($color #{$start-position}, $color #{$end-position}), comma);
+      $current-position: $end-position;
+    }
+
+    background-image: linear-gradient($navbar-stripe-angle, $gradient-stops);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
 }
