@@ -1,0 +1,114 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts.\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+  },
+  {
+    "objectID": "posts/demo/demo.html",
+    "href": "posts/demo/demo.html",
+    "title": "Quarto Feature Showcase",
+    "section": "",
+    "text": "This post is a demonstration blog page built with Quarto. Its purpose is to showcase a wide range of Quarto features commonly used in technical blogs, documentation sites, and data science reports.\nYou will see examples of:\n\nRich Markdown and typography\nCross-references and callouts\nCode execution and syntax highlighting\nTables and figures\nMathematical notation\nCitations and footnotes\nLayouts and panels"
+  },
+  {
+    "objectID": "posts/demo/demo.html#text-formatting",
+    "href": "posts/demo/demo.html#text-formatting",
+    "title": "Quarto Feature Showcase",
+    "section": "Text Formatting",
+    "text": "Text Formatting\nYou can write text using bold, italic, bold italic, inline code, and strikethrough.\n\nBlockquotes are useful for highlighting important ideas or quoting sources.\n\nHorizontal rules help separate sections."
+  },
+  {
+    "objectID": "posts/demo/demo.html#lists",
+    "href": "posts/demo/demo.html#lists",
+    "title": "Quarto Feature Showcase",
+    "section": "Lists",
+    "text": "Lists\n\nUnordered List\n\nItem one\nItem two\n\nNested item\nAnother nested item\n\nItem three\n\n\n\nOrdered List\n\nFirst step\nSecond step\nThird step"
+  },
+  {
+    "objectID": "posts/demo/demo.html#syntax-highlighting",
+    "href": "posts/demo/demo.html#syntax-highlighting",
+    "title": "Quarto Feature Showcase",
+    "section": "Syntax Highlighting",
+    "text": "Syntax Highlighting\nimport math\n\ndef area_of_circle(radius):\n    return math.pi * radius ** 2\n\narea_of_circle(5)\nx &lt;- seq(0, 2 * pi, length.out = 100)\ny &lt;- sin(x)\nplot(x, y, type = \"l\", main = \"Sine Wave\")"
+  },
+  {
+    "objectID": "posts/demo/demo.html#executable-code-optional",
+    "href": "posts/demo/demo.html#executable-code-optional",
+    "title": "Quarto Feature Showcase",
+    "section": "Executable Code (Optional)",
+    "text": "Executable Code (Optional)\nIf this document is rendered with a computational engine, code blocks can be executed and their output embedded directly in the page.\n\nsum(range(1, 11))"
+  },
+  {
+    "objectID": "posts/demo/demo.html#observable-plot",
+    "href": "posts/demo/demo.html#observable-plot",
+    "title": "Quarto Feature Showcase",
+    "section": "Observable Plot",
+    "text": "Observable Plot\nInteractive plots can be created using Observable Plot, which provides a powerful grammar of graphics for JavaScript.\n\ndata = {\n  const co2data = await FileAttachment(\"data.csv\").csv({ typed: true } );\n  return co2data.map(d =&gt; { \n    d[\"decimal date\"] = Number(d[\"decimal date\"]);\n    d.average = Number(d.average); \n    return d; \n  });\n}\nconsole.log(data);\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlot.plot({\n  marks: [\n    Plot.line(data, \n      { x: \"decimal date\", y: \"average\"}, \n      { stroke: \"black\" }\n    )\n  ]\n})\n\n\n\n\n\n\n\n\nThe plot above shows the long-term trend of atmospheric CO₂ concentrations from 1958 to 2025, demonstrating the steady increase over time."
+  },
+  {
+    "objectID": "posts/demo/demo.html#markdown-table",
+    "href": "posts/demo/demo.html#markdown-table",
+    "title": "Quarto Feature Showcase",
+    "section": "Markdown Table",
+    "text": "Markdown Table\n\n\n\nFeature\nSupported\nNotes\n\n\n\n\nMarkdown\nYes\nCommonMark compliant\n\n\nJupyter\nYes\nPython, R, Julia\n\n\nCross-refs\nYes\nFigures, tables, sections\n\n\nPublishing\nYes\nHTML, PDF, Word"
+  },
+  {
+    "objectID": "posts/demo/demo.html#computed-table",
+    "href": "posts/demo/demo.html#computed-table",
+    "title": "Quarto Feature Showcase",
+    "section": "Computed Table",
+    "text": "Computed Table\n\nimport pandas as pd\n\ndf = pd.DataFrame({\n\"Language\": [\"Python\", \"R\", \"Julia\"],\n\"Use Case\": [\"General\", \"Statistics\", \"Scientific\"],\n\"Popularity\": [1, 2, 3]\n})\n\ndf"
+  },
+  {
+    "objectID": "posts/demo/demo.html#columns",
+    "href": "posts/demo/demo.html#columns",
+    "title": "Quarto Feature Showcase",
+    "section": "Columns",
+    "text": "Columns\n\n\n\nLeft Column\nThis content appears in the left column.\n\n\n\nRight Column\nThis content appears in the right column."
+  },
+  {
+    "objectID": "posts/demo/demo.html#tabsets",
+    "href": "posts/demo/demo.html#tabsets",
+    "title": "Quarto Feature Showcase",
+    "section": "Tabsets",
+    "text": "Tabsets\n\nTab OneTab TwoTab Three\n\n\nContent for the first tab.\n\n\nContent for the second tab.\n\n\nContent for the third tab."
+  },
+  {
+    "objectID": "posts/demo/demo.html#references",
+    "href": "posts/demo/demo.html#references",
+    "title": "Quarto Feature Showcase",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "posts/demo/demo.html#footnotes",
+    "href": "posts/demo/demo.html#footnotes",
+    "title": "Quarto Feature Showcase",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThis is a footnote explaining something in more detail.↩︎"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Samplesurium",
+    "section": "",
+    "text": "Quarto Feature Showcase\n\n\n\nquarto\n\ndemo\n\ndocumentation\n\n\n\n\n\n\n\n\n\nDec 17, 2025\n\n\nYour Name\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nDec 12, 2025\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nDec 9, 2025\n\n\nTristan O’Malley\n\n\n\n\n\nNo matching items"
+  }
+]

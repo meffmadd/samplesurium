@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Samplesurium</title>
+<link>https://your-website-url.example.com/</link>
+<atom:link href="https://your-website-url.example.com/index.xml" rel="self" type="application/rss+xml"/>
+<description>A blog built with Quarto</description>
+<generator>quarto-1.8.26</generator>
+<lastBuildDate>Tue, 16 Dec 2025 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>Quarto Feature Showcase</title>
+  <dc:creator>Your Name</dc:creator>
+  <link>https://your-website-url.example.com/posts/demo/demo.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>This post is a <strong>demonstration blog page</strong> built with <a href="https://quarto.org">Quarto</a>. Its purpose is to showcase a wide range of Quarto features commonly used in technical blogs, documentation sites, and data science reports.</p>
+<p>You will see examples of:</p>
+<ul>
+<li>Rich Markdown and typography</li>
+<li>Cross-references and callouts</li>
+<li>Code execution and syntax highlighting</li>
+<li>Tables and figures</li>
+<li>Mathematical notation</li>
+<li>Citations and footnotes</li>
+<li>Layouts and panels</li>
+</ul>
+<hr>
+</section>
+<section id="basic-markdown-features" class="level1">
+<h1>Basic Markdown Features</h1>
+<section id="text-formatting" class="level2">
+<h2 class="anchored" data-anchor-id="text-formatting">Text Formatting</h2>
+<p>You can write text using <strong>bold</strong>, <em>italic</em>, <strong><em>bold italic</em></strong>, <code>inline code</code>, and <del>strikethrough</del>.</p>
+<blockquote class="blockquote">
+<p>Blockquotes are useful for highlighting important ideas or quoting sources.</p>
+</blockquote>
+<p>Horizontal rules help separate sections.</p>
+<hr>
+</section>
+<section id="lists" class="level2">
+<h2 class="anchored" data-anchor-id="lists">Lists</h2>
+<section id="unordered-list" class="level3">
+<h3 class="anchored" data-anchor-id="unordered-list">Unordered List</h3>
+<ul>
+<li><p>Item one</p></li>
+<li><p>Item two</p>
+<ul>
+<li>Nested item</li>
+<li>Another nested item</li>
+</ul></li>
+<li><p>Item three</p></li>
+</ul>
+</section>
+<section id="ordered-list" class="level3">
+<h3 class="anchored" data-anchor-id="ordered-list">Ordered List</h3>
+<ol type="1">
+<li>First step</li>
+<li>Second step</li>
+<li>Third step</li>
+</ol>
+<hr>
+</section>
+</section>
+</section>
+<section id="callouts" class="level1">
+<h1>Callouts</h1>
+<p>Quarto provides callout blocks for structured emphasis.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is a note callout. It is useful for additional context or clarifications.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use callouts to improve readability and guide your readers.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Be cautious when publishing executable code in public documents.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Callouts support titles, icons, and nested content.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="code-blocks" class="level1">
+<h1>Code Blocks</h1>
+<section id="syntax-highlighting" class="level2">
+<h2 class="anchored" data-anchor-id="syntax-highlighting">Syntax Highlighting</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> math</span>
+<span id="cb1-2"></span>
+<span id="cb1-3"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> area_of_circle(radius):</span>
+<span id="cb1-4">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> math.pi <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> radius <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb1-5"></span>
+<span id="cb1-6">area_of_circle(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>)</span></code></pre></div></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">x <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> pi, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">length.out =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>)</span>
+<span id="cb2-2">y <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sin</span>(x)</span>
+<span id="cb2-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot</span>(x, y, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">type =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"l"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">main =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Sine Wave"</span>)</span></code></pre></div></div>
+</section>
+<section id="executable-code-optional" class="level2">
+<h2 class="anchored" data-anchor-id="executable-code-optional">Executable Code (Optional)</h2>
+<p>If this document is rendered with a computational engine, code blocks can be executed and their output embedded directly in the page.</p>
+<div id="148c87e3" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">11</span>))</span></code></pre></div></div>
+</div>
+<hr>
+</section>
+</section>
+<section id="figures" class="level1">
+<h1>Figures</h1>
+<p>You can include static images with captions and cross-references.</p>
+<div id="fig-random" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-random-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> matplotlib.pyplot <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> plt</span>
+<span id="cb4-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> random</span>
+<span id="cb4-3"></span>
+<span id="cb4-4">x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [random.random() <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> _ <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>)]</span>
+<span id="cb4-5">y <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [random.random() <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> _ <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>)]</span>
+<span id="cb4-6"></span>
+<span id="cb4-7">plt.scatter(x, y)</span>
+<span id="cb4-8">plt.show()</span></code></pre></div></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-random-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
+</div>
+<p>See Figure&nbsp;1 for an example figure.</p>
+<section id="observable-plot" class="level2">
+<h2 class="anchored" data-anchor-id="observable-plot">Observable Plot</h2>
+<p>Interactive plots can be created using Observable Plot, which provides a powerful grammar of graphics for JavaScript.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" data-startfrom="145" data-source-offset="-0" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 144;"><span id="cb5-145">data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> {</span>
+<span id="cb5-146">  <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> co2data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">await</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">FileAttachment</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"data.csv"</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">csv</span>({ <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">typed</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">true</span> } )<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb5-147">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> co2data<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">map</span>(d <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">=&gt;</span> { </span>
+<span id="cb5-148">    d[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"decimal date"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Number</span>(d[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"decimal date"</span>])<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb5-149">    d<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">average</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Number</span>(d<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">average</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> </span>
+<span id="cb5-150">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> d<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> </span>
+<span id="cb5-151">  })<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb5-152">}</span>
+<span id="cb5-153"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">console</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">log</span>(data)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span></code></pre></div></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" data-startfrom="154" data-source-offset="-241" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 153;"><span id="cb6-154">Plot<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot</span>({</span>
+<span id="cb6-155">  <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">marks</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> [</span>
+<span id="cb6-156">    Plot<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">line</span>(data<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> </span>
+<span id="cb6-157">      { <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">x</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"decimal date"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">y</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"average"</span>}<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> </span>
+<span id="cb6-158">      { <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">stroke</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"black"</span> }</span>
+<span id="cb6-159">    )</span>
+<span id="cb6-160">  ]</span>
+<span id="cb6-161">})</span></code></pre></div></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-3" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+<p>The plot above shows the long-term trend of atmospheric CO₂ concentrations from 1958 to 2025, demonstrating the steady increase over time.</p>
+<hr>
+</section>
+</section>
+<section id="tables" class="level1">
+<h1>Tables</h1>
+<section id="markdown-table" class="level2">
+<h2 class="anchored" data-anchor-id="markdown-table">Markdown Table</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Supported</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Markdown</td>
+<td>Yes</td>
+<td>CommonMark compliant</td>
+</tr>
+<tr class="even">
+<td>Jupyter</td>
+<td>Yes</td>
+<td>Python, R, Julia</td>
+</tr>
+<tr class="odd">
+<td>Cross-refs</td>
+<td>Yes</td>
+<td>Figures, tables, sections</td>
+</tr>
+<tr class="even">
+<td>Publishing</td>
+<td>Yes</td>
+<td>HTML, PDF, Word</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="computed-table" class="level2">
+<h2 class="anchored" data-anchor-id="computed-table">Computed Table</h2>
+<div id="45270a3e" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pd</span>
+<span id="cb7-2"></span>
+<span id="cb7-3">df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.DataFrame({</span>
+<span id="cb7-4"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Language"</span>: [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Python"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"R"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Julia"</span>],</span>
+<span id="cb7-5"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Use Case"</span>: [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"General"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Statistics"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Scientific"</span>],</span>
+<span id="cb7-6"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Popularity"</span>: [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>]</span>
+<span id="cb7-7">})</span>
+<span id="cb7-8"></span>
+<span id="cb7-9">df</span></code></pre></div></div>
+</div>
+<hr>
+</section>
+</section>
+<section id="mathematics" class="level1">
+<h1>Mathematics</h1>
+<p>Quarto supports LaTeX-style mathematics.</p>
+<p>Inline math: <img src="https://latex.codecogs.com/png.latex?E%20=%20mc%5E2"></p>
+<p>Displayed equations:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cint_0%5E%5Cinfty%20e%5E%7B-x%5E2%7D%20,%20dx%20=%20%5Cfrac%7B%5Csqrt%7B%5Cpi%7D%7D%7B2%7D%0A"></p>
+<hr>
+</section>
+<section id="cross-references" class="level1">
+<h1>Cross-References</h1>
+<p>You can reference sections, figures, and tables.</p>
+<ul>
+<li>See Section&nbsp;9 for layout examples</li>
+<li>Refer back to Figure&nbsp;1 for the scatter plot</li>
+</ul>
+<hr>
+</section>
+<section id="sec-layouts" class="level1">
+<h1>Layouts and Panels</h1>
+<section id="columns" class="level2">
+<h2 class="anchored" data-anchor-id="columns">Columns</h2>
+<div class="columns">
+<div class="column">
+<section id="left-column" class="level3">
+<h3 class="anchored" data-anchor-id="left-column">Left Column</h3>
+<p>This content appears in the left column.</p>
+</section>
+</div><div class="column">
+<section id="right-column" class="level3">
+<h3 class="anchored" data-anchor-id="right-column">Right Column</h3>
+<p>This content appears in the right column.</p>
+</section>
+</div>
+</div>
+</section>
+<section id="tabsets" class="level2">
+<h2 class="anchored" data-anchor-id="tabsets">Tabsets</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true" href="">Tab One</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false" href="">Tab Two</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" aria-controls="tabset-1-3" aria-selected="false" href="">Tab Three</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
+<p>Content for the first tab.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
+<p>Content for the second tab.</p>
+</div>
+<div id="tabset-1-3" class="tab-pane" aria-labelledby="tabset-1-3-tab">
+<p>Content for the third tab.</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="citations-and-footnotes" class="level1">
+<h1>Citations and Footnotes</h1>
+<p>Here is a citation to the Quarto documentation <span class="citation" data-cites="quarto2024">[@quarto2024]</span>.</p>
+<p>Here is a footnote reference.<sup>1</sup></p>
+<p>Add a bibliography file (e.g., <code>references.bib</code>) to fully enable citations.</p>
+<hr>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>This demo page illustrates how Quarto can be used to create rich, interactive, and reproducible blog posts.</p>
+<p>Key takeaways:</p>
+<ul>
+<li>Quarto combines Markdown, code, and publishing workflows</li>
+<li>It supports reproducible computation and professional layouts</li>
+<li>It scales from simple blogs to complex technical documentation</li>
+</ul>
+<hr>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs">
+
+</div>
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>This is a footnote explaining something in more detail.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>quarto</category>
+  <category>demo</category>
+  <category>documentation</category>
+  <guid>https://your-website-url.example.com/posts/demo/demo.html</guid>
+  <pubDate>Tue, 16 Dec 2025 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Post With Code</title>
+  <dc:creator>Harlow Malloc</dc:creator>
+  <link>https://your-website-url.example.com/posts/post-with-code/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>This is a post with executable code.</p>
+
+
+
+ ]]></description>
+  <category>news</category>
+  <category>code</category>
+  <category>analysis</category>
+  <guid>https://your-website-url.example.com/posts/post-with-code/</guid>
+  <pubDate>Thu, 11 Dec 2025 23:00:00 GMT</pubDate>
+  <media:content url="https://your-website-url.example.com/posts/post-with-code/image.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Welcome To My Blog</title>
+  <dc:creator>Tristan O&#39;Malley</dc:creator>
+  <link>https://your-website-url.example.com/posts/welcome/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>This is the first post in a Quarto blog. Welcome!</p>
+<p><img src="https://your-website-url.example.com/posts/welcome/thumbnail.jpg" class="img-fluid"></p>
+<p>Since this post doesn’t specify an explicit <code>image</code>, the first image in the post will be used in the listing page of posts.</p>
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+
+
+ ]]></description>
+  <category>news</category>
+  <guid>https://your-website-url.example.com/posts/welcome/</guid>
+  <pubDate>Mon, 08 Dec 2025 23:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
