@@ -150,7 +150,6 @@ data = {
     return d; 
   });
 }
-console.log(data);
 Plot.plot({
   marks: [
     Plot.line(data, 
@@ -182,9 +181,9 @@ The plot above shows the long-term trend of atmospheric CO₂ concentrations fro
 import pandas as pd
 
 df = pd.DataFrame({
-"Language": ["Python", "R", "Julia"],
-"Use Case": ["General", "Statistics", "Scientific"],
-"Popularity": [1, 2, 3]
+  "Language": ["Python", "R", "Julia"],
+  "Use Case": ["General", "Statistics", "Scientific"],
+  "Popularity": [1, 2, 3]
 })
 
 df

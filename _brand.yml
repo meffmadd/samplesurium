@@ -1,22 +1,22 @@
 color:
   palette:
-    white: "#FAF6EF"
+    white: "#FCF6EE"
     black: "#00153D"
     cream: "#E8BD9B"
     blue: "#0047AB"
     cyan: "#01BAEF"
-    teal: "#0B7099"
-    green: "#297045"
+    teal: "#0C7EAC"
+    green: "#328653"
     yellow: "#F9C73E"
     orange: "#D36135"
-    red: "#AF0B08"
+    red: "#9C0A07"
     purple: "#7A306C"
     grey: "#E4E0D8"
   foreground: black
   background: white
-  primary: teal
+  primary: red
   secondary: blue
-  tertiary: cyan
+  tertiary: yellow
   success: green
   info: cyan
   warning: yellow
@@ -32,8 +32,6 @@ typography:
   headings:
     family: "Roboto Serif"
     weight: 600
-  link:
-    color: teal
 
 defaults:
   bootstrap:
