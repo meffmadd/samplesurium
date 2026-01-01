@@ -1,17 +1,17 @@
 color:
   palette:
-    white: "#F7F6F2"
+    white: "#FAF6EF"
     black: "#00153D"
     cream: "#E8BD9B"
-    blue: "#054D80"
+    blue: "#0047AB"
     cyan: "#01BAEF"
     teal: "#0B7099"
     green: "#297045"
     yellow: "#F9C73E"
     orange: "#D36135"
-    red: "#9C0A07"
+    red: "#AF0B08"
     purple: "#7A306C"
-    grey: "#C2C1BC"
+    grey: "#E4E0D8"
   foreground: black
   background: white
   primary: teal
