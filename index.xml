@@ -6,15 +6,15 @@
       version="2.0">
 <channel>
 <title>Samplesurium</title>
-<link>https://your-website-url.example.com/</link>
-<atom:link href="https://your-website-url.example.com/index.xml" rel="self" type="application/rss+xml"/>
+<link>https://meffmadd.github.io/samplesurium/</link>
+<atom:link href="https://meffmadd.github.io/samplesurium/index.xml" rel="self" type="application/rss+xml"/>
 <description>A blog built with Quarto</description>
 <generator>quarto-1.8.26</generator>
 <lastBuildDate>Tue, 16 Dec 2025 23:00:00 GMT</lastBuildDate>
 <item>
   <title>Quarto Feature Showcase</title>
   <dc:creator>Your Name</dc:creator>
-  <link>https://your-website-url.example.com/posts/demo/demo.html</link>
+  <link>https://meffmadd.github.io/samplesurium/posts/demo/demo.html</link>
   <description><![CDATA[ 
 
 
@@ -587,13 +587,13 @@ font-style: inherit;">3</span>]</span>
   <category>quarto</category>
   <category>demo</category>
   <category>documentation</category>
-  <guid>https://your-website-url.example.com/posts/demo/demo.html</guid>
+  <guid>https://meffmadd.github.io/samplesurium/posts/demo/demo.html</guid>
   <pubDate>Tue, 16 Dec 2025 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Post With Code</title>
   <dc:creator>Harlow Malloc</dc:creator>
-  <link>https://your-website-url.example.com/posts/post-with-code/</link>
+  <link>https://meffmadd.github.io/samplesurium/posts/post-with-code/</link>
   <description><![CDATA[ 
 
 
@@ -608,14 +608,14 @@ font-style: inherit;">3</span>]</span>
   <category>news</category>
   <category>code</category>
   <category>analysis</category>
-  <guid>https://your-website-url.example.com/posts/post-with-code/</guid>
+  <guid>https://meffmadd.github.io/samplesurium/posts/post-with-code/</guid>
   <pubDate>Thu, 11 Dec 2025 23:00:00 GMT</pubDate>
-  <media:content url="https://your-website-url.example.com/posts/post-with-code/image.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://meffmadd.github.io/samplesurium/posts/post-with-code/image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Welcome To My Blog</title>
   <dc:creator>Tristan O&#39;Malley</dc:creator>
-  <link>https://your-website-url.example.com/posts/welcome/</link>
+  <link>https://meffmadd.github.io/samplesurium/posts/welcome/</link>
   <description><![CDATA[ 
 
 
@@ -623,7 +623,7 @@ font-style: inherit;">3</span>]</span>
 
 
 <p>This is the first post in a Quarto blog. Welcome!</p>
-<p><img src="https://your-website-url.example.com/posts/welcome/thumbnail.jpg" class="img-fluid"></p>
+<p><img src="https://meffmadd.github.io/samplesurium/posts/welcome/thumbnail.jpg" class="img-fluid"></p>
 <p>Since this post doesn’t specify an explicit <code>image</code>, the first image in the post will be used in the listing page of posts.</p>
 <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 
@@ -631,7 +631,7 @@ font-style: inherit;">3</span>]</span>
 
  ]]></description>
   <category>news</category>
-  <guid>https://your-website-url.example.com/posts/welcome/</guid>
+  <guid>https://meffmadd.github.io/samplesurium/posts/welcome/</guid>
   <pubDate>Mon, 08 Dec 2025 23:00:00 GMT</pubDate>
 </item>
 </channel>
