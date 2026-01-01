@@ -46,14 +46,14 @@
     "href": "posts/demo/demo.html#executable-code-optional",
     "title": "Quarto Feature Showcase",
     "section": "Executable Code (Optional)",
-    "text": "Executable Code (Optional)\nIf this document is rendered with a computational engine, code blocks can be executed and their output embedded directly in the page.\n\nsum(range(1, 11))"
+    "text": "Executable Code (Optional)\nIf this document is rendered with a computational engine, code blocks can be executed and their output embedded directly in the page.\n\nsum(range(1, 11))\n\n55"
   },
   {
     "objectID": "posts/demo/demo.html#observable-plot",
     "href": "posts/demo/demo.html#observable-plot",
     "title": "Quarto Feature Showcase",
     "section": "Observable Plot",
-    "text": "Observable Plot\nInteractive plots can be created using Observable Plot, which provides a powerful grammar of graphics for JavaScript.\n\ndata = {\n  const co2data = await FileAttachment(\"data.csv\").csv({ typed: true } );\n  return co2data.map(d =&gt; { \n    d[\"decimal date\"] = Number(d[\"decimal date\"]);\n    d.average = Number(d.average); \n    return d; \n  });\n}\nconsole.log(data);\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlot.plot({\n  marks: [\n    Plot.line(data, \n      { x: \"decimal date\", y: \"average\"}, \n      { stroke: \"black\" }\n    )\n  ]\n})\n\n\n\n\n\n\n\n\nThe plot above shows the long-term trend of atmospheric CO₂ concentrations from 1958 to 2025, demonstrating the steady increase over time."
+    "text": "Observable Plot\nInteractive plots can be created using Observable Plot, which provides a powerful grammar of graphics for JavaScript.\n\ndata = {\n  const co2data = await FileAttachment(\"data.csv\").csv({ typed: true } );\n  return co2data.map(d =&gt; { \n    d[\"decimal date\"] = Number(d[\"decimal date\"]);\n    d.average = Number(d.average); \n    return d; \n  });\n}\nPlot.plot({\n  marks: [\n    Plot.line(data, \n      { x: \"decimal date\", y: \"average\"}, \n      { stroke: \"black\" }\n    )\n  ]\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe plot above shows the long-term trend of atmospheric CO₂ concentrations from 1958 to 2025, demonstrating the steady increase over time."
   },
   {
     "objectID": "posts/demo/demo.html#markdown-table",
@@ -67,7 +67,7 @@
     "href": "posts/demo/demo.html#computed-table",
     "title": "Quarto Feature Showcase",
     "section": "Computed Table",
-    "text": "Computed Table\n\nimport pandas as pd\n\ndf = pd.DataFrame({\n\"Language\": [\"Python\", \"R\", \"Julia\"],\n\"Use Case\": [\"General\", \"Statistics\", \"Scientific\"],\n\"Popularity\": [1, 2, 3]\n})\n\ndf"
+    "text": "Computed Table\n\nimport pandas as pd\n\ndf = pd.DataFrame({\n  \"Language\": [\"Python\", \"R\", \"Julia\"],\n  \"Use Case\": [\"General\", \"Statistics\", \"Scientific\"],\n  \"Popularity\": [1, 2, 3]\n})\n\ndf\n\n\n\n\n\n\n\n\nLanguage\nUse Case\nPopularity\n\n\n\n\n0\nPython\nGeneral\n1\n\n\n1\nR\nStatistics\n2\n\n\n2\nJulia\nScientific\n3"
   },
   {
     "objectID": "posts/demo/demo.html#columns",

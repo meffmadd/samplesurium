@@ -190,7 +190,7 @@ font-style: inherit;">"Sine Wave"</span>)</span></code></pre></div></div>
 <section id="executable-code-optional" class="level2">
 <h2 class="anchored" data-anchor-id="executable-code-optional">Executable Code (Optional)</h2>
 <p>If this document is rendered with a computational engine, code blocks can be executed and their output embedded directly in the page.</p>
-<div id="148c87e3" class="cell">
+<div id="ab7dfe0c" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">sum</span>(<span class="bu" style="color: null;
@@ -200,6 +200,9 @@ background-color: null;
 font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">11</span>))</span></code></pre></div></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>55</code></pre>
+</div>
 </div>
 <hr>
 </section>
@@ -207,19 +210,17 @@ font-style: inherit;">11</span>))</span></code></pre></div></div>
 <section id="figures" class="level1">
 <h1>Figures</h1>
 <p>You can include static images with captions and cross-references.</p>
-<div id="fig-random" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-random-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
+<div id="cell-fig-random" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> matplotlib.pyplot <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">as</span> plt</span>
-<span id="cb4-2"><span class="im" style="color: #00769E;
+<span id="cb5-2"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> random</span>
-<span id="cb4-3"></span>
-<span id="cb4-4">x <span class="op" style="color: #5E5E5E;
+<span id="cb5-3"></span>
+<span id="cb5-4">x <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> [random.random() <span class="cf" style="color: #003B4F;
 background-color: null;
@@ -232,7 +233,7 @@ background-color: null;
 font-style: inherit;">range</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">50</span>)]</span>
-<span id="cb4-5">y <span class="op" style="color: #5E5E5E;
+<span id="cb5-5">y <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> [random.random() <span class="cf" style="color: #003B4F;
 background-color: null;
@@ -245,24 +246,31 @@ background-color: null;
 font-style: inherit;">range</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">50</span>)]</span>
-<span id="cb4-6"></span>
-<span id="cb4-7">plt.scatter(x, y)</span>
-<span id="cb4-8">plt.show()</span></code></pre></div></div>
+<span id="cb5-6"></span>
+<span id="cb5-7">plt.scatter(x, y)</span>
+<span id="cb5-8">plt.show()</span></code></pre></div></div>
+<div class="cell-output cell-output-display">
+<div id="fig-random" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-random-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://meffmadd.github.io/samplesurium/posts/demo/demo_files/figure-html/fig-random-output-1.png" width="572" height="411" class="figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-random-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-random-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: A simple random scatter plot
 </figcaption>
 </figure>
+</div>
+</div>
 </div>
 <p>See Figure&nbsp;1 for an example figure.</p>
 <section id="observable-plot" class="level2">
 <h2 class="anchored" data-anchor-id="observable-plot">Observable Plot</h2>
 <p>Interactive plots can be created using Observable Plot, which provides a powerful grammar of graphics for JavaScript.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" data-startfrom="145" data-source-offset="-0" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 144;"><span id="cb5-145">data <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" data-startfrom="145" data-source-offset="-0" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 144;"><span id="cb6-145">data <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> {</span>
-<span id="cb5-146">  <span class="kw" style="color: #003B4F;
+<span id="cb6-146">  <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">const</span> co2data <span class="op" style="color: #5E5E5E;
@@ -288,7 +296,7 @@ font-weight: bold;
 font-style: inherit;">true</span> } )<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span>
-<span id="cb5-147">  <span class="cf" style="color: #003B4F;
+<span id="cb6-147">  <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> co2data<span class="op" style="color: #5E5E5E;
@@ -299,7 +307,7 @@ font-style: inherit;">map</span>(d <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">=&gt;</span> { </span>
-<span id="cb5-148">    d[<span class="st" style="color: #20794D;
+<span id="cb6-148">    d[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"decimal date"</span>] <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -310,7 +318,7 @@ background-color: null;
 font-style: inherit;">"decimal date"</span>])<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span>
-<span id="cb5-149">    d<span class="op" style="color: #5E5E5E;
+<span id="cb6-149">    d<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">.</span><span class="at" style="color: #657422;
 background-color: null;
@@ -325,57 +333,34 @@ background-color: null;
 font-style: inherit;">average</span>)<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span> </span>
-<span id="cb5-150">    <span class="cf" style="color: #003B4F;
+<span id="cb6-150">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> d<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span> </span>
-<span id="cb5-151">  })<span class="op" style="color: #5E5E5E;
+<span id="cb6-151">  })<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span>
-<span id="cb5-152">}</span>
-<span id="cb5-153"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">console</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">log</span>(data)<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">;</span></span></code></pre></div></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-1-1" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-1-2" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" data-startfrom="154" data-source-offset="-241" style="background: #f1f3f5;"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 153;"><span id="cb6-154">Plot<span class="op" style="color: #5E5E5E;
+<span id="cb6-152">}</span>
+<span id="cb6-153">Plot<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">plot</span>({</span>
-<span id="cb6-155">  <span class="dt" style="color: #AD0000;
+<span id="cb6-154">  <span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">marks</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">:</span> [</span>
-<span id="cb6-156">    Plot<span class="op" style="color: #5E5E5E;
+<span id="cb6-155">    Plot<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">line</span>(data<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">,</span> </span>
-<span id="cb6-157">      { <span class="dt" style="color: #AD0000;
+<span id="cb6-156">      { <span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">x</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -392,19 +377,26 @@ background-color: null;
 font-style: inherit;">"average"</span>}<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">,</span> </span>
-<span id="cb6-158">      { <span class="dt" style="color: #AD0000;
+<span id="cb6-157">      { <span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">stroke</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">:</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"black"</span> }</span>
-<span id="cb6-159">    )</span>
-<span id="cb6-160">  ]</span>
-<span id="cb6-161">})</span></code></pre></div></div>
+<span id="cb6-158">    )</span>
+<span id="cb6-159">  ]</span>
+<span id="cb6-160">})</span></code></pre></div></div>
 <div class="cell-output cell-output-display">
 <div>
-<div id="ojs-cell-1-3" data-nodetype="expression">
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="expression">
 
 </div>
 </div>
@@ -452,7 +444,7 @@ font-style: inherit;">"black"</span> }</span>
 </section>
 <section id="computed-table" class="level2">
 <h2 class="anchored" data-anchor-id="computed-table">Computed Table</h2>
-<div id="45270a3e" class="cell">
+<div id="69557988" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
@@ -462,7 +454,7 @@ font-style: inherit;">as</span> pd</span>
 <span id="cb7-3">df <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> pd.DataFrame({</span>
-<span id="cb7-4"><span class="st" style="color: #20794D;
+<span id="cb7-4">  <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Language"</span>: [<span class="st" style="color: #20794D;
 background-color: null;
@@ -471,7 +463,7 @@ background-color: null;
 font-style: inherit;">"R"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Julia"</span>],</span>
-<span id="cb7-5"><span class="st" style="color: #20794D;
+<span id="cb7-5">  <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Use Case"</span>: [<span class="st" style="color: #20794D;
 background-color: null;
@@ -480,7 +472,7 @@ background-color: null;
 font-style: inherit;">"Statistics"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Scientific"</span>],</span>
-<span id="cb7-6"><span class="st" style="color: #20794D;
+<span id="cb7-6">  <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Popularity"</span>: [<span class="dv" style="color: #AD0000;
 background-color: null;
@@ -492,6 +484,43 @@ font-style: inherit;">3</span>]</span>
 <span id="cb7-7">})</span>
 <span id="cb7-8"></span>
 <span id="cb7-9">df</span></code></pre></div></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Language</th>
+<th data-quarto-table-cell-role="th">Use Case</th>
+<th data-quarto-table-cell-role="th">Popularity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>Python</td>
+<td>General</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>R</td>
+<td>Statistics</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>Julia</td>
+<td>Scientific</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
 </div>
 <hr>
 </section>
