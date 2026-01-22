@@ -12,8 +12,10 @@ website:
         href: https://github.com/meffmadd/samplesurium
 format:
   html:
+    code-block-border-left: "$brand-blue"
+    code-block-bg: "$brand-grey"
     theme:
       - lumen
       - styles.scss
       - brand
-
+    highlight-style: github

@@ -4,6 +4,11 @@
   background-color: $brand-white;
 }
 
+.sourceCode {
+  border-radius: 0 !important;
+  border-color: $brand-blue;
+}
+
 $navbar-transparent-width: 10%;
 $navbar-stripe-widths: (10%, 25%, 55%);
 $navbar-stripe-colors: ($brand-red, $brand-blue, $brand-yellow);
