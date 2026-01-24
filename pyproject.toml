@@ -7,4 +7,15 @@ dependencies = [
     "matplotlib>=3.10.8",
     "pandas>=2.3.3",
     "pyyaml>=6.0.3",
+    "seaborn>=0.13.2",
+]
+
+[tool.uv.workspace]
+members = [
+    "posts/ProLogiQA",
+]
+
+[dependency-groups]
+dev = [
+    "ty>=0.0.13",
 ]

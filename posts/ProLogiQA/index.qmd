@@ -1,0 +1,35 @@
+---
+title: "ProLogiQA"
+subtitle: "Can Prolog improve answers on the LogiQA 2.0 dataset?"
+abstract: "TODO"
+author: "Matthias Matt"
+date: "2026-01-22"
+categories: [prolog, neuro symbolic]
+tags: [prolog, neuro symbolic]
+---
+
+For this project I want to use the LogiQA 2.0 dataset.
+
+Explain the dataset.
+
+Lets first look at the distribution.
+
+
+```{python}
+#| echo: false
+#| output: true
+
+from ProLogiQA.data import load
+from ProLogiQA.plot import plot_type_distribution
+
+df = load(split="train")
+df
+```
+
+```{python}
+#| echo: false
+#| output: true
+
+# fig, ax = plot_type_distribution("train")
+# fig.show()
+```

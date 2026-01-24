@@ -1,0 +1,5 @@
+__pycache__
+ProLogiQA/data
+ProLogiQA/oneshot
+ProLogiQA/.env
+*.egg-info
