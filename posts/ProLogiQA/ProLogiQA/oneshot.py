@@ -1,5 +1,4 @@
 import os
-import time
 import argparse
 from dotenv import load_dotenv
 from openai import OpenAI
@@ -9,17 +8,38 @@ load_dotenv()
 
 client = OpenAI()
 
-model = os.getenv("MODEL")
+model = os.getenv("MODEL", "")
 
 
-def dummy_function():
-    time.sleep(0.1)  # Add delay to simulate work
-    return 0
+def process(text: str, question: str, options: list[str]) -> int:
+    from pydantic import BaseModel
+
+    class Answer(BaseModel):
+        choice: int
+
+    response = client.chat.completions.parse(
+        model=model,
+        messages=[
+            {
+                "role": "system",
+                "content": "You are a helpful assistant. Answer the multiple choice question based on the given context. Return the index of the correct option (0-based).",
+            },
+            {
+                "role": "user",
+                "content": f"Context: {text}\n\nQuestion: {question}\n\nOptions:\n"
+                + "\n".join([f"{i}. {opt}" for i, opt in enumerate(options)]),
+            },
+        ],
+        response_format=Answer
+    )
+
+    answer = response.choices[0].message.parsed
+    return answer.choice if answer else -1
 
 
 def result_generator(process_func, df):
     for _, row in tqdm(df.iterrows(), total=len(df), desc="Processing"):
-        result = process_func()
+        result = process_func(row["text"], row["question"], row["options"])
         yield result
 
 
@@ -88,5 +108,5 @@ if __name__ == "__main__":
             os.remove(output_file)
             print(f"Deleted existing output file: {output_file}")
 
-    # Process the specified split with dummy function
-    process_split(args.split, dummy_function)
+    # Process the specified split with process function
+    process_split(args.split, process)
