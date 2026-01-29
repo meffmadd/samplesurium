@@ -30,7 +30,7 @@ def process(text: str, question: str, options: list[str]) -> int:
                 + "\n".join([f"{i}. {opt}" for i, opt in enumerate(options)]),
             },
         ],
-        response_format=Answer
+        response_format=Answer,
     )
 
     answer = response.choices[0].message.parsed
@@ -109,4 +109,7 @@ if __name__ == "__main__":
             print(f"Deleted existing output file: {output_file}")
 
     # Process the specified split with process function
-    process_split(args.split, process)
+    try:
+        process_split(args.split, process)
+    except KeyboardInterrupt:
+        print("\nStopping execution.")
