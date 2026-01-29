@@ -1,10 +1,14 @@
 import os
 import argparse
+import logging
 import threading
 from dotenv import load_dotenv
 from openai import OpenAI
 from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor, as_completed
+
+# logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 load_dotenv()
 
@@ -25,7 +29,7 @@ def process(text: str, question: str, options: list[str]) -> int:
     from pydantic import BaseModel
 
     class Answer(BaseModel):
-        choice: int
+        answer: int
 
     try:
         client = get_client()
@@ -34,7 +38,7 @@ def process(text: str, question: str, options: list[str]) -> int:
             messages=[
                 {
                     "role": "system",
-                    "content": "You are a helpful assistant. Answer the multiple choice question based on the given context. Return the index of the correct option (0-based).",
+                    "content": f"You are a helpful assistant. Answer the multiple choice question based on the given context. Return the index of the correct option (0-based): {Answer(answer=0).model_dump_json()}",
                 },
                 {
                     "role": "user",
@@ -42,13 +46,14 @@ def process(text: str, question: str, options: list[str]) -> int:
                     + "\n".join([f"{i}. {opt}" for i, opt in enumerate(options)]),
                 },
             ],
+            max_completion_tokens=32768,
             response_format=Answer,
         )
 
         answer = response.choices[0].message.parsed
-        return answer.choice if answer else -1
+        return answer.answer if answer else -1
     except Exception as e:
-        print(f"Error processing request: {e}")
+        logger.error(f"Error type: {type(e).__name__}")
         return -1
 
 
@@ -102,9 +107,10 @@ def process_split(split, process_func, concurrency=1):
             for (_, row), result in zip(
                 df.iterrows(), result_generator(process_func, df)
             ):
-                json_line = {"id": row["id"], "result": result}
-                f.write(json.dumps(json_line) + "\n")
-                f.flush()
+                if result != -1:
+                    json_line = {"id": row["id"], "result": result}
+                    f.write(json.dumps(json_line) + "\n")
+                    f.flush()
         else:
             # Parallel processing with ThreadPoolExecutor
             with ThreadPoolExecutor(max_workers=concurrency) as executor:
@@ -118,9 +124,10 @@ def process_split(split, process_func, concurrency=1):
                 ) as pbar:
                     for future in as_completed(futures):
                         json_line = future.result()
-                        with file_lock:
-                            f.write(json.dumps(json_line) + "\n")
-                            f.flush()
+                        if json_line["result"] != -1:
+                            with file_lock:
+                                f.write(json.dumps(json_line) + "\n")
+                                f.flush()
                         pbar.update(1)
                         pbar.refresh()
 
@@ -149,8 +156,19 @@ if __name__ == "__main__":
         default=1,
         help="Number of parallel requests (default: 1)",
     )
+    parser.add_argument(
+        "--debug",
+        "-d",
+        action="store_true",
+        help="Enable debug logging",
+    )
 
     args = parser.parse_args()
+
+    # Set debug logging if requested
+    if args.debug:
+        logging.getLogger().setLevel(logging.DEBUG)
+        logger.setLevel(logging.DEBUG)
 
     # If reset flag is set, delete the output file
     if args.reset:
