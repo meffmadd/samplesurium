@@ -20,9 +20,9 @@ Lets first look at the distribution.
 #| output: true
 
 from ProLogiQA.data import load
-from ProLogiQA.plot import plot_type_distribution
+from ProLogiQA.plot import plot_type_distribution, plot_error_rates
 
-df = load(split="train")
+df = load(split="dev")
 df
 ```
 
@@ -30,6 +30,14 @@ df
 #| echo: false
 #| output: true
 
-# fig, ax = plot_type_distribution("train")
-# fig.show()
+fig, ax = plot_type_distribution("dev")
+fig.show()
+```
+
+```{python}
+#| echo: false
+#| output: true
+
+fig, ax = plot_error_rates("dev")
+fig.show()
 ```
