@@ -20,10 +20,33 @@ Lets first look at the distribution.
 #| output: true
 
 from ProLogiQA.data import load
-from ProLogiQA.plot import plot_type_distribution, plot_error_rates
+from ProLogiQA.plot import *
+```
 
-df = load(split="dev")
-df
+```{python}
+#| echo: false
+#| output: asis
+
+from IPython.display import HTML
+df_dev = load("dev")
+sample = df_dev.iloc[0]
+
+html = f"""
+<div style="font-family: Georgia, serif; max-width: 800px; margin: 20px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <h3 style="color: #2c3e50; margin-bottom: 15px;">Question {sample['id']}</h3>
+    <p style="font-size: 1.1em; line-height: 1.6; margin: 15px 0;"><strong>{sample['question']}</strong></p>
+    <p style="font-size: 1em; line-height: 1.6; margin: 15px 0;">{sample['text']}</p>
+    <div style="margin-top: 20px;">
+"""
+
+for i, option in enumerate(sample['options'], 1):
+    html += f'        <p style="margin: 8px 0; padding-left: 20px;"><strong>{chr(64 + i)})</strong> {option}</p>\n'
+
+html += """
+    </div>
+</div>
+"""
+HTML(html)
 ```
 
 ```{python}
@@ -41,3 +64,12 @@ fig.show()
 fig, ax = plot_error_rates("dev")
 fig.show()
 ```
+
+```{python}
+#| echo: false
+#| output: true
+
+fig, ax = plot_error_rates_grid("dev")
+fig.show()
+```
+

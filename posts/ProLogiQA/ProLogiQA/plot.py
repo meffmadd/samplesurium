@@ -14,10 +14,109 @@ from matplotlib.figure import Figure
 from matplotlib.axes import Axes
 
 
+def plot_error_rates_grid(
+    split: Literal["train", "dev", "test"] = "test",
+    dir: str = "./oneshot",
+) -> Tuple["Figure", Axes]:
+    """Plot error rates grid showing categories vs combined categories.
+
+    Rows show reasoning types, columns show error rates for problems that have
+    both the row type and each column type (self-reference = that type only).
+
+    Args:
+        split: Data split to use ('train', 'dev', or 'test')
+        dir: Directory containing oneshot results
+
+    Returns:
+        Tuple of (fig, ax) from matplotlib
+    """
+    import json
+    import numpy as np
+
+    df = load(split=split)
+    dir = os.path.join(os.path.dirname(__file__), dir)
+    oneshot_file = os.path.join(dir, f"{split}.jsonl")
+
+    if not os.path.exists(oneshot_file):
+        raise FileNotFoundError(f"Oneshot results not found: {oneshot_file}")
+
+    results = {}
+    with open(oneshot_file, "r") as f:
+        for line in f:
+            data = json.loads(line.strip())
+            results[data["id"]] = data["result"]
+
+    reasoning_types = [
+        "Categorical Reasoning",
+        "Conjunctive Reasoning",
+        "Disjunctive Reasoning",
+        "Necessry Condtional Reasoning",
+        "Sufficient Conditional Reasoning",
+    ]
+
+    short_labels = [
+        "Categorical",
+        "Conjunctive",
+        "Disjunctive",
+        "Necessary Conditional",
+        "Sufficient Conditional",
+    ]
+
+    error_grid = {}
+
+    for row_type in reasoning_types:
+        for col_type in reasoning_types:
+            total = 0
+            error = 0
+            for _, row in df.iterrows():
+                if row["id"] not in results:
+                    continue
+                if row[row_type] and row[col_type]:
+                    total += 1
+                    if results[row["id"]] != row["answer"]:
+                        error += 1
+            if total > 0:
+                error_grid[(row_type, col_type)] = (error / total) * 100
+            else:
+                error_grid[(row_type, col_type)] = 0
+
+    grid_array = np.zeros((len(reasoning_types), len(reasoning_types)))
+    for i, row_type in enumerate(reasoning_types):
+        for j, col_type in enumerate(reasoning_types):
+            grid_array[i, j] = error_grid[(row_type, col_type)]
+
+    fig, ax = plt.subplots(figsize=(10, 8))
+
+    mask = np.triu(np.ones_like(grid_array, dtype=bool), k=1)
+
+    sns.heatmap(
+        grid_array,
+        mask=mask,
+        xticklabels=short_labels,
+        yticklabels=short_labels,
+        annot=True,
+        fmt=".1f",
+        cmap="Reds",
+        cbar_kws={"label": "Error Rate (%)"},
+        ax=ax,
+    )
+
+    ax.set_xlabel("Combined With", fontsize=14, fontweight="bold")
+    ax.set_ylabel("Reasoning Type", fontsize=14, fontweight="bold")
+    ax.set_title(
+        f"Oneshot Error Rates by Category Combinations ({split} split)",
+        fontsize=16,
+        pad=20,
+    )
+
+    plt.tight_layout()
+    return fig, ax
+
+
 def plot_error_rates(
     split: Literal["train", "dev", "test"] = "test",
     dir: str = "./oneshot",
-) -> Tuple["Figure", "Axes"]:
+) -> Tuple["Figure", Axes]:
     """Plot error rates of oneshot output by reasoning type.
 
     Args:
