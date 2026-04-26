@@ -1,0 +1,9 @@
+---
+title: "Baba is Agent"
+author: "Matthias Matt"
+date: "2026-04-26"
+categories: [agents, ai]
+tags: [agents, ai]
+---
+
+This is a new post about Baba is Agent.
