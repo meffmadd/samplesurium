@@ -1,9 +1,49 @@
 ---
 title: "Baba is Agent"
+subtitle: "Can LLMs play Baba Is You?"
 author: "Matthias Matt"
 date: "2026-04-26"
 categories: [agents, ai]
 tags: [agents, ai]
 ---
 
-This is a new post about Baba is Agent.
+I built an OpenCode-based agent to find out! Check out the code in the [GitHub repo](https://github.com/meffmadd/baba_is_agent)
+
+## Harness
+
+OpenCode is an open-source CLI coding-agent that is extensible. Among other things it is possible to write your own tools the agent can use. I was inspired by the fantastic [baba_is_eval](https://github.com/lennart-finke/baba_is_eval) repo and adapted its existing code, which was an MCP server, to work with OpenCode. On top of the game tools handling the gameplay from the existing repo I added some utility tools on top. Here is a short list of the tools the agent had access to:
+
+- **get_game_state** - Get current game state either as a 2D array of strings (`grid`) or a JSON list of entities (`entities`)
+- **execute_game_commands** - Execute a list of movement commands (up, down, left, right, idle)
+- **restart_level** - Restart the current level
+- **game_insights** - Shows the active rules, you/win positions, and the shortest path to a win position (if applicable)
+- **shortest_path** - A* pathfinding to target position, avoiding blocked entities (e.g. entities with stop or defeat rules)
+- **undo_multiple** - Undo last N moves
+- **todowrite** - Track task progress (OpenCode native)
+
+## Evaluation
+
+The timeout for each evaluation run was set to 20 minutes with a 200,000 token threshold. Models never reached the 200,000 token threshold and only ever timed-out.
+
+**Caveats**:
+
+- Evaluations were oneshots only (time/money constraints)
+- I forgot to remove the `AGENTS.md` file for evaluation (context bloat for level solve)
+
+For the providers I used OpenCode Go/Zen.
+
+
+## Results
+
+| Model | Passed | Level 0 | Level 1 | Level 2 | Level 3 | Level 4 | Level 5 | Level 6 | Level 7 |
+|---|---|---|---|---|---|---|---|---|---|
+| opencode-go/minimax-m2.7 | 1/8 | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| opencode-go/deepseek-v4-pro | 3/8 | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| opencode-go/kimi-k2.6 | 3/8 | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| opencode-go/qwen3.6-plus | 3/8 | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| opencode-go/glm-5.1 | 4/8 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| opencode/claude-opus-4-7 | 5/8 | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ |
+| opencode/gpt-5.5 | 7/8 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| opencode/gemini-3.1-pro | 8/8 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+
+

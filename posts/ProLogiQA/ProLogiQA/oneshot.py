@@ -3,32 +3,24 @@ import logging
 import threading
 from dotenv import load_dotenv
 from openai import OpenAI
-from utils import process_split, parse_args
+from utils import process_split, parse_args, Answer
 
-# logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 load_dotenv()
 
 model = os.getenv("MODEL", "")
 
-# Thread-local storage for OpenAI clients
 _thread_local = threading.local()
 
 
 def get_client() -> OpenAI:
-    """Get a thread-local OpenAI client instance."""
     if not hasattr(_thread_local, "client"):
         _thread_local.client = OpenAI()
     return _thread_local.client
 
 
 def process(text: str, question: str, options: list[str]) -> int:
-    from pydantic import BaseModel
-
-    class Answer(BaseModel):
-        answer: int
-
     try:
         client = get_client()
         response = client.chat.completions.parse(
@@ -58,14 +50,12 @@ def process(text: str, question: str, options: list[str]) -> int:
 if __name__ == "__main__":
     args = parse_args()
 
-    # If reset flag is set, delete the output file
     if args.reset:
         output_file = f"./oneshot/{args.split}.jsonl"
         if os.path.exists(output_file):
             os.remove(output_file)
             print(f"Deleted existing output file: {output_file}")
 
-    # Process the specified split with process function
     try:
         process_split(args.split, process, concurrency=args.concurrency)
     except KeyboardInterrupt:

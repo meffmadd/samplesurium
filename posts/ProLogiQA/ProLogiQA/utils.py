@@ -5,9 +5,25 @@ import json
 import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
+from pydantic import BaseModel
 
 
 logger = logging.getLogger(__name__)
+
+
+class Answer(BaseModel):
+    answer: int
+
+
+def validate_answer_file(answer_file: str) -> int:
+    try:
+        with open(answer_file, "r") as f:
+            answer_data = json.load(f)
+            answer = Answer(**answer_data)
+            return answer.answer
+    except (FileNotFoundError, json.JSONDecodeError, ValueError) as e:
+        logger.error(f"Invalid answer file: {e}")
+        return -1
 
 
 def result_generator(process_func, df):

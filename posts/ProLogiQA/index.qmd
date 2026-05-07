@@ -6,6 +6,7 @@ author: "Matthias Matt"
 date: "2026-01-22"
 categories: [prolog, neuro symbolic]
 tags: [prolog, neuro symbolic]
+draft: true
 ---
 
 For this project I want to use the LogiQA 2.0 dataset.
