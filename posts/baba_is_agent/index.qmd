@@ -5,6 +5,8 @@ author: "Matthias Matt"
 date: "2026-04-26"
 categories: [agents, ai]
 tags: [agents, ai]
+bibliography: references.bib
+csl: ieee.csl
 ---
 
 I built an OpenCode-based agent to find out! Check out the code in the [GitHub repo](https://github.com/meffmadd/baba_is_agent)
@@ -23,7 +25,7 @@ OpenCode is an open-source CLI coding-agent that is extensible. Among other thin
 - **undo_multiple** - Undo last N moves
 - **todowrite** - Track task progress (OpenCode native)
 
-The two formats of the `get_game_state` tool are inspired by ARC AGI 3 and a paper by Nicolas Martorell. ARC AGI 3 returns the game state as a [3D array](https://docs.arcprize.org/api-reference/commands/start-or-reset-game-instance#response-frame) (one extra temporal dimension), which corresponds to the `grid` format here. The `entities` format is based on the Cartesian JSON notation from the paper, which performed very well in their evaluation.
+The two formats of the `get_game_state` tool are inspired by ARC AGI 3 [@arcagi3] and a paper by Nicolas Martorell [@martorell2025]. ARC AGI 3 returns the game state as a [3D array](https://docs.arcprize.org/api-reference/commands/start-or-reset-game-instance#response-frame) (one extra temporal dimension), which corresponds to the `grid` format here. The `entities` format is based on the Cartesian JSON notation from the paper, which performed very well in their evaluation.
 
 ## Evaluation
 
@@ -33,7 +35,7 @@ The timeout for each evaluation run was set to 20 minutes with a 200,000 token t
 
 - Evaluations were run only once per level and model (time/money constraints)
 - I forgot to remove the `AGENTS.md` file for evaluation (context bloat for level solve)
-- Relied on stats from OpenCode JSON logs entirely
+- Stats entierly rely on information provided by the OpenCode JSON logs
 
 OpenCode Go/Zen was used as a model provider. Models with the prefix `opencode/` refer to OpenCode Zen while the prefix `opencode-go/` refers to OpenCode Go.
 
@@ -146,6 +148,11 @@ Level 7 is conceptually very simple but has a few gotchas. Firstly, the walls ca
 Only `Gemini 3.1 Pro` solved this level successfully. `GPT 5.5` gave up voluntarily in this level, while `GLM 5.1` hit the output limit. All other models ran into the 20 minute timeout.
 
 ![Tokens vs Tool Calls](./assets/plots/level_7_progress.png)
+
+## References
+
+::: {#refs}
+:::
 
 ## Appendix
 
