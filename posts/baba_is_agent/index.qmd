@@ -9,9 +9,11 @@ tags: [agents, ai]
 
 I built an OpenCode-based agent to find out! Check out the code in the [GitHub repo](https://github.com/meffmadd/baba_is_agent)
 
+[Baba is You](https://www.hempuli.com/baba/) is a puzzle game where the player has to navigate grid-based levels and manipulate textual rules to get to an eventual win state. The rules affect entities on the grid such as walls, flags, rocks or yourself.
+
 ## Harness
 
-OpenCode is an open-source CLI coding-agent that is extensible. Among other things it is possible to write your own tools the agent can use. I was inspired by the fantastic [baba_is_eval](https://github.com/lennart-finke/baba_is_eval) repo and adapted its existing code, which was an MCP server, to work with OpenCode. On top of the game tools handling the gameplay from the existing repo I added some utility tools on top. Here is a short list of the tools the agent had access to:
+OpenCode is an open-source CLI coding-agent that is extensible. Among other things it is possible to write your own tools the agent can use. I was inspired by the fantastic [baba_is_eval](https://github.com/lennart-finke/baba_is_eval) repo and adapted its existing code, which was an MCP server, to work with OpenCode. On top of the tools handling the core gameplay from the existing repo I added `game_insights` and `shortest_path` as utility tools. Here is the list of tools the agent had access to:
 
 - **get_game_state** - Get current game state either as a 2D array of strings (`grid`) or a JSON list of entities (`entities`)
 - **execute_game_commands** - Execute a list of movement commands (up, down, left, right, idle)
@@ -21,17 +23,19 @@ OpenCode is an open-source CLI coding-agent that is extensible. Among other thin
 - **undo_multiple** - Undo last N moves
 - **todowrite** - Track task progress (OpenCode native)
 
+The two formats of the `get_game_state` tool are inspired by ARC AGI 3 and a paper by Nicolas Martorell. ARC AGI 3 returns the game state as a [3D array](https://docs.arcprize.org/api-reference/commands/start-or-reset-game-instance#response-frame) (one extra temporal dimension), which corresponds to the `grid` format here. The `entities` format is based on the Cartesian JSON notation from the paper, which performed very well in their evaluation.
+
 ## Evaluation
 
 The timeout for each evaluation run was set to 20 minutes with a 200,000 token threshold. Models never reached the 200,000 token threshold and only ever timed-out.
 
 **Caveats**:
 
-- Evaluations were oneshots only (time/money constraints)
+- Evaluations were run only once per level and model (time/money constraints)
 - I forgot to remove the `AGENTS.md` file for evaluation (context bloat for level solve)
-- Relied on stats from OpenCode JSON logs entierly
+- Relied on stats from OpenCode JSON logs entirely
 
-As a model provider i used OpenCode Go/Zen.
+OpenCode Go/Zen was used as a model provider. Models with the prefix `opencode/` refer to OpenCode Zen while the prefix `opencode-go/` refers to OpenCode Go.
 
 ## Results
 
@@ -51,11 +55,11 @@ As a model provider i used OpenCode Go/Zen.
 
 ![Level 0 Solve](./assets/level_gifs/baba_level_0.gif)
 
-Level 0 is the introductory level as is trivial as a result. The solution is just moving right 8 times, since the rocks can be pushed.
+Level 0 is the introductory level and is trivial as a result. The solution is just moving right 8 times, since the rocks can be pushed.
 
 ![Duration of solves](./assets/plots/level_0_duration.png)
 
-Due to the levels simplicity all models were able to solve it. `Qwen 3.6 Plus` took a surprisingly long time to complete it.
+Due to the level's simplicity all models were able to solve it. `Qwen 3.6 Plus` took a surprisingly long time to complete it.
 
 ![Tokens vs Tool Calls](./assets/plots/level_0_progress.png)
 
@@ -67,7 +71,7 @@ For this level there are two straightforward options to solve the level. Either 
 
 ![Duration of solves](./assets/plots/level_1_duration.png)
 
-This level was already a bit of forshadowing of the overall results. `Gemini 3.1 Pro` was clearly the fastest followed by the the closed frontier models. `Minimax M2.7` already timed-out and the other open models needed significantly more time.
+This level was already a bit of foreshadowing of the overall results. `Gemini 3.1 Pro` was clearly the fastest followed by the closed frontier models. `Minimax M2.7` already timed-out and the other open models needed significantly more time.
 
 ![Tokens vs Tool Calls](./assets/plots/level_1_progress.png)
 
@@ -91,7 +95,7 @@ In this level, the `FLAG` is a red herring and the flag and rock rules have to b
 
 ![Duration of solves](./assets/plots/level_3_duration.png)
 
-Here we see a new case where a solve failed for the first time without timing out. `GLM 5.1` and `Kimi K2.6` produced more than 32k reasoning tokens, which resulted in an error. Now `DeepSeek V4 Pro`and `Qwen 3.6 Plus` timed out as well. This means only the closed frontier models were abel to solve this level.
+Here we see a new case where a solve failed for the first time without timing out. `GLM 5.1` and `Kimi K2.6` produced more than 32k reasoning tokens, which resulted in an error. Now `DeepSeek V4 Pro` and `Qwen 3.6 Plus` timed out as well. This means only the closed frontier models were able to solve this level.
 
 ![Tokens vs Tool Calls](./assets/plots/level_3_progress.png)
 
@@ -99,7 +103,7 @@ Here we see a new case where a solve failed for the first time without timing ou
 
 ![Level 4 Solve](./assets/level_gifs/baba_level_4.gif)
 
-In this level, we encoutner the `DEFEAT` rule for the first time. It has to be deactivated to bypass the skull barrier. This can be done by using the rocks or the text of the rock rule.
+In this level, we encounter the `DEFEAT` rule for the first time. It has to be deactivated to bypass the skull barrier. This can be done by using the rocks or the text of the rock rule.
 
 ![Duration of solves](./assets/plots/level_4_duration.png)
 
@@ -115,7 +119,7 @@ Level 5 requires creative rule manipulation to make the `LAVA` pushable, thus by
 
 ![Duration of solves](./assets/plots/level_5_duration.png)
 
-The challenge for `Gemini 3.1 Pro` and `GPT 5.5` was definitelly turned up a notch as the solving times almost doubled. `GLM 5.1` and `Opus 4.7` produced encountered an error again with a high number of output tokens. The remaining models were unable to solve the level within the 20 minutes.
+The challenge for `Gemini 3.1 Pro` and `GPT 5.5` was definitely turned up a notch as the solving times almost doubled. `GLM 5.1` and `Opus 4.7` encountered an error again with a high number of output tokens. The remaining models were unable to solve the level within the 20 minutes.
 
 ![Tokens vs Tool Calls](./assets/plots/level_5_progress.png)
 
@@ -123,7 +127,7 @@ The challenge for `Gemini 3.1 Pro` and `GPT 5.5` was definitelly turned up a not
 
 ![Level 6 Solve](./assets/level_gifs/baba_level_6.gif)
 
-This level again requires creative rule manipulation. Since `SKULL IS DEFEAT` cannot be deactivated, we have to find a way to bypass the skull barrier. To achieve this we have to create a `WALL IS YOU` rule since some wall blocks are already passed the barrier. This way we can reach the flag and win.
+This level again requires creative rule manipulation. Since `SKULL IS DEFEAT` cannot be deactivated, we have to find a way to bypass the skull barrier. To achieve this we have to create a `WALL IS YOU` rule since some wall blocks are already past the barrier. This way we can reach the flag and win.
 
 ![Duration of solves](./assets/plots/level_6_duration.png)
 
