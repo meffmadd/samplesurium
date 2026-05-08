@@ -29,9 +29,9 @@ The timeout for each evaluation run was set to 20 minutes with a 200,000 token t
 
 - Evaluations were oneshots only (time/money constraints)
 - I forgot to remove the `AGENTS.md` file for evaluation (context bloat for level solve)
+- Relied on stats from OpenCode JSON logs entierly
 
-For the providers I used OpenCode Go/Zen.
-
+As a model provider i used OpenCode Go/Zen.
 
 ## Results
 
@@ -46,4 +46,145 @@ For the providers I used OpenCode Go/Zen.
 | opencode/gpt-5.5 | 7/8 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
 | opencode/gemini-3.1-pro | 8/8 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
+
+### Level 0
+
+![Level 0 Solve](./assets/level_gifs/baba_level_0.gif)
+
+Level 0 is the introductory level as is trivial as a result. The solution is just moving right 8 times, since the rocks can be pushed.
+
+![Duration of solves](./assets/plots/level_0_duration.png)
+
+Due to the levels simplicity all models were able to solve it. `Qwen 3.6 Plus` took a surprisingly long time to complete it.
+
+![Tokens vs Tool Calls](./assets/plots/level_0_progress.png)
+
+### Level 1
+
+![Level 1 Solve](./assets/level_gifs/baba_level_1.gif)
+
+For this level there are two straightforward options to solve the level. Either construct `FLAG IS WIN` or the slightly more tricky solution is to construct `WALL IS WIN`.
+
+![Duration of solves](./assets/plots/level_1_duration.png)
+
+This level was already a bit of forshadowing of the overall results. `Gemini 3.1 Pro` was clearly the fastest followed by the the closed frontier models. `Minimax M2.7` already timed-out and the other open models needed significantly more time.
+
+![Tokens vs Tool Calls](./assets/plots/level_1_progress.png)
+
+### Level 2
+
+![Level 2 Solve](./assets/level_gifs/baba_level_2.gif)
+
+Level 2 is conceptually very similar to level 1, however the entities are now shuffled (e.g. `FLAG` now acts as a wall). There is now only one option to solve the level, namely to construct `FLAG IS WIN`. This corresponds to the second option from level 1.
+
+![Duration of solves](./assets/plots/level_2_duration.png)
+
+Models needed a bit more time to solve this level so the difficulty seems to indeed be a bit higher.
+
+![Tokens vs Tool Calls](./assets/plots/level_2_progress.png)
+
+### Level 3
+
+![Level 3 Solve](./assets/level_gifs/baba_level_3.gif)
+
+In this level, the `FLAG` is a red herring and the flag and rock rules have to be manipulated to form `ROCK IS WIN`. This is also a level where the sink mechanic is used, where the first rock has to be used to destroy one water block to pass.
+
+![Duration of solves](./assets/plots/level_3_duration.png)
+
+Here we see a new case where a solve failed for the first time without timing out. `GLM 5.1` and `Kimi K2.6` produced more than 32k reasoning tokens, which resulted in an error. Now `DeepSeek V4 Pro`and `Qwen 3.6 Plus` timed out as well. This means only the closed frontier models were abel to solve this level.
+
+![Tokens vs Tool Calls](./assets/plots/level_3_progress.png)
+
+### Level 4
+
+![Level 4 Solve](./assets/level_gifs/baba_level_4.gif)
+
+In this level, we encoutner the `DEFEAT` rule for the first time. It has to be deactivated to bypass the skull barrier. This can be done by using the rocks or the text of the rock rule.
+
+![Duration of solves](./assets/plots/level_4_duration.png)
+
+`GLM 5.1` was able to solve this level while `Opus 4.7` timed out. `Gemini 3.1 Pro` and `GPT 5.5` were able to solve the level very quickly and efficiently again.
+
+![Tokens vs Tool Calls](./assets/plots/level_4_progress.png)
+
+### Level 5
+
+![Level 5 Solve](./assets/level_gifs/baba_level_5.gif)
+
+Level 5 requires creative rule manipulation to make the `LAVA` pushable, thus bypassing the `HOT` and `MELT` constraints.
+
+![Duration of solves](./assets/plots/level_5_duration.png)
+
+The challenge for `Gemini 3.1 Pro` and `GPT 5.5` was definitelly turned up a notch as the solving times almost doubled. `GLM 5.1` and `Opus 4.7` produced encountered an error again with a high number of output tokens. The remaining models were unable to solve the level within the 20 minutes.
+
+![Tokens vs Tool Calls](./assets/plots/level_5_progress.png)
+
+### Level 6
+
+![Level 6 Solve](./assets/level_gifs/baba_level_6.gif)
+
+This level again requires creative rule manipulation. Since `SKULL IS DEFEAT` cannot be deactivated, we have to find a way to bypass the skull barrier. To achieve this we have to create a `WALL IS YOU` rule since some wall blocks are already passed the barrier. This way we can reach the flag and win.
+
+![Duration of solves](./assets/plots/level_6_duration.png)
+
+`Opus 4.7` was barely able to solve this level within the 20 minutes. `GPT 5.5` was very fast in this level. Again, only the closed frontier models were able to solve this level. In this level, `Kimi K2.6` gave up voluntarily after extensive trial and error just before the timeout. `GLM 5.1` hit the output token limit again. 
+
+![Tokens vs Tool Calls](./assets/plots/level_6_progress.png)
+
+### Level 7
+
+![Level 7 Solve](./assets/level_gifs/baba_level_7.gif)
+
+Level 7 is conceptually very simple but has a few gotchas. Firstly, the walls can be ignored completely and only create the illusion that the area is enclosed. In reality they are no obstacle at all. Meanwhile the grass blocks the path and creates a sort of labyrinth. The text blocks have to be moved out of the grass labyrinth and then the `BABA IS YOU` rule has to be reused to create the `FLAG IS WIN` rule, sharing the `IS`. The level is also movement heavy, requiring a lot of precise positioning.
+
+![Duration of solves](./assets/plots/level_7_duration.png)
+
+Only `Gemini 3.1 Pro` solved this level successfully. `GPT 5.5` gave up voluntarily in this level, while `GLM 5.1` hit the output limit. All other models ran into the 20 minute timeout.
+
+![Tokens vs Tool Calls](./assets/plots/level_7_progress.png)
+
+## Appendix
+
+### Model Cost Matrix
+
+| Model | Level 0 | Level 1 | Level 2 | Level 3 | Level 4 | Level 5 | Level 6 | Level 7 | Total |
+|---|---|---|---|---|---|---|---|---|---|
+| opencode-go/minimax-m2.7 | $0.0021 | $0.2710 | $0.1147 | $0.0846 | $0.3114 | $0.1203 | $0.0535 | $0.1389 | $1.0965 |
+| opencode-go/deepseek-v4-pro | $0.0088 | $0.2687 | $0.2940 | $0.1526 | $0.1089 | $0.1402 | $0.1457 | $0.1386 | $1.2576 |
+| opencode-go/kimi-k2.6 | $0.0009 | $0.0805 | $0.0641 | $0.0439 | $0.1324 | $0.1089 | $0.1294 | $0.1339 | $0.6941 |
+| opencode-go/qwen3.6-plus | $0.0416 | $0.1499 | $0.0623 | $0.2797 | $0.2706 | $0.1876 | $0.2082 | $0.1665 | $1.3663 |
+| opencode-go/glm-5.1 | $0.0092 | $0.1616 | $0.2090 | $0.1944 | $0.9351 | $0.2869 | $0.3110 | $0.1507 | $2.2579 |
+| opencode/claude-opus-4-7 | $0.0664 | $0.4944 | $0.6071 | $0.7789 | $3.5187 | $1.7768 | $4.1527 | $3.4331 | $14.8282 |
+| opencode/gpt-5.5 | $0.0325 | $0.2763 | $0.1822 | $0.3598 | $0.4260 | $0.8592 | $0.5434 | $2.5312 | $5.2107 |
+| opencode/gemini-3.1-pro | $0.0174 | $0.0910 | $0.1003 | $0.3032 | $0.1831 | $0.4174 | $0.5932 | $0.4191 | $2.1246 |
+
+### Game State Format Preference
+
+How often each model called `get_game_state` with `format=entities` vs `format=grid` across all runs.
+
+| Model | Entities Calls | Grid Calls | Preferred |
+|---|---|---|---|
+| opencode-go/minimax-m2.7 | 20 (18%) | 92 (82%) | grid |
+| opencode-go/deepseek-v4-pro | 14 (58%) | 10 (42%) | entities |
+| opencode-go/kimi-k2.6 | 16 (55%) | 13 (45%) | entities |
+| opencode-go/qwen3.6-plus | 16 (62%) | 10 (38%) | entities |
+| opencode-go/glm-5.1 | 11 (65%) | 6 (35%) | entities |
+| opencode/claude-opus-4-7 | 18 (43%) | 24 (57%) | grid |
+| opencode/gpt-5.5 | 16 (70%) | 7 (30%) | entities |
+| opencode/gemini-3.1-pro | 8 (73%) | 3 (27%) | entities |
+
+### Tool Usage Matrix
+
+Tool call counts (with percentage of total tool calls per model) across all runs.
+
+| Model | execute_game_commands | game_insights | get_game_state | restart_level | shortest_path | todowrite | undo_multiple |
+|---|---|---|---|---|---|---|---|
+| opencode-go/minimax-m2.7 | 326 (47%) | 43 (6%) | 112 (16%) | 48 (7%) | 147 (21%) | 0 (0%) | 19 (3%) |
+| opencode-go/deepseek-v4-pro | 94 (62%) | 11 (7%) | 24 (16%) | 4 (3%) | 15 (10%) | 2 (1%) | 1 (1%) |
+| opencode-go/kimi-k2.6 | 52 (45%) | 14 (12%) | 29 (25%) | 3 (3%) | 12 (10%) | 0 (0%) | 5 (4%) |
+| opencode-go/qwen3.6-plus | 133 (66%) | 8 (4%) | 26 (13%) | 15 (8%) | 13 (6%) | 0 (0%) | 5 (2%) |
+| opencode-go/glm-5.1 | 24 (37%) | 8 (12%) | 17 (26%) | 1 (2%) | 2 (3%) | 12 (18%) | 1 (2%) |
+| opencode/claude-opus-4-7 | 85 (46%) | 13 (7%) | 42 (23%) | 9 (5%) | 27 (15%) | 7 (4%) | 2 (1%) |
+| opencode/gpt-5.5 | 43 (40%) | 9 (8%) | 23 (21%) | 4 (4%) | 25 (23%) | 0 (0%) | 3 (3%) |
+| opencode/gemini-3.1-pro | 37 (44%) | 7 (8%) | 11 (13%) | 2 (2%) | 19 (22%) | 6 (7%) | 3 (4%) |
 
