@@ -1,7 +1,7 @@
 color:
   palette:
     white: "#F6F3EE"
-    black: "#00153D"
+    black: "#0d1626"
     cream: "#E8BD9B"
     blue: "#0A57C2"
     cyan: "#01BAEF"
@@ -11,11 +11,12 @@ color:
     orange: "#D36135"
     red: "#BD120F"
     purple: "#7A306C"
+    dark-grey: "#454A54"
     grey: "#E3E1DD"
   foreground: black
   background: white
   primary: red
-  secondary: blue
+  secondary: dark-grey
   tertiary: yellow
   success: green
   info: cyan

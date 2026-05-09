@@ -55,99 +55,99 @@ OpenCode Go/Zen was used as a model provider. Models with the prefix `opencode/`
 
 ### Level 0
 
-![Level 0 Solve](./assets/level_gifs/baba_level_0.gif)
+![Level 0 Human Solve](./assets/level_gifs/baba_level_0.gif){width=80%}
 
 Level 0 is the introductory level and is trivial as a result. The solution is just moving right 8 times, since the rocks can be pushed.
 
-![Duration of solves](./assets/plots/level_0_duration.png)
+![Solve Duration by Model](./assets/plots/level_0_duration.png){width=80%}
 
 Due to the level's simplicity all models were able to solve it. `Qwen 3.6 Plus` took a surprisingly long time to complete it.
 
-![Tokens vs Tool Calls](./assets/plots/level_0_progress.png)
+![Token Usage vs Tool Calls](./assets/plots/level_0_progress.png){width=80%}
 
 ### Level 1
 
-![Level 1 Solve](./assets/level_gifs/baba_level_1.gif)
+![Level 1 Human Solve](./assets/level_gifs/baba_level_1.gif){width=80%}
 
 For this level there are two straightforward options to solve the level. Either construct `FLAG IS WIN` or the slightly more tricky solution is to construct `WALL IS WIN`.
 
-![Duration of solves](./assets/plots/level_1_duration.png)
+![Solve Duration by Model](./assets/plots/level_1_duration.png){width=80%}
 
 This level was already a bit of foreshadowing of the overall results. `Gemini 3.1 Pro` was clearly the fastest followed by the closed frontier models. `Minimax M2.7` already timed-out and the other open models needed significantly more time.
 
-![Tokens vs Tool Calls](./assets/plots/level_1_progress.png)
+![Token Usage vs Tool Calls](./assets/plots/level_1_progress.png){width=80%}
 
 ### Level 2
 
-![Level 2 Solve](./assets/level_gifs/baba_level_2.gif)
+![Level 2 Human Solve](./assets/level_gifs/baba_level_2.gif){width=80%}
 
 Level 2 is conceptually very similar to level 1, however the entities are now shuffled (e.g. `FLAG` now acts as a wall). There is now only one option to solve the level, namely to construct `FLAG IS WIN`. This corresponds to the second option from level 1.
 
-![Duration of solves](./assets/plots/level_2_duration.png)
+![Solve Duration by Model](./assets/plots/level_2_duration.png){width=80%}
 
 Models needed a bit more time to solve this level so the difficulty seems to indeed be a bit higher.
 
-![Tokens vs Tool Calls](./assets/plots/level_2_progress.png)
+![Token Usage vs Tool Calls](./assets/plots/level_2_progress.png){width=80%}
 
 ### Level 3
 
-![Level 3 Solve](./assets/level_gifs/baba_level_3.gif)
+![Level 3 Human Solve](./assets/level_gifs/baba_level_3.gif){width=80%}
 
 In this level, the `FLAG` is a red herring and the flag and rock rules have to be manipulated to form `ROCK IS WIN`. This is also a level where the sink mechanic is used, where the first rock has to be used to destroy one water block to pass.
 
-![Duration of solves](./assets/plots/level_3_duration.png)
+![Solve Duration by Model](./assets/plots/level_3_duration.png){width=80%}
 
 Here we see a new case where a solve failed for the first time without timing out. `GLM 5.1` and `Kimi K2.6` produced more than 32k reasoning tokens, which resulted in an error. Now `DeepSeek V4 Pro` and `Qwen 3.6 Plus` timed out as well. This means only the closed frontier models were able to solve this level.
 
-![Tokens vs Tool Calls](./assets/plots/level_3_progress.png)
+![Token Usage vs Tool Calls](./assets/plots/level_3_progress.png){width=80%}
 
 ### Level 4
 
-![Level 4 Solve](./assets/level_gifs/baba_level_4.gif)
+![Level 4 Human Solve](./assets/level_gifs/baba_level_4.gif){width=80%}
 
 In this level, we encounter the `DEFEAT` rule for the first time. It has to be deactivated to bypass the skull barrier. This can be done by using the rocks or the text of the rock rule.
 
-![Duration of solves](./assets/plots/level_4_duration.png)
+![Solve Duration by Model](./assets/plots/level_4_duration.png){width=80%}
 
 `GLM 5.1` was able to solve this level while `Opus 4.7` timed out. `Gemini 3.1 Pro` and `GPT 5.5` were able to solve the level very quickly and efficiently again.
 
-![Tokens vs Tool Calls](./assets/plots/level_4_progress.png)
+![Token Usage vs Tool Calls](./assets/plots/level_4_progress.png){width=80%}
 
 ### Level 5
 
-![Level 5 Solve](./assets/level_gifs/baba_level_5.gif)
+![Level 5 Human Solve](./assets/level_gifs/baba_level_5.gif){width=80%}
 
 Level 5 requires creative rule manipulation to make the `LAVA` pushable, thus bypassing the `HOT` and `MELT` constraints.
 
-![Duration of solves](./assets/plots/level_5_duration.png)
+![Solve Duration by Model](./assets/plots/level_5_duration.png){width=80%}
 
 The challenge for `Gemini 3.1 Pro` and `GPT 5.5` was definitely turned up a notch as the solving times almost doubled. `GLM 5.1` and `Opus 4.7` encountered an error again with a high number of output tokens. The remaining models were unable to solve the level within the 20 minutes.
 
-![Tokens vs Tool Calls](./assets/plots/level_5_progress.png)
+![Token Usage vs Tool Calls](./assets/plots/level_5_progress.png){width=80%}
 
 ### Level 6
 
-![Level 6 Solve](./assets/level_gifs/baba_level_6.gif)
+![Level 6 Human Solve](./assets/level_gifs/baba_level_6.gif){width=80%}
 
 This level again requires creative rule manipulation. Since `SKULL IS DEFEAT` cannot be deactivated, we have to find a way to bypass the skull barrier. To achieve this we have to create a `WALL IS YOU` rule since some wall blocks are already past the barrier. This way we can reach the flag and win.
 
-![Duration of solves](./assets/plots/level_6_duration.png)
+![Solve Duration by Model](./assets/plots/level_6_duration.png){width=80%}
 
 `Opus 4.7` was barely able to solve this level within the 20 minutes. `GPT 5.5` was very fast in this level. Again, only the closed frontier models were able to solve this level. In this level, `Kimi K2.6` gave up voluntarily after extensive trial and error just before the timeout. `GLM 5.1` hit the output token limit again. 
 
-![Tokens vs Tool Calls](./assets/plots/level_6_progress.png)
+![Token Usage vs Tool Calls](./assets/plots/level_6_progress.png){width=80%}
 
 ### Level 7
 
-![Level 7 Solve](./assets/level_gifs/baba_level_7.gif)
+![Level 7 Human Solve](./assets/level_gifs/baba_level_7.gif){width=80%}
 
 Level 7 is conceptually very simple but has a few gotchas. Firstly, the walls can be ignored completely and only create the illusion that the area is enclosed. In reality they are no obstacle at all. Meanwhile the grass blocks the path and creates a sort of labyrinth. The text blocks have to be moved out of the grass labyrinth and then the `BABA IS YOU` rule has to be reused to create the `FLAG IS WIN` rule, sharing the `IS`. The level is also movement heavy, requiring a lot of precise positioning.
 
-![Duration of solves](./assets/plots/level_7_duration.png)
+![Solve Duration by Model](./assets/plots/level_7_duration.png){width=80%}
 
 Only `Gemini 3.1 Pro` solved this level successfully. `GPT 5.5` gave up voluntarily in this level, while `GLM 5.1` hit the output limit. All other models ran into the 20 minute timeout.
 
-![Tokens vs Tool Calls](./assets/plots/level_7_progress.png)
+![Token Usage vs Tool Calls](./assets/plots/level_7_progress.png){width=80%}
 
 ## References
 

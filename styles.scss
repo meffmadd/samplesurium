@@ -65,3 +65,27 @@ $navbar-stripe-epsilon: 1px;
     background-size: 100% 100%;
   }
 }
+
+.quarto-figure {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+figcaption {
+  text-align: center;
+}
+
+h1::before {
+  content: "# ";
+  color: $brand-red;
+}
+
+h2::before {
+  content: "## ";
+  color: $brand-blue;
+}
+
+h3::before {
+  content: "### ";
+  color: $brand-yellow;
+}

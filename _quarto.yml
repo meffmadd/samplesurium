@@ -12,6 +12,8 @@ website:
         href: https://github.com/meffmadd/samplesurium
 format:
   html:
+    toc: true
+    toc-location: right
     code-block-border-left: "$brand-blue"
     code-block-bg: "$brand-grey"
     theme:
