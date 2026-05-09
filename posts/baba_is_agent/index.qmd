@@ -15,7 +15,7 @@ I built an OpenCode-based agent to find out! Check out the code in the [GitHub r
 
 ## Harness
 
-OpenCode is an open-source CLI coding-agent that is extensible. Among other things it is possible to write your own tools the agent can use. I was inspired by the fantastic [baba_is_eval](https://github.com/lennart-finke/baba_is_eval) repo and adapted its existing code, which was an MCP server, to work with OpenCode. On top of the tools handling the core gameplay from the existing repo I added `game_insights` and `shortest_path` as utility tools. Here is the list of tools the agent had access to:
+OpenCode is an open-source CLI coding-agent that is extensible, including writing your own tools the agent can use. I was inspired by the fantastic [baba_is_eval](https://github.com/lennart-finke/baba_is_eval) repo and adapted its existing code, which was an MCP server, to work with OpenCode. On top of updating the tools handling the core gameplay from the existing repo, I added `game_insights` and `shortest_path` as utility tools. Here is the list of tools the agent had access to:
 
 - **get_game_state** - Get current game state either as a 2D array of strings (`grid`) or a JSON list of entities (`entities`)
 - **execute_game_commands** - Execute a list of movement commands (up, down, left, right, idle)
@@ -41,6 +41,8 @@ OpenCode Go/Zen was used as a model provider. Models with the prefix `opencode/`
 
 ## Results
 
+TODO: intro
+
 | Model | Passed | Level 0 | Level 1 | Level 2 | Level 3 | Level 4 | Level 5 | Level 6 | Level 7 |
 |---|---|---|---|---|---|---|---|---|---|
 | opencode-go/minimax-m2.7 | 1/8 | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
@@ -52,6 +54,7 @@ OpenCode Go/Zen was used as a model provider. Models with the prefix `opencode/`
 | opencode/gpt-5.5 | 7/8 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
 | opencode/gemini-3.1-pro | 8/8 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
+In the followning section I want to quickly go over the results for each level in a bit more detail. The models different quite a bit in both the time to solve the level and the token/tool calls required to do so. However, it is not possible to draw any definitive conclusion with only a single attempt per level per model.
 
 ### Level 0
 
@@ -61,7 +64,7 @@ Level 0 is the introductory level and is trivial as a result. The solution is ju
 
 ![Solve Duration by Model](./assets/plots/level_0_duration.png){width=80%}
 
-Due to the level's simplicity all models were able to solve it. `Qwen 3.6 Plus` took a surprisingly long time to complete it.
+Due to the level's simplicity all models were able to solve it. `Qwen 3.6 Plus` is a bit of an outlier here in terms of the time required to solve the level. It also made 8 tool calls, whereas all other models required only 2-3.
 
 ![Token Usage vs Tool Calls](./assets/plots/level_0_progress.png){width=80%}
 
@@ -73,7 +76,7 @@ For this level there are two straightforward options to solve the level. Either 
 
 ![Solve Duration by Model](./assets/plots/level_1_duration.png){width=80%}
 
-This level was already a bit of foreshadowing of the overall results. `Gemini 3.1 Pro` was clearly the fastest followed by the closed frontier models. `Minimax M2.7` already timed-out and the other open models needed significantly more time.
+This level was a bit of foreshadowing of the overall results. `Gemini 3.1 Pro` was clearly the fastest followed by the closed frontier models. `Minimax M2.7` already timed-out and the other open models needed significantly more time compared to the closed frontier models.
 
 ![Token Usage vs Tool Calls](./assets/plots/level_1_progress.png){width=80%}
 
@@ -81,11 +84,11 @@ This level was already a bit of foreshadowing of the overall results. `Gemini 3.
 
 ![Level 2 Human Solve](./assets/level_gifs/baba_level_2.gif){width=80%}
 
-Level 2 is conceptually very similar to level 1, however the entities are now shuffled (e.g. `FLAG` now acts as a wall). There is now only one option to solve the level, namely to construct `FLAG IS WIN`. This corresponds to the second option from level 1.
+Level 2 is conceptually very similar to level 1 with the same layout, however the entities are now permuted (e.g. `FLAG` now acts as a wall). There is now only one option to solve the level, namely to construct `FLAG IS WIN`. This corresponds to the second option from level 1.
 
 ![Solve Duration by Model](./assets/plots/level_2_duration.png){width=80%}
 
-Models needed a bit more time to solve this level so the difficulty seems to indeed be a bit higher.
+Models needed a bit more time to solve this level so the difficulty seems to indeed be a bit higher compared to level 1.
 
 ![Token Usage vs Tool Calls](./assets/plots/level_2_progress.png){width=80%}
 
@@ -93,11 +96,11 @@ Models needed a bit more time to solve this level so the difficulty seems to ind
 
 ![Level 3 Human Solve](./assets/level_gifs/baba_level_3.gif){width=80%}
 
-In this level, the `FLAG` is a red herring and the flag and rock rules have to be manipulated to form `ROCK IS WIN`. This is also a level where the sink mechanic is used, where the first rock has to be used to destroy one water block to pass.
+In this level, the `FLAG` is a red herring and the flag and rock rules in the lower right corner have to be manipulated to form `ROCK IS WIN`. This is also a level where the sink mechanic is used. The first rock has to be pushed agains a water block to destroy it and be able to pass.
 
 ![Solve Duration by Model](./assets/plots/level_3_duration.png){width=80%}
 
-Here we see a new case where a solve failed for the first time without timing out. `GLM 5.1` and `Kimi K2.6` produced more than 32k reasoning tokens, which resulted in an error. Now `DeepSeek V4 Pro` and `Qwen 3.6 Plus` timed out as well. This means only the closed frontier models were able to solve this level.
+Here we see a new case where a solve failed for the first time without timing out. `GLM 5.1` and `Kimi K2.6` produced more than 32k reasoning tokens, which prematurely exits the evaluation. `DeepSeek V4 Pro` and `Qwen 3.6 Plus` reached the time limit and timed out. This means only the closed frontier models were able to solve this level.
 
 ![Token Usage vs Tool Calls](./assets/plots/level_3_progress.png){width=80%}
 
@@ -105,11 +108,11 @@ Here we see a new case where a solve failed for the first time without timing ou
 
 ![Level 4 Human Solve](./assets/level_gifs/baba_level_4.gif){width=80%}
 
-In this level, we encounter the `DEFEAT` rule for the first time. It has to be deactivated to bypass the skull barrier. This can be done by using the rocks or the text of the rock rule.
+In this level, we encounter the `DEFEAT` rule for the first time. It has to be deactivated to bypass the skull barrier surrounding the flag with the win condition. This can be done by using the rocks or the text of the `ROCK IS PUSH` rule itself to break the `SKULL IS DEFEAT` rule.
 
 ![Solve Duration by Model](./assets/plots/level_4_duration.png){width=80%}
 
-`GLM 5.1` was able to solve this level while `Opus 4.7` timed out. `Gemini 3.1 Pro` and `GPT 5.5` were able to solve the level very quickly and efficiently again.
+`GLM 5.1` was able to solve this level while `Opus 4.7` reached the time limit. `Gemini 3.1 Pro` and `GPT 5.5` were able to solve the level very quickly and efficiently again.
 
 ![Token Usage vs Tool Calls](./assets/plots/level_4_progress.png){width=80%}
 
@@ -121,7 +124,7 @@ Level 5 requires creative rule manipulation to make the `LAVA` pushable, thus by
 
 ![Solve Duration by Model](./assets/plots/level_5_duration.png){width=80%}
 
-The challenge for `Gemini 3.1 Pro` and `GPT 5.5` was definitely turned up a notch as the solving times almost doubled. `GLM 5.1` and `Opus 4.7` encountered an error again with a high number of output tokens. The remaining models were unable to solve the level within the 20 minutes.
+The challenge for `Gemini 3.1 Pro` and `GPT 5.5` was definitely turned up a notch as the solving times almost doubled for this level compared to the previous one. `GLM 5.1` and `Opus 4.7` encountered an error again, exceeding the maximum number of output tokens per step. The remaining models were unable to solve the level within the 20 minutes time frame.
 
 ![Token Usage vs Tool Calls](./assets/plots/level_5_progress.png){width=80%}
 
@@ -129,11 +132,11 @@ The challenge for `Gemini 3.1 Pro` and `GPT 5.5` was definitely turned up a notc
 
 ![Level 6 Human Solve](./assets/level_gifs/baba_level_6.gif){width=80%}
 
-This level again requires creative rule manipulation. Since `SKULL IS DEFEAT` cannot be deactivated, we have to find a way to bypass the skull barrier. To achieve this we have to create a `WALL IS YOU` rule since some wall blocks are already past the barrier. This way we can reach the flag and win.
+This level again requires creative rule manipulation. Since `SKULL IS DEFEAT` cannot be deactivated, we have to find a way to bypass the skull barrier. To achieve this, we have to create a `WALL IS YOU` rule, since some wall blocks are already past the barrier. This way we can reach the flag and win.
 
 ![Solve Duration by Model](./assets/plots/level_6_duration.png){width=80%}
 
-`Opus 4.7` was barely able to solve this level within the 20 minutes. `GPT 5.5` was very fast in this level. Again, only the closed frontier models were able to solve this level. In this level, `Kimi K2.6` gave up voluntarily after extensive trial and error just before the timeout. `GLM 5.1` hit the output token limit again. 
+`Opus 4.7` was barely able to solve this level within the 20 minutes. `GPT 5.5` and `Gemini 3.1 Pro` were able to solve the level very quickly again. In this level, `Kimi K2.6` gave up voluntarily after extensive trial and error just before the timeout. `GLM 5.1` hit the output token limit. Only the closed frontier models were able to solve this level. 
 
 ![Token Usage vs Tool Calls](./assets/plots/level_6_progress.png){width=80%}
 
@@ -141,7 +144,7 @@ This level again requires creative rule manipulation. Since `SKULL IS DEFEAT` ca
 
 ![Level 7 Human Solve](./assets/level_gifs/baba_level_7.gif){width=80%}
 
-Level 7 is conceptually very simple but has a few gotchas. Firstly, the walls can be ignored completely and only create the illusion that the area is enclosed. In reality they are no obstacle at all. Meanwhile the grass blocks the path and creates a sort of labyrinth. The text blocks have to be moved out of the grass labyrinth and then the `BABA IS YOU` rule has to be reused to create the `FLAG IS WIN` rule, sharing the `IS`. The level is also movement heavy, requiring a lot of precise positioning.
+Level 7 is conceptually very simple but has a few gotchas. Firstly, the walls can be ignored completely and only create the illusion that the area is enclosed. In reality they are no obstacle at all. Meanwhile the grass encloses the `FLAG` and `WIN` bocks and creates a sort of labyrinth. The text blocks have to be moved out of the grass labyrinth and then the `BABA IS YOU` rule has to be reused to create the `FLAG IS WIN` rule, sharing the `IS`. The level is also movement heavy, requiring a lot of precise positioning.
 
 ![Solve Duration by Model](./assets/plots/level_7_duration.png){width=80%}
 
