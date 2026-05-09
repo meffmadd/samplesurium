@@ -85,7 +85,17 @@ h2::before {
   color: $brand-blue;
 }
 
+#toc-title::before {
+  content: none;
+}
+
 h3::before {
   content: "### ";
   color: $brand-yellow;
+}
+
+table {
+  max-width: 100%;
+  overflow-x: auto;
+  display: block;
 }
