@@ -45,14 +45,14 @@ The following table shows the overall results of the models. We see some varianc
 
 | Model | Passed | Level 0 | Level 1 | Level 2 | Level 3 | Level 4 | Level 5 | Level 6 | Level 7 |
 |---|---|---|---|---|---|---|---|---|---|
-| opencode-go/minimax-m2.7 | 1/8 | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| opencode-go/deepseek-v4-pro | 3/8 | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| opencode-go/kimi-k2.6 | 3/8 | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| opencode-go/qwen3.6-plus | 3/8 | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| opencode-go/glm-5.1 | 4/8 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
-| opencode/claude-opus-4-7 | 5/8 | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ |
-| opencode/gpt-5.5 | 7/8 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
-| opencode/gemini-3.1-pro | 8/8 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| MiniMax M2.7 | 1/8 | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| DeepSeek V4 Pro | 3/8 | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Kimi K2.6 | 3/8 | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Qwen 3.6 Plus | 3/8 | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| GLM 5.1 | 4/8 | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| Claude Opus 4.7 | 5/8 | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ |
+| GPT 5.5 | 7/8 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| Gemini 3.1 Pro | 8/8 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 In the followning sections I want to quickly go over the results for each level in a bit more detail. The models different quite a bit in both the time to solve the level and the token/tool calls required to do so. However, it is not possible to draw any definitive conclusion with only a single attempt per level per model.
 
@@ -174,14 +174,14 @@ Below is the cost of each model accoss all levels with the overall total.
 
 | Model | Level 0 | Level 1 | Level 2 | Level 3 | Level 4 | Level 5 | Level 6 | Level 7 | Total |
 |---|---|---|---|---|---|---|---|---|---|
-| opencode-go/minimax-m2.7 | $0.0021 | $0.2710 | $0.1147 | $0.0846 | $0.3114 | $0.1203 | $0.0535 | $0.1389 | $1.0965 |
-| opencode-go/deepseek-v4-pro | $0.0088 | $0.2687 | $0.2940 | $0.1526 | $0.1089 | $0.1402 | $0.1457 | $0.1386 | $1.2576 |
-| opencode-go/kimi-k2.6 | $0.0009 | $0.0805 | $0.0641 | $0.0439 | $0.1324 | $0.1089 | $0.1294 | $0.1339 | $0.6941 |
-| opencode-go/qwen3.6-plus | $0.0416 | $0.1499 | $0.0623 | $0.2797 | $0.2706 | $0.1876 | $0.2082 | $0.1665 | $1.3663 |
-| opencode-go/glm-5.1 | $0.0092 | $0.1616 | $0.2090 | $0.1944 | $0.9351 | $0.2869 | $0.3110 | $0.1507 | $2.2579 |
-| opencode/claude-opus-4-7 | $0.0664 | $0.4944 | $0.6071 | $0.7789 | $3.5187 | $1.7768 | $4.1527 | $3.4331 | $14.8282 |
-| opencode/gpt-5.5 | $0.0325 | $0.2763 | $0.1822 | $0.3598 | $0.4260 | $0.8592 | $0.5434 | $2.5312 | $5.2107 |
-| opencode/gemini-3.1-pro | $0.0174 | $0.0910 | $0.1003 | $0.3032 | $0.1831 | $0.4174 | $0.5932 | $0.4191 | $2.1246 |
+| MiniMax M2.7 | $0.0021 | $0.2710 | $0.1147 | $0.0846 | $0.3114 | $0.1203 | $0.0535 | $0.1389 | $1.0965 |
+| DeepSeek V4 Pro | $0.0088 | $0.2687 | $0.2940 | $0.1526 | $0.1089 | $0.1402 | $0.1457 | $0.1386 | $1.2576 |
+| Kimi K2.6 | $0.0009 | $0.0805 | $0.0641 | $0.0439 | $0.1324 | $0.1089 | $0.1294 | $0.1339 | $0.6941 |
+| Qwen 3.6 Plus | $0.0416 | $0.1499 | $0.0623 | $0.2797 | $0.2706 | $0.1876 | $0.2082 | $0.1665 | $1.3663 |
+| GLM 5.1 | $0.0092 | $0.1616 | $0.2090 | $0.1944 | $0.9351 | $0.2869 | $0.3110 | $0.1507 | $2.2579 |
+| Claude Opus 4.7 | $0.0664 | $0.4944 | $0.6071 | $0.7789 | $3.5187 | $1.7768 | $4.1527 | $3.4331 | $14.8282 |
+| GPT 5.5 | $0.0325 | $0.2763 | $0.1822 | $0.3598 | $0.4260 | $0.8592 | $0.5434 | $2.5312 | $5.2107 |
+| Gemini 3.1 Pro | $0.0174 | $0.0910 | $0.1003 | $0.3032 | $0.1831 | $0.4174 | $0.5932 | $0.4191 | $2.1246 |
 
 ### Game State Format Preference
 
@@ -189,14 +189,14 @@ The table below shows how often each model called `get_game_state` with `format=
 
 | Model | Entities Calls | Grid Calls | Preferred |
 |---|---|---|---|
-| opencode-go/minimax-m2.7 | 20 (18%) | 92 (82%) | grid |
-| opencode-go/deepseek-v4-pro | 14 (58%) | 10 (42%) | entities |
-| opencode-go/kimi-k2.6 | 16 (55%) | 13 (45%) | entities |
-| opencode-go/qwen3.6-plus | 16 (62%) | 10 (38%) | entities |
-| opencode-go/glm-5.1 | 11 (65%) | 6 (35%) | entities |
-| opencode/claude-opus-4-7 | 18 (43%) | 24 (57%) | grid |
-| opencode/gpt-5.5 | 16 (70%) | 7 (30%) | entities |
-| opencode/gemini-3.1-pro | 8 (73%) | 3 (27%) | entities |
+| MiniMax M2.7 | 20 (18%) | 92 (82%) | grid |
+| DeepSeek V4 Pro | 14 (58%) | 10 (42%) | entities |
+| Kimi K2.6 | 16 (55%) | 13 (45%) | entities |
+| Qwen 3.6 Plus | 16 (62%) | 10 (38%) | entities |
+| GLM 5.1 | 11 (65%) | 6 (35%) | entities |
+| Claude Opus 4.7 | 18 (43%) | 24 (57%) | grid |
+| GPT 5.5 | 16 (70%) | 7 (30%) | entities |
+| Gemini 3.1 Pro | 8 (73%) | 3 (27%) | entities |
 
 ### Tool Usage Matrix
 
@@ -204,12 +204,12 @@ Below are the overall tool call counts (with percentage of total tool calls per 
 
 | Model | execute_game_commands | game_insights | get_game_state | restart_level | shortest_path | todowrite | undo_multiple |
 |---|---|---|---|---|---|---|---|
-| opencode-go/minimax-m2.7 | 326 (47%) | 43 (6%) | 112 (16%) | 48 (7%) | 147 (21%) | 0 (0%) | 19 (3%) |
-| opencode-go/deepseek-v4-pro | 94 (62%) | 11 (7%) | 24 (16%) | 4 (3%) | 15 (10%) | 2 (1%) | 1 (1%) |
-| opencode-go/kimi-k2.6 | 52 (45%) | 14 (12%) | 29 (25%) | 3 (3%) | 12 (10%) | 0 (0%) | 5 (4%) |
-| opencode-go/qwen3.6-plus | 133 (66%) | 8 (4%) | 26 (13%) | 15 (8%) | 13 (6%) | 0 (0%) | 5 (2%) |
-| opencode-go/glm-5.1 | 24 (37%) | 8 (12%) | 17 (26%) | 1 (2%) | 2 (3%) | 12 (18%) | 1 (2%) |
-| opencode/claude-opus-4-7 | 85 (46%) | 13 (7%) | 42 (23%) | 9 (5%) | 27 (15%) | 7 (4%) | 2 (1%) |
-| opencode/gpt-5.5 | 43 (40%) | 9 (8%) | 23 (21%) | 4 (4%) | 25 (23%) | 0 (0%) | 3 (3%) |
-| opencode/gemini-3.1-pro | 37 (44%) | 7 (8%) | 11 (13%) | 2 (2%) | 19 (22%) | 6 (7%) | 3 (4%) |
+| MiniMax M2.7 | 326 (47%) | 43 (6%) | 112 (16%) | 48 (7%) | 147 (21%) | 0 (0%) | 19 (3%) |
+| DeepSeek V4 Pro | 94 (62%) | 11 (7%) | 24 (16%) | 4 (3%) | 15 (10%) | 2 (1%) | 1 (1%) |
+| Kimi K2.6 | 52 (45%) | 14 (12%) | 29 (25%) | 3 (3%) | 12 (10%) | 0 (0%) | 5 (4%) |
+| Qwen 3.6 Plus | 133 (66%) | 8 (4%) | 26 (13%) | 15 (8%) | 13 (6%) | 0 (0%) | 5 (2%) |
+| GLM 5.1 | 24 (37%) | 8 (12%) | 17 (26%) | 1 (2%) | 2 (3%) | 12 (18%) | 1 (2%) |
+| Claude Opus 4.7 | 85 (46%) | 13 (7%) | 42 (23%) | 9 (5%) | 27 (15%) | 7 (4%) | 2 (1%) |
+| GPT 5.5 | 43 (40%) | 9 (8%) | 23 (21%) | 4 (4%) | 25 (23%) | 0 (0%) | 3 (3%) |
+| Gemini 3.1 Pro | 37 (44%) | 7 (8%) | 11 (13%) | 2 (2%) | 19 (22%) | 6 (7%) | 3 (4%) |
 
