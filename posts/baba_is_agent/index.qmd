@@ -58,7 +58,7 @@ In the followning sections I want to quickly go over the results for each level 
 
 ### Level 0
 
-![Level 0 Human Solve](./assets/level_gifs/baba_level_0.gif){width=80%}
+![Level 0 Human Solve](./assets/level_gifs/baba_level_0.gif){width=65%}
 
 Level 0 is the introductory level and is trivial as a result. The solution is just moving right 8 times, since the rocks can be pushed.
 
@@ -70,7 +70,7 @@ Due to the level's simplicity all models were able to solve it. `Qwen 3.6 Plus` 
 
 ### Level 1
 
-![Level 1 Human Solve](./assets/level_gifs/baba_level_1.gif){width=80%}
+![Level 1 Human Solve](./assets/level_gifs/baba_level_1.gif){width=65%}
 
 For this level there are two straightforward options to solve the level. Either construct `FLAG IS WIN` or the slightly more tricky solution is to construct `WALL IS WIN`.
 
@@ -82,7 +82,7 @@ This level was a bit of foreshadowing of the overall results. `Gemini 3.1 Pro` w
 
 ### Level 2
 
-![Level 2 Human Solve](./assets/level_gifs/baba_level_2.gif){width=80%}
+![Level 2 Human Solve](./assets/level_gifs/baba_level_2.gif){width=65%}
 
 Level 2 is conceptually very similar to level 1 with the same layout, however the entities are now permuted (e.g. `FLAG` now acts as a wall). There is now only one option to solve the level, namely to construct `FLAG IS WIN`. This corresponds to the second option from level 1.
 
@@ -94,7 +94,7 @@ Models needed a bit more time to solve this level so the difficulty seems to ind
 
 ### Level 3
 
-![Level 3 Human Solve](./assets/level_gifs/baba_level_3.gif){width=80%}
+![Level 3 Human Solve](./assets/level_gifs/baba_level_3.gif){width=65%}
 
 In this level, the `FLAG` is a red herring and the flag and rock rules in the lower right corner have to be manipulated to form `ROCK IS WIN`. This is also a level where the sink mechanic is used. The first rock has to be pushed agains a water block to destroy it and be able to pass.
 
@@ -106,7 +106,7 @@ Here we see a new case where a solve failed for the first time without timing ou
 
 ### Level 4
 
-![Level 4 Human Solve](./assets/level_gifs/baba_level_4.gif){width=80%}
+![Level 4 Human Solve](./assets/level_gifs/baba_level_4.gif){width=65%}
 
 In this level, we encounter the `DEFEAT` rule for the first time. It has to be deactivated to bypass the skull barrier surrounding the flag with the win condition. This can be done by using the rocks or the text of the `ROCK IS PUSH` rule itself to break the `SKULL IS DEFEAT` rule.
 
@@ -118,7 +118,7 @@ In this level, we encounter the `DEFEAT` rule for the first time. It has to be d
 
 ### Level 5
 
-![Level 5 Human Solve](./assets/level_gifs/baba_level_5.gif){width=80%}
+![Level 5 Human Solve](./assets/level_gifs/baba_level_5.gif){width=65%}
 
 Level 5 requires creative rule manipulation to make the `LAVA` pushable, thus bypassing the `HOT` and `MELT` constraints.
 
@@ -130,7 +130,7 @@ The challenge for `Gemini 3.1 Pro` and `GPT 5.5` was definitely turned up a notc
 
 ### Level 6
 
-![Level 6 Human Solve](./assets/level_gifs/baba_level_6.gif){width=80%}
+![Level 6 Human Solve](./assets/level_gifs/baba_level_6.gif){width=65%}
 
 This level again requires creative rule manipulation. Since `SKULL IS DEFEAT` cannot be deactivated, we have to find a way to bypass the skull barrier. To achieve this, we have to create a `WALL IS YOU` rule, since some wall blocks are already past the barrier. This way we can reach the flag and win.
 
@@ -142,7 +142,7 @@ This level again requires creative rule manipulation. Since `SKULL IS DEFEAT` ca
 
 ### Level 7
 
-![Level 7 Human Solve](./assets/level_gifs/baba_level_7.gif){width=80%}
+![Level 7 Human Solve](./assets/level_gifs/baba_level_7.gif){width=65%}
 
 Level 7 is conceptually very simple but has a few gotchas. Firstly, the walls can be ignored completely and only create the illusion that the area is enclosed. In reality they are no obstacle at all. Meanwhile the grass encloses the `FLAG` and `WIN` bocks and creates a sort of labyrinth. The text blocks have to be moved out of the grass labyrinth and then the `BABA IS YOU` rule has to be reused to create the `FLAG IS WIN` rule, sharing the `IS`. The level is also movement heavy, requiring a lot of precise positioning.
 
