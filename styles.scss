@@ -67,8 +67,8 @@ $navbar-stripe-epsilon: 1px;
 }
 
 .quarto-figure {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 figcaption {
@@ -94,8 +94,11 @@ h3::before {
   color: $brand-yellow;
 }
 
-table {
+table,
+table.table {
   max-width: 100%;
   overflow-x: auto;
   display: block;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
