@@ -9,7 +9,7 @@ bibliography: references.bib
 csl: ieee.csl
 ---
 
-I built an OpenCode-based agent to find out! Check out the code in the [GitHub repo](https://github.com/meffmadd/baba_is_agent)
+I built an OpenCode-based agent to find out! Check out the code in the [GitHub repo](https://github.com/meffmadd/baba_is_agent)!
 
 [Baba is You](https://www.hempuli.com/baba/) is a puzzle game where the player has to navigate grid-based levels and manipulate textual rules to get to an eventual win state. The rules affect entities on the grid such as walls, flags, rocks or yourself.
 
@@ -25,7 +25,7 @@ OpenCode is an open-source CLI coding-agent that is extensible, including writin
 - **undo_multiple** - Undo last N moves
 - **todowrite** - Track task progress (OpenCode native)
 
-The two formats of the `get_game_state` tool are inspired by ARC AGI 3 [@arcagi3] and a paper by Nicolas Martorell [@martorell2025]. ARC AGI 3 returns the game state as a [3D array](https://docs.arcprize.org/api-reference/commands/start-or-reset-game-instance#response-frame) (one extra temporal dimension), which corresponds to the `grid` format here. The `entities` format is based on the Cartesian JSON notation from the paper, which performed very well in their evaluation.
+The two formats of the `get_game_state` tool are inspired by ARC AGI 3 [@arcagi3] and a paper by Nicolas Martorell [@martorell2025]. ARC AGI 3 returns the game state as a [3D array](https://docs.arcprize.org/api-reference/commands/start-or-reset-game-instance#response-frame) (one extra temporal dimension), which corresponds to the `grid` format here. The `entities` format is based on the Cartesian JSON notation from the paper [@martorell2025], which performed very well in their evaluation.
 
 ## Evaluation
 
@@ -37,7 +37,7 @@ The timeout for each evaluation run was set to 20 minutes with a 200,000 token t
 - I forgot to remove the `AGENTS.md` file for evaluation (context bloat for level solve)
 - Stats entierly rely on information provided by the OpenCode JSON logs
 
-OpenCode Go/Zen was used as a model provider. Models with the prefix `opencode/` refer to OpenCode Zen while the prefix `opencode-go/` refers to OpenCode Go.
+OpenCode Go/Zen was used as a model provider. 
 
 ## Results
 
@@ -96,7 +96,7 @@ Models needed a bit more time to solve this level so the difficulty seems to ind
 
 ![Level 3 Human Solve](./assets/level_gifs/baba_level_3.gif){width=65%}
 
-In this level, the `FLAG` is a red herring and the flag and rock rules in the lower right corner have to be manipulated to form `ROCK IS WIN`. This is also a level where the sink mechanic is used. The first rock has to be pushed agains a water block to destroy it and be able to pass.
+In this level, the `FLAG` is a red herring and the flag and rock rules in the lower right corner have to be manipulated to form `ROCK IS WIN`. This is also a level where the sink mechanic is used. The first rock has to be pushed against a water block to destroy it and be able to pass.
 
 ![Solve Duration by Model](./assets/plots/level_3_duration.png){width=80%}
 
