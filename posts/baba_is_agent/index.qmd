@@ -35,13 +35,13 @@ The timeout for each evaluation run was set to 20 minutes with a 200,000 token t
 
 - Evaluations were run only once per level and model (time/money constraints)
 - I forgot to remove the `AGENTS.md` file for evaluation (context bloat for level solve)
-- Stats entierly rely on information provided by the OpenCode JSON logs
+- Stats entirely rely on information provided by the OpenCode JSON logs
 
 OpenCode Go/Zen was used as a model provider. 
 
 ## Results
 
-The following table shows the overall results of the models. We see some variance in model cabability across open and closed frontier models. `Gemini 3.1 Pro` was able to solve all levels while the best open-weights model is `GLM 5.1` with 5 out of 8 levels beaten.
+The following table shows the overall results of the models. We see some variance in model capability across open and closed frontier models. `Gemini 3.1 Pro` was able to solve all levels while the best open-weights model is `GLM 5.1` with 5 out of 8 levels beaten.
 
 | Model | Passed | Level 0 | Level 1 | Level 2 | Level 3 | Level 4 | Level 5 | Level 6 | Level 7 |
 |---|---|---|---|---|---|---|---|---|---|
@@ -54,7 +54,7 @@ The following table shows the overall results of the models. We see some varianc
 | GPT 5.5 | 7/8 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
 | Gemini 3.1 Pro | 8/8 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
-In the followning sections I want to quickly go over the results for each level in a bit more detail. The models different quite a bit in both the time to solve the level and the token/tool calls required to do so. However, it is not possible to draw any definitive conclusion with only a single attempt per level per model.
+In the following sections I want to quickly go over the results for each level in a bit more detail. The models differed quite a bit in both the time to solve the level and the token/tool calls required to do so. However, it is not possible to draw any definitive conclusion with only a single attempt per level per model.
 
 ### Level 0
 
@@ -144,7 +144,7 @@ This level again requires creative rule manipulation. Since `SKULL IS DEFEAT` ca
 
 ![Level 7 Human Solve](./assets/level_gifs/baba_level_7.gif){width=65%}
 
-Level 7 is conceptually very simple but has a few gotchas. Firstly, the walls can be ignored completely and only create the illusion that the area is enclosed. In reality they are no obstacle at all. Meanwhile the grass encloses the `FLAG` and `WIN` bocks and creates a sort of labyrinth. The text blocks have to be moved out of the grass labyrinth and then the `BABA IS YOU` rule has to be reused to create the `FLAG IS WIN` rule, sharing the `IS`. The level is also movement heavy, requiring a lot of precise positioning.
+Level 7 is conceptually very simple but has a few gotchas. Firstly, the walls can be ignored completely and only create the illusion that the area is enclosed. In reality they are no obstacle at all. Meanwhile the grass encloses the `FLAG` and `WIN` blocks and creates a sort of labyrinth. The text blocks have to be moved out of the grass labyrinth and then the `BABA IS YOU` rule has to be reused to create the `FLAG IS WIN` rule, sharing the `IS`. The level is also movement heavy, requiring a lot of precise positioning.
 
 ![Solve Duration by Model](./assets/plots/level_7_duration.png){width=80%}
 
@@ -159,7 +159,7 @@ As with some other "boutique" benchmarks, there was a clear distinction between 
 
 `Minimax M2.7` was clearly too small and could not solve any non-trivial level. `GLM 5.1` and `Opus 4.7` are quite close and won different levels each. `GLM 5.1` was also the only open weights model to solve a level past level 2. `Gemini 3.1 Pro` and `GPT 5.5` seem to be performing best. They are certainly more efficient. With the release of ARC AGI 3, models will likely improve for this task as well. The closed frontier models tested here barely make a dent in the [ARC AGI 3 leaderboard](https://arcprize.org/leaderboard) and only score 0.1-0.4% as of May 10th 2026.
 
-I now wonder if anything like this shows up in the training data of the closed models or if it is just emergent behavior. Maybe open labs do focus more heavily on pure coding harnesses to close the gap there, while frontier labs train their models in broader contexts. Google seems like like that at least.
+I now wonder if anything like this shows up in the training data of the closed models or if it is just emergent behavior. Maybe open labs do focus more heavily on pure coding harnesses to close the gap there, while frontier labs train their models in broader contexts. Google seems like that at least.
 
 ## References
 
@@ -170,7 +170,7 @@ I now wonder if anything like this shows up in the training data of the closed m
 
 ### Model Cost Matrix
 
-Below is the cost of each model accoss all levels with the overall total.
+Below is the cost of each model across all levels with the overall total.
 
 | Model | Level 0 | Level 1 | Level 2 | Level 3 | Level 4 | Level 5 | Level 6 | Level 7 | Total |
 |---|---|---|---|---|---|---|---|---|---|
