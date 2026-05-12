@@ -17,13 +17,13 @@ I built an OpenCode-based agent to find out! Check out the code in the [GitHub r
 
 OpenCode is an open-source CLI coding-agent that is extensible, including writing your own tools the agent can use. I was inspired by the fantastic [baba_is_eval](https://github.com/lennart-finke/baba_is_eval) repo and adapted its existing code, which was an MCP server, to work with OpenCode. On top of updating the tools handling the core gameplay from the existing repo, I added `game_insights` and `shortest_path` as utility tools. Here is the list of tools the agent had access to:
 
-- **get_game_state** - Get current game state either as a 2D array of strings (`grid`) or a JSON list of entities (`entities`)
-- **execute_game_commands** - Execute a list of movement commands (up, down, left, right, idle)
-- **restart_level** - Restart the current level
-- **game_insights** - Shows the active rules, you/win positions, and the shortest path to a win position (if applicable)
-- **shortest_path** - A* pathfinding to target position, avoiding blocked entities (e.g. entities with stop or defeat rules)
-- **undo_multiple** - Undo last N moves
-- **todowrite** - Track task progress (OpenCode native)
+- `get_game_state`: Get current game state either as a 2D array of strings (`grid`) or a JSON list of entities (`entities`)
+- `execute_game_commands`: Execute a list of movement commands (up, down, left, right, idle)
+- `restart_level`: Restart the current level
+- `game_insights`: Shows the active rules, you/win positions, and the shortest path to a win position (if applicable)
+- `shortest_path`: A* pathfinding to target position, avoiding blocked entities (e.g. entities with stop or defeat rules)
+- `undo_multiple`: Undo last N moves
+- `todowrite`: Track task progress (OpenCode native)
 
 The two formats of the `get_game_state` tool are inspired by ARC AGI 3 [@arcagi3] and a paper by Nicolas Martorell [@martorell2025]. ARC AGI 3 returns the game state as a [3D array](https://docs.arcprize.org/api-reference/commands/start-or-reset-game-instance#response-frame) (one extra temporal dimension), which corresponds to the `grid` format here. The `entities` format is based on the Cartesian JSON notation from the paper [@martorell2025], which performed very well in their evaluation.
 

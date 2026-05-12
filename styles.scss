@@ -102,3 +102,25 @@ table.table {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+
+main ul {
+  list-style: none;
+
+  > li {
+    margin-bottom: 0.25rem;
+  }
+
+  > li::before {
+    content: "*";
+    color: $brand-red;
+    margin-right: 0.5rem;
+  }
+}
+
+main ul ul > li::before {
+  color: $brand-blue;
+}
+
+main ul ul ul > li::before {
+  color: $brand-yellow;
+}
