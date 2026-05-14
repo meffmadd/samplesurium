@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Matthias Matt">
+<meta name="dcterms.date" content="2026-04-26">
+
+<title>Baba is Agent – Samplesurium</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-23bbe8b5e4efc1e257f6d59dce478b08.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-184e34d2de9641b61589ca0425edd132.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-7b6cf322916c3c6333db4d0e5acd44e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-184e34d2de9641b61589ca0425edd132.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Samplesurium</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/meffmadd/samplesurium"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Baba is Agent</h1>
+            <p class="subtitle lead">Can LLMs play Baba Is You?</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">agents</div>
+                <div class="quarto-category">ai</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Matthias Matt </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 26, 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#harness" id="toc-harness" class="nav-link active" data-scroll-target="#harness">Harness</a></li>
+  <li><a href="#evaluation" id="toc-evaluation" class="nav-link" data-scroll-target="#evaluation">Evaluation</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
+  <ul class="collapse">
+  <li><a href="#level-0" id="toc-level-0" class="nav-link" data-scroll-target="#level-0">Level 0</a></li>
+  <li><a href="#level-1" id="toc-level-1" class="nav-link" data-scroll-target="#level-1">Level 1</a></li>
+  <li><a href="#level-2" id="toc-level-2" class="nav-link" data-scroll-target="#level-2">Level 2</a></li>
+  <li><a href="#level-3" id="toc-level-3" class="nav-link" data-scroll-target="#level-3">Level 3</a></li>
+  <li><a href="#level-4" id="toc-level-4" class="nav-link" data-scroll-target="#level-4">Level 4</a></li>
+  <li><a href="#level-5" id="toc-level-5" class="nav-link" data-scroll-target="#level-5">Level 5</a></li>
+  <li><a href="#level-6" id="toc-level-6" class="nav-link" data-scroll-target="#level-6">Level 6</a></li>
+  <li><a href="#level-7" id="toc-level-7" class="nav-link" data-scroll-target="#level-7">Level 7</a></li>
+  </ul></li>
+  <li><a href="#wrapping-up" id="toc-wrapping-up" class="nav-link" data-scroll-target="#wrapping-up">Wrapping up</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a>
+  <ul class="collapse">
+  <li><a href="#model-cost-matrix" id="toc-model-cost-matrix" class="nav-link" data-scroll-target="#model-cost-matrix">Model Cost Matrix</a></li>
+  <li><a href="#game-state-format-preference" id="toc-game-state-format-preference" class="nav-link" data-scroll-target="#game-state-format-preference">Game State Format Preference</a></li>
+  <li><a href="#tool-usage-matrix" id="toc-tool-usage-matrix" class="nav-link" data-scroll-target="#tool-usage-matrix">Tool Usage Matrix</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>I built an OpenCode-based agent to find out! Check out the code in the <a href="https://github.com/meffmadd/baba_is_agent">GitHub repo</a>!</p>
+<p><a href="https://www.hempuli.com/baba/">Baba is You</a> is a puzzle game where the player has to navigate grid-based levels and manipulate textual rules to get to an eventual win state. The rules affect entities on the grid such as walls, flags, rocks or yourself.</p>
+<section id="harness" class="level2">
+<h2 class="anchored" data-anchor-id="harness">Harness</h2>
+<p>OpenCode is an open-source CLI coding-agent that is extensible, including writing your own tools the agent can use. I was inspired by the fantastic <a href="https://github.com/lennart-finke/baba_is_eval">baba_is_eval</a> repo and adapted its existing code, which was an MCP server, to work with OpenCode. On top of updating the tools handling the core gameplay from the existing repo, I added <code>game_insights</code> and <code>shortest_path</code> as utility tools. Here is the list of tools the agent had access to:</p>
+<ul>
+<li><code>get_game_state</code>: Get current game state either as a 2D array of strings (<code>grid</code>) or a JSON list of entities (<code>entities</code>)</li>
+<li><code>execute_game_commands</code>: Execute a list of movement commands (up, down, left, right, idle)</li>
+<li><code>restart_level</code>: Restart the current level</li>
+<li><code>game_insights</code>: Shows the active rules, you/win positions, and the shortest path to a win position (if applicable)</li>
+<li><code>shortest_path</code>: A* pathfinding to target position, avoiding blocked entities (e.g.&nbsp;entities with stop or defeat rules)</li>
+<li><code>undo_multiple</code>: Undo last N moves</li>
+<li><code>todowrite</code>: Track task progress (OpenCode native)</li>
+</ul>
+<p>The two formats of the <code>get_game_state</code> tool are inspired by ARC AGI 3 <span class="citation" data-cites="arcagi3"><a href="#ref-arcagi3" role="doc-biblioref">[1]</a></span> and a paper by Nicolas Martorell <span class="citation" data-cites="martorell2025"><a href="#ref-martorell2025" role="doc-biblioref">[2]</a></span>. ARC AGI 3 returns the game state as a <a href="https://docs.arcprize.org/api-reference/commands/start-or-reset-game-instance#response-frame">3D array</a> (one extra temporal dimension), which corresponds to the <code>grid</code> format here. The <code>entities</code> format is based on the Cartesian JSON notation from the paper <span class="citation" data-cites="martorell2025"><a href="#ref-martorell2025" role="doc-biblioref">[2]</a></span>, which performed very well in their evaluation.</p>
+</section>
+<section id="evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation">Evaluation</h2>
+<p>The timeout for each evaluation run was set to 20 minutes with a 200,000 token threshold. Models never reached the 200,000 token threshold and only ever timed-out.</p>
+<p><strong>Caveats</strong>:</p>
+<ul>
+<li>Evaluations were run only once per level and model (time/money constraints)</li>
+<li>I forgot to remove the <code>AGENTS.md</code> file for evaluation (context bloat for level solve)</li>
+<li>Stats entirely rely on information provided by the OpenCode JSON logs</li>
+</ul>
+<p>OpenCode Go/Zen was used as a model provider.</p>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<p>The following table shows the overall results of the models. We see some variance in model capability across open and closed frontier models. <code>Gemini 3.1 Pro</code> was able to solve all levels while the best open-weights model is <code>GLM 5.1</code> with 5 out of 8 levels beaten.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Passed</th>
+<th>Level 0</th>
+<th>Level 1</th>
+<th>Level 2</th>
+<th>Level 3</th>
+<th>Level 4</th>
+<th>Level 5</th>
+<th>Level 6</th>
+<th>Level 7</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MiniMax M2.7</td>
+<td>1/8</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr class="even">
+<td>DeepSeek V4 Pro</td>
+<td>3/8</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr class="odd">
+<td>Kimi K2.6</td>
+<td>3/8</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr class="even">
+<td>Qwen 3.6 Plus</td>
+<td>3/8</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr class="odd">
+<td>GLM 5.1</td>
+<td>4/8</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr class="even">
+<td>Claude Opus 4.7</td>
+<td>5/8</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr class="odd">
+<td>GPT 5.5</td>
+<td>7/8</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr class="even">
+<td>Gemini 3.1 Pro</td>
+<td>8/8</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>In the following sections I want to quickly go over the results for each level in a bit more detail. The models differed quite a bit in both the time to solve the level and the token/tool calls required to do so. However, it is not possible to draw any definitive conclusion with only a single attempt per level per model.</p>
+<section id="level-0" class="level3">
+<h3 class="anchored" data-anchor-id="level-0">Level 0</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/level_gifs/baba_level_0.gif" class="img-fluid figure-img" style="width:65.0%"></p>
+<figcaption>Level 0 Human Solve</figcaption>
+</figure>
+</div>
+<p>Level 0 is the introductory level and is trivial as a result. The solution is just moving right 8 times, since the rocks can be pushed.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/plots/level_0_duration.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Solve Duration by Model</figcaption>
+</figure>
+</div>
+<p>Due to the level’s simplicity all models were able to solve it. <code>Qwen 3.6 Plus</code> is a bit of an outlier here in terms of the time required to solve the level. It also made 8 tool calls, whereas all other models required only 2-3.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/plots/level_0_progress.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Token Usage vs Tool Calls</figcaption>
+</figure>
+</div>
+</section>
+<section id="level-1" class="level3">
+<h3 class="anchored" data-anchor-id="level-1">Level 1</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/level_gifs/baba_level_1.gif" class="img-fluid figure-img" style="width:65.0%"></p>
+<figcaption>Level 1 Human Solve</figcaption>
+</figure>
+</div>
+<p>For this level there are two straightforward options to solve the level. Either construct <code>FLAG IS WIN</code> or the slightly more tricky solution is to construct <code>WALL IS WIN</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/plots/level_1_duration.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Solve Duration by Model</figcaption>
+</figure>
+</div>
+<p>This level was a bit of foreshadowing of the overall results. <code>Gemini 3.1 Pro</code> was clearly the fastest followed by the closed frontier models. <code>Minimax M2.7</code> already timed-out and the other open models needed significantly more time compared to the closed frontier models.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/plots/level_1_progress.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Token Usage vs Tool Calls</figcaption>
+</figure>
+</div>
+</section>
+<section id="level-2" class="level3">
+<h3 class="anchored" data-anchor-id="level-2">Level 2</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/level_gifs/baba_level_2.gif" class="img-fluid figure-img" style="width:65.0%"></p>
+<figcaption>Level 2 Human Solve</figcaption>
+</figure>
+</div>
+<p>Level 2 is conceptually very similar to level 1 with the same layout, however the entities are now permuted (e.g.&nbsp;<code>FLAG</code> now acts as a wall). There is now only one option to solve the level, namely to construct <code>FLAG IS WIN</code>. This corresponds to the second option from level 1.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/plots/level_2_duration.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Solve Duration by Model</figcaption>
+</figure>
+</div>
+<p>Models needed a bit more time to solve this level so the difficulty seems to indeed be a bit higher compared to level 1.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/plots/level_2_progress.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Token Usage vs Tool Calls</figcaption>
+</figure>
+</div>
+</section>
+<section id="level-3" class="level3">
+<h3 class="anchored" data-anchor-id="level-3">Level 3</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/level_gifs/baba_level_3.gif" class="img-fluid figure-img" style="width:65.0%"></p>
+<figcaption>Level 3 Human Solve</figcaption>
+</figure>
+</div>
+<p>In this level, the <code>FLAG</code> is a red herring and the flag and rock rules in the lower right corner have to be manipulated to form <code>ROCK IS WIN</code>. This is also a level where the sink mechanic is used. The first rock has to be pushed against a water block to destroy it and be able to pass.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/plots/level_3_duration.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Solve Duration by Model</figcaption>
+</figure>
+</div>
+<p>Here we see a new case where a solve failed for the first time without timing out. <code>GLM 5.1</code> and <code>Kimi K2.6</code> produced more than 32k reasoning tokens, which prematurely exits the evaluation. <code>DeepSeek V4 Pro</code> and <code>Qwen 3.6 Plus</code> reached the time limit and timed out. This means only the closed frontier models were able to solve this level.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/plots/level_3_progress.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Token Usage vs Tool Calls</figcaption>
+</figure>
+</div>
+</section>
+<section id="level-4" class="level3">
+<h3 class="anchored" data-anchor-id="level-4">Level 4</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/level_gifs/baba_level_4.gif" class="img-fluid figure-img" style="width:65.0%"></p>
+<figcaption>Level 4 Human Solve</figcaption>
+</figure>
+</div>
+<p>In this level, we encounter the <code>DEFEAT</code> rule for the first time. It has to be deactivated to bypass the skull barrier surrounding the flag with the win condition. This can be done by using the rocks or the text of the <code>ROCK IS PUSH</code> rule itself to break the <code>SKULL IS DEFEAT</code> rule.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/plots/level_4_duration.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Solve Duration by Model</figcaption>
+</figure>
+</div>
+<p><code>GLM 5.1</code> was able to solve this level while <code>Claude Opus 4.7</code> reached the time limit. <code>Gemini 3.1 Pro</code> and <code>GPT 5.5</code> were able to solve the level very quickly and efficiently again.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/plots/level_4_progress.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Token Usage vs Tool Calls</figcaption>
+</figure>
+</div>
+</section>
+<section id="level-5" class="level3">
+<h3 class="anchored" data-anchor-id="level-5">Level 5</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/level_gifs/baba_level_5.gif" class="img-fluid figure-img" style="width:65.0%"></p>
+<figcaption>Level 5 Human Solve</figcaption>
+</figure>
+</div>
+<p>Level 5 requires creative rule manipulation to make the <code>LAVA</code> pushable, thus bypassing the <code>HOT</code> and <code>MELT</code> constraints.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/plots/level_5_duration.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Solve Duration by Model</figcaption>
+</figure>
+</div>
+<p>The challenge for <code>Gemini 3.1 Pro</code> and <code>GPT 5.5</code> was definitely turned up a notch as the solving times almost doubled for this level compared to the previous one. <code>GLM 5.1</code> and <code>Claude Opus 4.7</code> encountered an error again, exceeding the maximum number of output tokens per step. The remaining models were unable to solve the level within the 20 minutes time frame.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/plots/level_5_progress.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Token Usage vs Tool Calls</figcaption>
+</figure>
+</div>
+</section>
+<section id="level-6" class="level3">
+<h3 class="anchored" data-anchor-id="level-6">Level 6</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/level_gifs/baba_level_6.gif" class="img-fluid figure-img" style="width:65.0%"></p>
+<figcaption>Level 6 Human Solve</figcaption>
+</figure>
+</div>
+<p>This level again requires creative rule manipulation. Since <code>SKULL IS DEFEAT</code> cannot be deactivated, we have to find a way to bypass the skull barrier. To achieve this, we have to create a <code>WALL IS YOU</code> rule, since some wall blocks are already past the barrier. This way we can reach the flag and win.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/plots/level_6_duration.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Solve Duration by Model</figcaption>
+</figure>
+</div>
+<p><code>Claude Opus 4.7</code> was barely able to solve this level within the 20 minutes. <code>GPT 5.5</code> and <code>Gemini 3.1 Pro</code> were able to solve the level very quickly again. In this level, <code>Kimi K2.6</code> gave up voluntarily after extensive trial and error just before the timeout. <code>GLM 5.1</code> hit the output token limit. Only the closed frontier models were able to solve this level.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/plots/level_6_progress.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Token Usage vs Tool Calls</figcaption>
+</figure>
+</div>
+</section>
+<section id="level-7" class="level3">
+<h3 class="anchored" data-anchor-id="level-7">Level 7</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/level_gifs/baba_level_7.gif" class="img-fluid figure-img" style="width:65.0%"></p>
+<figcaption>Level 7 Human Solve</figcaption>
+</figure>
+</div>
+<p>Level 7 is conceptually very simple but has a few gotchas. Firstly, the walls can be ignored completely and only create the illusion that the area is enclosed. In reality they are no obstacle at all. Meanwhile the grass encloses the <code>FLAG</code> and <code>WIN</code> blocks and creates a sort of labyrinth. The text blocks have to be moved out of the grass labyrinth and then the <code>BABA IS YOU</code> rule has to be reused to create the <code>FLAG IS WIN</code> rule, sharing the <code>IS</code>. The level is also movement heavy, requiring a lot of precise positioning.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/plots/level_7_duration.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Solve Duration by Model</figcaption>
+</figure>
+</div>
+<p>Only <code>Gemini 3.1 Pro</code> solved this level successfully. <code>GPT 5.5</code> gave up voluntarily in this level, while <code>GLM 5.1</code> hit the output limit. All other models ran into the 20 minute timeout.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/plots/level_7_progress.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Token Usage vs Tool Calls</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="wrapping-up" class="level2">
+<h2 class="anchored" data-anchor-id="wrapping-up">Wrapping up</h2>
+<p>After running the evaluations, I was surprised how clear the signal was. As with some other “boutique” benchmarks, there was a clear distinction between open-weights models and closed frontier models on these more niche tasks.</p>
+<p><code>Minimax M2.7</code> was clearly too small and could not solve any non-trivial level. <code>GLM 5.1</code> and <code>Claude Opus 4.7</code> are quite close and won different levels each. <code>GLM 5.1</code> was also the only open weights model to solve a level past level 2. <code>Gemini 3.1 Pro</code> and <code>GPT 5.5</code> seem to be performing best. They are certainly more efficient. With the release of ARC AGI 3, models will likely improve for this task as well. The closed frontier models tested here barely make a dent in the <a href="https://arcprize.org/leaderboard">ARC AGI 3 leaderboard</a> and only score 0.1-0.4% as of May 10th 2026.</p>
+<p>I now wonder if anything like this shows up in the training data of the closed models or if it is just emergent behavior. Maybe open labs do focus more heavily on pure coding harnesses to close the gap there, while frontier labs train their models in broader contexts. Google seems like that at least.</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-arcagi3" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">A. P. Foundation, <span>“ARC-AGI-3: A new challenge for frontier agentic intelligence.”</span> 2026. Available: <a href="https://arxiv.org/abs/2603.24621">https://arxiv.org/abs/2603.24621</a></div>
+</div>
+<div id="ref-martorell2025" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">N. Martorell, <span>“From text to space: Mapping abstract spatial models in LLMs during a grid-world navigation task.”</span> 2025. Available: <a href="https://arxiv.org/abs/2502.16690">https://arxiv.org/abs/2502.16690</a></div>
+</div>
+</div>
+</section>
+<section id="appendix" class="level2">
+<h2 class="anchored" data-anchor-id="appendix">Appendix</h2>
+<section id="model-cost-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="model-cost-matrix">Model Cost Matrix</h3>
+<p>Below is the cost of each model across all levels with the overall total.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Level 0</th>
+<th>Level 1</th>
+<th>Level 2</th>
+<th>Level 3</th>
+<th>Level 4</th>
+<th>Level 5</th>
+<th>Level 6</th>
+<th>Level 7</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MiniMax M2.7</td>
+<td>$0.0021</td>
+<td>$0.2710</td>
+<td>$0.1147</td>
+<td>$0.0846</td>
+<td>$0.3114</td>
+<td>$0.1203</td>
+<td>$0.0535</td>
+<td>$0.1389</td>
+<td>$1.0965</td>
+</tr>
+<tr class="even">
+<td>DeepSeek V4 Pro</td>
+<td>$0.0088</td>
+<td>$0.2687</td>
+<td>$0.2940</td>
+<td>$0.1526</td>
+<td>$0.1089</td>
+<td>$0.1402</td>
+<td>$0.1457</td>
+<td>$0.1386</td>
+<td>$1.2576</td>
+</tr>
+<tr class="odd">
+<td>Kimi K2.6</td>
+<td>$0.0009</td>
+<td>$0.0805</td>
+<td>$0.0641</td>
+<td>$0.0439</td>
+<td>$0.1324</td>
+<td>$0.1089</td>
+<td>$0.1294</td>
+<td>$0.1339</td>
+<td>$0.6941</td>
+</tr>
+<tr class="even">
+<td>Qwen 3.6 Plus</td>
+<td>$0.0416</td>
+<td>$0.1499</td>
+<td>$0.0623</td>
+<td>$0.2797</td>
+<td>$0.2706</td>
+<td>$0.1876</td>
+<td>$0.2082</td>
+<td>$0.1665</td>
+<td>$1.3663</td>
+</tr>
+<tr class="odd">
+<td>GLM 5.1</td>
+<td>$0.0092</td>
+<td>$0.1616</td>
+<td>$0.2090</td>
+<td>$0.1944</td>
+<td>$0.9351</td>
+<td>$0.2869</td>
+<td>$0.3110</td>
+<td>$0.1507</td>
+<td>$2.2579</td>
+</tr>
+<tr class="even">
+<td>Claude Opus 4.7</td>
+<td>$0.0664</td>
+<td>$0.4944</td>
+<td>$0.6071</td>
+<td>$0.7789</td>
+<td>$3.5187</td>
+<td>$1.7768</td>
+<td>$4.1527</td>
+<td>$3.4331</td>
+<td>$14.8282</td>
+</tr>
+<tr class="odd">
+<td>GPT 5.5</td>
+<td>$0.0325</td>
+<td>$0.2763</td>
+<td>$0.1822</td>
+<td>$0.3598</td>
+<td>$0.4260</td>
+<td>$0.8592</td>
+<td>$0.5434</td>
+<td>$2.5312</td>
+<td>$5.2107</td>
+</tr>
+<tr class="even">
+<td>Gemini 3.1 Pro</td>
+<td>$0.0174</td>
+<td>$0.0910</td>
+<td>$0.1003</td>
+<td>$0.3032</td>
+<td>$0.1831</td>
+<td>$0.4174</td>
+<td>$0.5932</td>
+<td>$0.4191</td>
+<td>$2.1246</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="game-state-format-preference" class="level3">
+<h3 class="anchored" data-anchor-id="game-state-format-preference">Game State Format Preference</h3>
+<p>The table below shows how often each model called <code>get_game_state</code> with <code>format=entities</code> vs <code>format=grid</code> across all runs.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Entities Calls</th>
+<th>Grid Calls</th>
+<th>Preferred</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MiniMax M2.7</td>
+<td>20 (18%)</td>
+<td>92 (82%)</td>
+<td>grid</td>
+</tr>
+<tr class="even">
+<td>DeepSeek V4 Pro</td>
+<td>14 (58%)</td>
+<td>10 (42%)</td>
+<td>entities</td>
+</tr>
+<tr class="odd">
+<td>Kimi K2.6</td>
+<td>16 (55%)</td>
+<td>13 (45%)</td>
+<td>entities</td>
+</tr>
+<tr class="even">
+<td>Qwen 3.6 Plus</td>
+<td>16 (62%)</td>
+<td>10 (38%)</td>
+<td>entities</td>
+</tr>
+<tr class="odd">
+<td>GLM 5.1</td>
+<td>11 (65%)</td>
+<td>6 (35%)</td>
+<td>entities</td>
+</tr>
+<tr class="even">
+<td>Claude Opus 4.7</td>
+<td>18 (43%)</td>
+<td>24 (57%)</td>
+<td>grid</td>
+</tr>
+<tr class="odd">
+<td>GPT 5.5</td>
+<td>16 (70%)</td>
+<td>7 (30%)</td>
+<td>entities</td>
+</tr>
+<tr class="even">
+<td>Gemini 3.1 Pro</td>
+<td>8 (73%)</td>
+<td>3 (27%)</td>
+<td>entities</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tool-usage-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="tool-usage-matrix">Tool Usage Matrix</h3>
+<p>Below are the overall tool call counts (with percentage of total tool calls per model) across all runs.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>execute_game_commands</th>
+<th>game_insights</th>
+<th>get_game_state</th>
+<th>restart_level</th>
+<th>shortest_path</th>
+<th>todowrite</th>
+<th>undo_multiple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MiniMax M2.7</td>
+<td>326 (47%)</td>
+<td>43 (6%)</td>
+<td>112 (16%)</td>
+<td>48 (7%)</td>
+<td>147 (21%)</td>
+<td>0 (0%)</td>
+<td>19 (3%)</td>
+</tr>
+<tr class="even">
+<td>DeepSeek V4 Pro</td>
+<td>94 (62%)</td>
+<td>11 (7%)</td>
+<td>24 (16%)</td>
+<td>4 (3%)</td>
+<td>15 (10%)</td>
+<td>2 (1%)</td>
+<td>1 (1%)</td>
+</tr>
+<tr class="odd">
+<td>Kimi K2.6</td>
+<td>52 (45%)</td>
+<td>14 (12%)</td>
+<td>29 (25%)</td>
+<td>3 (3%)</td>
+<td>12 (10%)</td>
+<td>0 (0%)</td>
+<td>5 (4%)</td>
+</tr>
+<tr class="even">
+<td>Qwen 3.6 Plus</td>
+<td>133 (66%)</td>
+<td>8 (4%)</td>
+<td>26 (13%)</td>
+<td>15 (8%)</td>
+<td>13 (6%)</td>
+<td>0 (0%)</td>
+<td>5 (2%)</td>
+</tr>
+<tr class="odd">
+<td>GLM 5.1</td>
+<td>24 (37%)</td>
+<td>8 (12%)</td>
+<td>17 (26%)</td>
+<td>1 (2%)</td>
+<td>2 (3%)</td>
+<td>12 (18%)</td>
+<td>1 (2%)</td>
+</tr>
+<tr class="even">
+<td>Claude Opus 4.7</td>
+<td>85 (46%)</td>
+<td>13 (7%)</td>
+<td>42 (23%)</td>
+<td>9 (5%)</td>
+<td>27 (15%)</td>
+<td>7 (4%)</td>
+<td>2 (1%)</td>
+</tr>
+<tr class="odd">
+<td>GPT 5.5</td>
+<td>43 (40%)</td>
+<td>9 (8%)</td>
+<td>23 (21%)</td>
+<td>4 (4%)</td>
+<td>25 (23%)</td>
+<td>0 (0%)</td>
+<td>3 (3%)</td>
+</tr>
+<tr class="even">
+<td>Gemini 3.1 Pro</td>
+<td>37 (44%)</td>
+<td>7 (8%)</td>
+<td>11 (13%)</td>
+<td>2 (2%)</td>
+<td>19 (22%)</td>
+<td>6 (7%)</td>
+<td>3 (4%)</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/meffmadd\.github\.io\/samplesurium\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

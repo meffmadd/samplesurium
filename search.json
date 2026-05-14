@@ -4,111 +4,62 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this blog"
+    "text": "Samplesurium is my personal blog which I want to treat as my outlet for my (scientific) curiosity. The name is a portmanteau of sample and the German word Sammelsurium, meaning a random unordered collection of something.\nFittingly, I want each post is something between a weekend project and a rough research paper draft with a GitHub repo attached to it. The topics of the posts will be living somewhere in the trifecta of agentic AI, ML in general, visualization, and DevOps.\nI have a bachelor in Software Engineering and then went on to study Data Science at the TU Wien. I now work as a ML infrastructure engineer at my alma mater and deploy and manage LLMs and the infrastructure around them for researchers and staff."
   },
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
+    "objectID": "posts/baba_is_agent/index.html",
+    "href": "posts/baba_is_agent/index.html",
+    "title": "Baba is Agent",
     "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts.\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+    "text": "I built an OpenCode-based agent to find out! Check out the code in the GitHub repo!\nBaba is You is a puzzle game where the player has to navigate grid-based levels and manipulate textual rules to get to an eventual win state. The rules affect entities on the grid such as walls, flags, rocks or yourself."
   },
   {
-    "objectID": "posts/demo/demo.html",
-    "href": "posts/demo/demo.html",
-    "title": "Quarto Feature Showcase",
-    "section": "",
-    "text": "This post is a demonstration blog page built with Quarto. Its purpose is to showcase a wide range of Quarto features commonly used in technical blogs, documentation sites, and data science reports.\nYou will see examples of:\n\nRich Markdown and typography\nCross-references and callouts\nCode execution and syntax highlighting\nTables and figures\nMathematical notation\nCitations and footnotes\nLayouts and panels"
+    "objectID": "posts/baba_is_agent/index.html#harness",
+    "href": "posts/baba_is_agent/index.html#harness",
+    "title": "Baba is Agent",
+    "section": "Harness",
+    "text": "Harness\nOpenCode is an open-source CLI coding-agent that is extensible, including writing your own tools the agent can use. I was inspired by the fantastic baba_is_eval repo and adapted its existing code, which was an MCP server, to work with OpenCode. On top of updating the tools handling the core gameplay from the existing repo, I added game_insights and shortest_path as utility tools. Here is the list of tools the agent had access to:\n\nget_game_state: Get current game state either as a 2D array of strings (grid) or a JSON list of entities (entities)\nexecute_game_commands: Execute a list of movement commands (up, down, left, right, idle)\nrestart_level: Restart the current level\ngame_insights: Shows the active rules, you/win positions, and the shortest path to a win position (if applicable)\nshortest_path: A* pathfinding to target position, avoiding blocked entities (e.g. entities with stop or defeat rules)\nundo_multiple: Undo last N moves\ntodowrite: Track task progress (OpenCode native)\n\nThe two formats of the get_game_state tool are inspired by ARC AGI 3 [1] and a paper by Nicolas Martorell [2]. ARC AGI 3 returns the game state as a 3D array (one extra temporal dimension), which corresponds to the grid format here. The entities format is based on the Cartesian JSON notation from the paper [2], which performed very well in their evaluation."
   },
   {
-    "objectID": "posts/demo/demo.html#text-formatting",
-    "href": "posts/demo/demo.html#text-formatting",
-    "title": "Quarto Feature Showcase",
-    "section": "Text Formatting",
-    "text": "Text Formatting\nYou can write text using bold, italic, bold italic, inline code, and strikethrough.\n\nBlockquotes are useful for highlighting important ideas or quoting sources.\n\nHorizontal rules help separate sections."
+    "objectID": "posts/baba_is_agent/index.html#evaluation",
+    "href": "posts/baba_is_agent/index.html#evaluation",
+    "title": "Baba is Agent",
+    "section": "Evaluation",
+    "text": "Evaluation\nThe timeout for each evaluation run was set to 20 minutes with a 200,000 token threshold. Models never reached the 200,000 token threshold and only ever timed-out.\nCaveats:\n\nEvaluations were run only once per level and model (time/money constraints)\nI forgot to remove the AGENTS.md file for evaluation (context bloat for level solve)\nStats entirely rely on information provided by the OpenCode JSON logs\n\nOpenCode Go/Zen was used as a model provider."
   },
   {
-    "objectID": "posts/demo/demo.html#lists",
-    "href": "posts/demo/demo.html#lists",
-    "title": "Quarto Feature Showcase",
-    "section": "Lists",
-    "text": "Lists\n\nUnordered List\n\nItem one\nItem two\n\nNested item\nAnother nested item\n\nItem three\n\n\n\nOrdered List\n\nFirst step\nSecond step\nThird step"
+    "objectID": "posts/baba_is_agent/index.html#results",
+    "href": "posts/baba_is_agent/index.html#results",
+    "title": "Baba is Agent",
+    "section": "Results",
+    "text": "Results\nThe following table shows the overall results of the models. We see some variance in model capability across open and closed frontier models. Gemini 3.1 Pro was able to solve all levels while the best open-weights model is GLM 5.1 with 5 out of 8 levels beaten.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nPassed\nLevel 0\nLevel 1\nLevel 2\nLevel 3\nLevel 4\nLevel 5\nLevel 6\nLevel 7\n\n\n\n\nMiniMax M2.7\n1/8\n✅\n❌\n❌\n❌\n❌\n❌\n❌\n❌\n\n\nDeepSeek V4 Pro\n3/8\n✅\n✅\n✅\n❌\n❌\n❌\n❌\n❌\n\n\nKimi K2.6\n3/8\n✅\n✅\n✅\n❌\n❌\n❌\n❌\n❌\n\n\nQwen 3.6 Plus\n3/8\n✅\n✅\n✅\n❌\n❌\n❌\n❌\n❌\n\n\nGLM 5.1\n4/8\n✅\n✅\n✅\n❌\n✅\n❌\n❌\n❌\n\n\nClaude Opus 4.7\n5/8\n✅\n✅\n✅\n✅\n❌\n❌\n✅\n❌\n\n\nGPT 5.5\n7/8\n✅\n✅\n✅\n✅\n✅\n✅\n✅\n❌\n\n\nGemini 3.1 Pro\n8/8\n✅\n✅\n✅\n✅\n✅\n✅\n✅\n✅\n\n\n\nIn the following sections I want to quickly go over the results for each level in a bit more detail. The models differed quite a bit in both the time to solve the level and the token/tool calls required to do so. However, it is not possible to draw any definitive conclusion with only a single attempt per level per model.\n\nLevel 0\n\n\n\nLevel 0 Human Solve\n\n\nLevel 0 is the introductory level and is trivial as a result. The solution is just moving right 8 times, since the rocks can be pushed.\n\n\n\nSolve Duration by Model\n\n\nDue to the level’s simplicity all models were able to solve it. Qwen 3.6 Plus is a bit of an outlier here in terms of the time required to solve the level. It also made 8 tool calls, whereas all other models required only 2-3.\n\n\n\nToken Usage vs Tool Calls\n\n\n\n\nLevel 1\n\n\n\nLevel 1 Human Solve\n\n\nFor this level there are two straightforward options to solve the level. Either construct FLAG IS WIN or the slightly more tricky solution is to construct WALL IS WIN.\n\n\n\nSolve Duration by Model\n\n\nThis level was a bit of foreshadowing of the overall results. Gemini 3.1 Pro was clearly the fastest followed by the closed frontier models. Minimax M2.7 already timed-out and the other open models needed significantly more time compared to the closed frontier models.\n\n\n\nToken Usage vs Tool Calls\n\n\n\n\nLevel 2\n\n\n\nLevel 2 Human Solve\n\n\nLevel 2 is conceptually very similar to level 1 with the same layout, however the entities are now permuted (e.g. FLAG now acts as a wall). There is now only one option to solve the level, namely to construct FLAG IS WIN. This corresponds to the second option from level 1.\n\n\n\nSolve Duration by Model\n\n\nModels needed a bit more time to solve this level so the difficulty seems to indeed be a bit higher compared to level 1.\n\n\n\nToken Usage vs Tool Calls\n\n\n\n\nLevel 3\n\n\n\nLevel 3 Human Solve\n\n\nIn this level, the FLAG is a red herring and the flag and rock rules in the lower right corner have to be manipulated to form ROCK IS WIN. This is also a level where the sink mechanic is used. The first rock has to be pushed against a water block to destroy it and be able to pass.\n\n\n\nSolve Duration by Model\n\n\nHere we see a new case where a solve failed for the first time without timing out. GLM 5.1 and Kimi K2.6 produced more than 32k reasoning tokens, which prematurely exits the evaluation. DeepSeek V4 Pro and Qwen 3.6 Plus reached the time limit and timed out. This means only the closed frontier models were able to solve this level.\n\n\n\nToken Usage vs Tool Calls\n\n\n\n\nLevel 4\n\n\n\nLevel 4 Human Solve\n\n\nIn this level, we encounter the DEFEAT rule for the first time. It has to be deactivated to bypass the skull barrier surrounding the flag with the win condition. This can be done by using the rocks or the text of the ROCK IS PUSH rule itself to break the SKULL IS DEFEAT rule.\n\n\n\nSolve Duration by Model\n\n\nGLM 5.1 was able to solve this level while Claude Opus 4.7 reached the time limit. Gemini 3.1 Pro and GPT 5.5 were able to solve the level very quickly and efficiently again.\n\n\n\nToken Usage vs Tool Calls\n\n\n\n\nLevel 5\n\n\n\nLevel 5 Human Solve\n\n\nLevel 5 requires creative rule manipulation to make the LAVA pushable, thus bypassing the HOT and MELT constraints.\n\n\n\nSolve Duration by Model\n\n\nThe challenge for Gemini 3.1 Pro and GPT 5.5 was definitely turned up a notch as the solving times almost doubled for this level compared to the previous one. GLM 5.1 and Claude Opus 4.7 encountered an error again, exceeding the maximum number of output tokens per step. The remaining models were unable to solve the level within the 20 minutes time frame.\n\n\n\nToken Usage vs Tool Calls\n\n\n\n\nLevel 6\n\n\n\nLevel 6 Human Solve\n\n\nThis level again requires creative rule manipulation. Since SKULL IS DEFEAT cannot be deactivated, we have to find a way to bypass the skull barrier. To achieve this, we have to create a WALL IS YOU rule, since some wall blocks are already past the barrier. This way we can reach the flag and win.\n\n\n\nSolve Duration by Model\n\n\nClaude Opus 4.7 was barely able to solve this level within the 20 minutes. GPT 5.5 and Gemini 3.1 Pro were able to solve the level very quickly again. In this level, Kimi K2.6 gave up voluntarily after extensive trial and error just before the timeout. GLM 5.1 hit the output token limit. Only the closed frontier models were able to solve this level.\n\n\n\nToken Usage vs Tool Calls\n\n\n\n\nLevel 7\n\n\n\nLevel 7 Human Solve\n\n\nLevel 7 is conceptually very simple but has a few gotchas. Firstly, the walls can be ignored completely and only create the illusion that the area is enclosed. In reality they are no obstacle at all. Meanwhile the grass encloses the FLAG and WIN blocks and creates a sort of labyrinth. The text blocks have to be moved out of the grass labyrinth and then the BABA IS YOU rule has to be reused to create the FLAG IS WIN rule, sharing the IS. The level is also movement heavy, requiring a lot of precise positioning.\n\n\n\nSolve Duration by Model\n\n\nOnly Gemini 3.1 Pro solved this level successfully. GPT 5.5 gave up voluntarily in this level, while GLM 5.1 hit the output limit. All other models ran into the 20 minute timeout.\n\n\n\nToken Usage vs Tool Calls"
   },
   {
-    "objectID": "posts/demo/demo.html#syntax-highlighting",
-    "href": "posts/demo/demo.html#syntax-highlighting",
-    "title": "Quarto Feature Showcase",
-    "section": "Syntax Highlighting",
-    "text": "Syntax Highlighting\nimport math\n\ndef area_of_circle(radius):\n    return math.pi * radius ** 2\n\narea_of_circle(5)\nx &lt;- seq(0, 2 * pi, length.out = 100)\ny &lt;- sin(x)\nplot(x, y, type = \"l\", main = \"Sine Wave\")"
+    "objectID": "posts/baba_is_agent/index.html#wrapping-up",
+    "href": "posts/baba_is_agent/index.html#wrapping-up",
+    "title": "Baba is Agent",
+    "section": "Wrapping up",
+    "text": "Wrapping up\nAfter running the evaluations, I was surprised how clear the signal was. As with some other “boutique” benchmarks, there was a clear distinction between open-weights models and closed frontier models on these more niche tasks.\nMinimax M2.7 was clearly too small and could not solve any non-trivial level. GLM 5.1 and Claude Opus 4.7 are quite close and won different levels each. GLM 5.1 was also the only open weights model to solve a level past level 2. Gemini 3.1 Pro and GPT 5.5 seem to be performing best. They are certainly more efficient. With the release of ARC AGI 3, models will likely improve for this task as well. The closed frontier models tested here barely make a dent in the ARC AGI 3 leaderboard and only score 0.1-0.4% as of May 10th 2026.\nI now wonder if anything like this shows up in the training data of the closed models or if it is just emergent behavior. Maybe open labs do focus more heavily on pure coding harnesses to close the gap there, while frontier labs train their models in broader contexts. Google seems like that at least."
   },
   {
-    "objectID": "posts/demo/demo.html#executable-code-optional",
-    "href": "posts/demo/demo.html#executable-code-optional",
-    "title": "Quarto Feature Showcase",
-    "section": "Executable Code (Optional)",
-    "text": "Executable Code (Optional)\nIf this document is rendered with a computational engine, code blocks can be executed and their output embedded directly in the page.\n\nsum(range(1, 11))\n\n55"
-  },
-  {
-    "objectID": "posts/demo/demo.html#observable-plot",
-    "href": "posts/demo/demo.html#observable-plot",
-    "title": "Quarto Feature Showcase",
-    "section": "Observable Plot",
-    "text": "Observable Plot\nInteractive plots can be created using Observable Plot, which provides a powerful grammar of graphics for JavaScript.\n\ndata = {\n  const co2data = await FileAttachment(\"data.csv\").csv({ typed: true } );\n  return co2data.map(d =&gt; { \n    d[\"decimal date\"] = Number(d[\"decimal date\"]);\n    d.average = Number(d.average); \n    return d; \n  });\n}\nPlot.plot({\n  marks: [\n    Plot.line(data, \n      { x: \"decimal date\", y: \"average\"}, \n      { stroke: \"black\" }\n    )\n  ]\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe plot above shows the long-term trend of atmospheric CO₂ concentrations from 1958 to 2025, demonstrating the steady increase over time."
-  },
-  {
-    "objectID": "posts/demo/demo.html#markdown-table",
-    "href": "posts/demo/demo.html#markdown-table",
-    "title": "Quarto Feature Showcase",
-    "section": "Markdown Table",
-    "text": "Markdown Table\n\n\n\nFeature\nSupported\nNotes\n\n\n\n\nMarkdown\nYes\nCommonMark compliant\n\n\nJupyter\nYes\nPython, R, Julia\n\n\nCross-refs\nYes\nFigures, tables, sections\n\n\nPublishing\nYes\nHTML, PDF, Word"
-  },
-  {
-    "objectID": "posts/demo/demo.html#computed-table",
-    "href": "posts/demo/demo.html#computed-table",
-    "title": "Quarto Feature Showcase",
-    "section": "Computed Table",
-    "text": "Computed Table\n\nimport pandas as pd\n\ndf = pd.DataFrame({\n  \"Language\": [\"Python\", \"R\", \"Julia\"],\n  \"Use Case\": [\"General\", \"Statistics\", \"Scientific\"],\n  \"Popularity\": [1, 2, 3]\n})\n\ndf\n\n\n\n\n\n\n\n\nLanguage\nUse Case\nPopularity\n\n\n\n\n0\nPython\nGeneral\n1\n\n\n1\nR\nStatistics\n2\n\n\n2\nJulia\nScientific\n3"
-  },
-  {
-    "objectID": "posts/demo/demo.html#columns",
-    "href": "posts/demo/demo.html#columns",
-    "title": "Quarto Feature Showcase",
-    "section": "Columns",
-    "text": "Columns\n\n\n\nLeft Column\nThis content appears in the left column.\n\n\n\nRight Column\nThis content appears in the right column."
-  },
-  {
-    "objectID": "posts/demo/demo.html#tabsets",
-    "href": "posts/demo/demo.html#tabsets",
-    "title": "Quarto Feature Showcase",
-    "section": "Tabsets",
-    "text": "Tabsets\n\nTab OneTab TwoTab Three\n\n\nContent for the first tab.\n\n\nContent for the second tab.\n\n\nContent for the third tab."
-  },
-  {
-    "objectID": "posts/demo/demo.html#references",
-    "href": "posts/demo/demo.html#references",
-    "title": "Quarto Feature Showcase",
+    "objectID": "posts/baba_is_agent/index.html#references",
+    "href": "posts/baba_is_agent/index.html#references",
+    "title": "Baba is Agent",
     "section": "References",
-    "text": "References"
+    "text": "References\n\n\n[1] A. P. Foundation, “ARC-AGI-3: A new challenge for frontier agentic intelligence.” 2026. Available: https://arxiv.org/abs/2603.24621\n\n\n[2] N. Martorell, “From text to space: Mapping abstract spatial models in LLMs during a grid-world navigation task.” 2025. Available: https://arxiv.org/abs/2502.16690"
   },
   {
-    "objectID": "posts/demo/demo.html#footnotes",
-    "href": "posts/demo/demo.html#footnotes",
-    "title": "Quarto Feature Showcase",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThis is a footnote explaining something in more detail.↩︎"
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code."
+    "objectID": "posts/baba_is_agent/index.html#appendix",
+    "href": "posts/baba_is_agent/index.html#appendix",
+    "title": "Baba is Agent",
+    "section": "Appendix",
+    "text": "Appendix\n\nModel Cost Matrix\nBelow is the cost of each model across all levels with the overall total.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nLevel 0\nLevel 1\nLevel 2\nLevel 3\nLevel 4\nLevel 5\nLevel 6\nLevel 7\nTotal\n\n\n\n\nMiniMax M2.7\n$0.0021\n$0.2710\n$0.1147\n$0.0846\n$0.3114\n$0.1203\n$0.0535\n$0.1389\n$1.0965\n\n\nDeepSeek V4 Pro\n$0.0088\n$0.2687\n$0.2940\n$0.1526\n$0.1089\n$0.1402\n$0.1457\n$0.1386\n$1.2576\n\n\nKimi K2.6\n$0.0009\n$0.0805\n$0.0641\n$0.0439\n$0.1324\n$0.1089\n$0.1294\n$0.1339\n$0.6941\n\n\nQwen 3.6 Plus\n$0.0416\n$0.1499\n$0.0623\n$0.2797\n$0.2706\n$0.1876\n$0.2082\n$0.1665\n$1.3663\n\n\nGLM 5.1\n$0.0092\n$0.1616\n$0.2090\n$0.1944\n$0.9351\n$0.2869\n$0.3110\n$0.1507\n$2.2579\n\n\nClaude Opus 4.7\n$0.0664\n$0.4944\n$0.6071\n$0.7789\n$3.5187\n$1.7768\n$4.1527\n$3.4331\n$14.8282\n\n\nGPT 5.5\n$0.0325\n$0.2763\n$0.1822\n$0.3598\n$0.4260\n$0.8592\n$0.5434\n$2.5312\n$5.2107\n\n\nGemini 3.1 Pro\n$0.0174\n$0.0910\n$0.1003\n$0.3032\n$0.1831\n$0.4174\n$0.5932\n$0.4191\n$2.1246\n\n\n\n\n\nGame State Format Preference\nThe table below shows how often each model called get_game_state with format=entities vs format=grid across all runs.\n\n\n\nModel\nEntities Calls\nGrid Calls\nPreferred\n\n\n\n\nMiniMax M2.7\n20 (18%)\n92 (82%)\ngrid\n\n\nDeepSeek V4 Pro\n14 (58%)\n10 (42%)\nentities\n\n\nKimi K2.6\n16 (55%)\n13 (45%)\nentities\n\n\nQwen 3.6 Plus\n16 (62%)\n10 (38%)\nentities\n\n\nGLM 5.1\n11 (65%)\n6 (35%)\nentities\n\n\nClaude Opus 4.7\n18 (43%)\n24 (57%)\ngrid\n\n\nGPT 5.5\n16 (70%)\n7 (30%)\nentities\n\n\nGemini 3.1 Pro\n8 (73%)\n3 (27%)\nentities\n\n\n\n\n\nTool Usage Matrix\nBelow are the overall tool call counts (with percentage of total tool calls per model) across all runs.\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nexecute_game_commands\ngame_insights\nget_game_state\nrestart_level\nshortest_path\ntodowrite\nundo_multiple\n\n\n\n\nMiniMax M2.7\n326 (47%)\n43 (6%)\n112 (16%)\n48 (7%)\n147 (21%)\n0 (0%)\n19 (3%)\n\n\nDeepSeek V4 Pro\n94 (62%)\n11 (7%)\n24 (16%)\n4 (3%)\n15 (10%)\n2 (1%)\n1 (1%)\n\n\nKimi K2.6\n52 (45%)\n14 (12%)\n29 (25%)\n3 (3%)\n12 (10%)\n0 (0%)\n5 (4%)\n\n\nQwen 3.6 Plus\n133 (66%)\n8 (4%)\n26 (13%)\n15 (8%)\n13 (6%)\n0 (0%)\n5 (2%)\n\n\nGLM 5.1\n24 (37%)\n8 (12%)\n17 (26%)\n1 (2%)\n2 (3%)\n12 (18%)\n1 (2%)\n\n\nClaude Opus 4.7\n85 (46%)\n13 (7%)\n42 (23%)\n9 (5%)\n27 (15%)\n7 (4%)\n2 (1%)\n\n\nGPT 5.5\n43 (40%)\n9 (8%)\n23 (21%)\n4 (4%)\n25 (23%)\n0 (0%)\n3 (3%)\n\n\nGemini 3.1 Pro\n37 (44%)\n7 (8%)\n11 (13%)\n2 (2%)\n19 (22%)\n6 (7%)\n3 (4%)"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Samplesurium",
     "section": "",
-    "text": "Quarto Feature Showcase\n\n\n\nquarto\n\ndemo\n\ndocumentation\n\n\n\n\n\n\n\n\n\nDec 17, 2025\n\n\nYour Name\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nDec 12, 2025\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nDec 9, 2025\n\n\nTristan O’Malley\n\n\n\n\n\nNo matching items"
+    "text": "Baba is Agent\n\n\nCan LLMs play Baba Is You?\n\n\n\nagents\n\nai\n\n\n\n\n\n\n\n\n\nApr 26, 2026\n\n\nMatthias Matt\n\n\n\n\n\nNo matching items"
   }
 ]
