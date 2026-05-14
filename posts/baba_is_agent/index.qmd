@@ -112,7 +112,7 @@ In this level, we encounter the `DEFEAT` rule for the first time. It has to be d
 
 ![Solve Duration by Model](./assets/plots/level_4_duration.png){width=80%}
 
-`GLM 5.1` was able to solve this level while `Opus 4.7` reached the time limit. `Gemini 3.1 Pro` and `GPT 5.5` were able to solve the level very quickly and efficiently again.
+`GLM 5.1` was able to solve this level while `Claude Opus 4.7` reached the time limit. `Gemini 3.1 Pro` and `GPT 5.5` were able to solve the level very quickly and efficiently again.
 
 ![Token Usage vs Tool Calls](./assets/plots/level_4_progress.png){width=80%}
 
@@ -124,7 +124,7 @@ Level 5 requires creative rule manipulation to make the `LAVA` pushable, thus by
 
 ![Solve Duration by Model](./assets/plots/level_5_duration.png){width=80%}
 
-The challenge for `Gemini 3.1 Pro` and `GPT 5.5` was definitely turned up a notch as the solving times almost doubled for this level compared to the previous one. `GLM 5.1` and `Opus 4.7` encountered an error again, exceeding the maximum number of output tokens per step. The remaining models were unable to solve the level within the 20 minutes time frame.
+The challenge for `Gemini 3.1 Pro` and `GPT 5.5` was definitely turned up a notch as the solving times almost doubled for this level compared to the previous one. `GLM 5.1` and `Claude Opus 4.7` encountered an error again, exceeding the maximum number of output tokens per step. The remaining models were unable to solve the level within the 20 minutes time frame.
 
 ![Token Usage vs Tool Calls](./assets/plots/level_5_progress.png){width=80%}
 
@@ -136,7 +136,7 @@ This level again requires creative rule manipulation. Since `SKULL IS DEFEAT` ca
 
 ![Solve Duration by Model](./assets/plots/level_6_duration.png){width=80%}
 
-`Opus 4.7` was barely able to solve this level within the 20 minutes. `GPT 5.5` and `Gemini 3.1 Pro` were able to solve the level very quickly again. In this level, `Kimi K2.6` gave up voluntarily after extensive trial and error just before the timeout. `GLM 5.1` hit the output token limit. Only the closed frontier models were able to solve this level. 
+`Claude Opus 4.7` was barely able to solve this level within the 20 minutes. `GPT 5.5` and `Gemini 3.1 Pro` were able to solve the level very quickly again. In this level, `Kimi K2.6` gave up voluntarily after extensive trial and error just before the timeout. `GLM 5.1` hit the output token limit. Only the closed frontier models were able to solve this level. 
 
 ![Token Usage vs Tool Calls](./assets/plots/level_6_progress.png){width=80%}
 
@@ -157,7 +157,7 @@ Only `Gemini 3.1 Pro` solved this level successfully. `GPT 5.5` gave up voluntar
 After running the evaluations, I was surprised how clear the signal was.
 As with some other "boutique" benchmarks, there was a clear distinction between open-weights models and closed frontier models on these more niche tasks.
 
-`Minimax M2.7` was clearly too small and could not solve any non-trivial level. `GLM 5.1` and `Opus 4.7` are quite close and won different levels each. `GLM 5.1` was also the only open weights model to solve a level past level 2. `Gemini 3.1 Pro` and `GPT 5.5` seem to be performing best. They are certainly more efficient. With the release of ARC AGI 3, models will likely improve for this task as well. The closed frontier models tested here barely make a dent in the [ARC AGI 3 leaderboard](https://arcprize.org/leaderboard) and only score 0.1-0.4% as of May 10th 2026.
+`Minimax M2.7` was clearly too small and could not solve any non-trivial level. `GLM 5.1` and `Claude Opus 4.7` are quite close and won different levels each. `GLM 5.1` was also the only open weights model to solve a level past level 2. `Gemini 3.1 Pro` and `GPT 5.5` seem to be performing best. They are certainly more efficient. With the release of ARC AGI 3, models will likely improve for this task as well. The closed frontier models tested here barely make a dent in the [ARC AGI 3 leaderboard](https://arcprize.org/leaderboard) and only score 0.1-0.4% as of May 10th 2026.
 
 I now wonder if anything like this shows up in the training data of the closed models or if it is just emergent behavior. Maybe open labs do focus more heavily on pure coding harnesses to close the gap there, while frontier labs train their models in broader contexts. Google seems like that at least.
 

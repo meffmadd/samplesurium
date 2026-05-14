@@ -16,7 +16,7 @@ about:
 
 ---
 
-Samplesurium is my personal blog which I want to treat as my outlet for my (scientific) curiosity. The name is a portmanteau of *sample* and the German word *Sammelsurium*, meaning a random unordered collection of something.
+**Samplesurium** is my personal blog which I want to treat as my outlet for my (scientific) curiosity. The name is a portmanteau of *sample* and the German word *Sammelsurium*, meaning a random unordered collection of something.
 
 Fittingly, I want each post is something between a weekend project and a rough research paper draft with a GitHub repo attached to it. The topics of the posts will be living somewhere in the trifecta of agentic AI, ML in general, visualization, and DevOps.
 
