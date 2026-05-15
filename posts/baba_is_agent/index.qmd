@@ -1,8 +1,8 @@
 ---
 title: "Baba is Agent"
 subtitle: "Can LLMs play Baba Is You?"
-author: "Matthias Matt"
-date: "2026-04-26"
+# author: "Matthias Matt"
+date: "2026-05-15"
 categories: [agents, ai]
 tags: [agents, ai]
 bibliography: references.bib

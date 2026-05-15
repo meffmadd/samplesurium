@@ -16,9 +16,9 @@ about:
 
 ---
 
-**Samplesurium** is my personal blog which I want to treat as my outlet for my (scientific) curiosity. The name is a portmanteau of *sample* and the German word *Sammelsurium*, meaning a random unordered collection of something.
+Hi, I'm Matthias. **Samplesurium** is my personal blog which I want to treat as my outlet for my (scientific) curiosity. The name is a portmanteau of *sample* and the German word *Sammelsurium*, meaning a random unordered collection of something.
 
-Fittingly, I want each post is something between a weekend project and a rough research paper draft with a GitHub repo attached to it. The topics of the posts will be living somewhere in the trifecta of agentic AI, ML in general, visualization, and DevOps.
+Fittingly, I want each post to be something between a weekend project and a rough research paper draft with a GitHub repo attached to it. The topics of the posts will be living somewhere in the trifecta of agentic AI, ML in general, visualization, and DevOps.
 
-I have a bachelor in Software Engineering and then went on to study Data Science at the TU Wien. I now work as a ML infrastructure engineer at my alma mater and deploy and manage LLMs and the infrastructure around them for researchers and staff.
+I have a Bachelor's in Software Engineering and then went on to study Data Science at the TU Wien. I now work as an AI infrastructure engineer at my alma mater and deploy and manage LLMs and the infrastructure around them for researchers and staff.
 
