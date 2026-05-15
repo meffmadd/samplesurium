@@ -10,10 +10,9 @@
 <atom:link href="https://meffmadd.github.io/samplesurium/index.xml" rel="self" type="application/rss+xml"/>
 <description>A blog built with Quarto</description>
 <generator>quarto-1.9.37</generator>
-<lastBuildDate>Sat, 25 Apr 2026 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 14 May 2026 22:00:00 GMT</lastBuildDate>
 <item>
   <title>Baba is Agent</title>
-  <dc:creator>Matthias Matt</dc:creator>
   <link>https://meffmadd.github.io/samplesurium/posts/baba_is_agent/</link>
   <description><![CDATA[ 
 
@@ -694,7 +693,7 @@
   <category>agents</category>
   <category>ai</category>
   <guid>https://meffmadd.github.io/samplesurium/posts/baba_is_agent/</guid>
-  <pubDate>Sat, 25 Apr 2026 22:00:00 GMT</pubDate>
+  <pubDate>Thu, 14 May 2026 22:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

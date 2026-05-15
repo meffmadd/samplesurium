@@ -4,7 +4,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Samplesurium is my personal blog which I want to treat as my outlet for my (scientific) curiosity. The name is a portmanteau of sample and the German word Sammelsurium, meaning a random unordered collection of something.\nFittingly, I want each post is something between a weekend project and a rough research paper draft with a GitHub repo attached to it. The topics of the posts will be living somewhere in the trifecta of agentic AI, ML in general, visualization, and DevOps.\nI have a bachelor in Software Engineering and then went on to study Data Science at the TU Wien. I now work as a ML infrastructure engineer at my alma mater and deploy and manage LLMs and the infrastructure around them for researchers and staff."
+    "text": "Hi, I’m Matthias. Samplesurium is my personal blog which I want to treat as my outlet for my (scientific) curiosity. The name is a portmanteau of sample and the German word Sammelsurium, meaning a random unordered collection of something.\nFittingly, I want each post to be something between a weekend project and a rough research paper draft with a GitHub repo attached to it. The topics of the posts will be living somewhere in the trifecta of agentic AI, ML in general, visualization, and DevOps.\nI have a Bachelor’s in Software Engineering and then went on to study Data Science at the TU Wien. I now work as an AI infrastructure engineer at my alma mater and deploy and manage LLMs and the infrastructure around them for researchers and staff."
   },
   {
     "objectID": "posts/baba_is_agent/index.html",
@@ -60,6 +60,6 @@
     "href": "index.html",
     "title": "Samplesurium",
     "section": "",
-    "text": "Baba is Agent\n\n\nCan LLMs play Baba Is You?\n\n\n\nagents\n\nai\n\n\n\n\n\n\n\n\n\nApr 26, 2026\n\n\nMatthias Matt\n\n\n\n\n\nNo matching items"
+    "text": "Baba is Agent\n\n\nCan LLMs play Baba Is You?\n\n\n\nagents\n\nai\n\n\n\n\n\n\n\n\n\nMay 15, 2026\n\n\n\n\n\nNo matching items"
   }
 ]
