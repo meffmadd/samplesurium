@@ -1,6 +1,6 @@
 ---
 title: "Pattern Roller"
-subtitle: "A unorthodox way to generate images using transformers and why it is an analogy for AI in general."
+subtitle: "A unorthodox way to generate images using transformers."
 author: "Matthias Matt"
 date: "2026-07-03"
 categories: [ml, transformers, art]
