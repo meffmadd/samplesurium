@@ -7,7 +7,7 @@ categories: [ml, transformers, art]
 bibliography: references.bib
 ---
 
-![Pattern rolled out](assets/parking_out.png)
+![Parking lot pattern](assets/parking_out.png)
 
 This project started because I wanted to code a transformer from scratch using PyTorch. Instead of simply copying a tutorial or re-implementing [nanoGPT](https://github.com/karpathy/nanoGPT) or similar, I wanted to try something else. So instead of embedding discrete tokens, I wanted to feed pixels directly into the model.
 
@@ -32,10 +32,10 @@ Reducing the parameter count further might be a fun project for future me. The g
 5. use `AdamW` with weight decay of 0.01 [@loshchilov2019decoupledweightdecayregularization] in [`model/transformer.py:170–189`](https://github.com/meffmadd/transformers/blob/main/model/transformer.py#L170-L189)
 6. cosine decay of learning rate to 10% after 5% epochs warmup [@loshchilov2017sgdrstochasticgradientdescent] in [`model/transformer.py:188–212`](https://github.com/meffmadd/transformers/blob/main/model/transformer.py#L188-L212)
 
-![Pattern rolled out](assets/beach_out.png)
+![Beach pattern](assets/beach_out.png)
 
-![Pattern rolled out](assets/cloud_out.png)
+![Cloud pattern](assets/cloud_out.png)
 
-![Pattern rolled out](assets/foliage_out.png)
+![Forrest pattern](assets/foliage_out.png)
 
 
